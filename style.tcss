@@ -1,0 +1,19 @@
+Screen {
+    height: 1fr;
+    background: black;
+}
+
+#left-part {
+    width: 75%;
+    border: double white;
+}
+
+#right-part {
+    width: 25%;
+    border: double white;
+}
+
+#bottom-part {
+    height: 25%;
+    border: double white;
+}
