@@ -17,3 +17,13 @@ Screen {
     height: 25%;
     border: double white;
 }
+
+#map {
+    width: 50%;
+    text-style: bold;
+}
+
+#map-legend {
+    width: 50%;
+    text-style: bold;
+}

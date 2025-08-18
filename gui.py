@@ -1,6 +1,8 @@
 from textual.app import App, ComposeResult
-from textual.containers import Vertical, Horizontal, Container
+from textual.containers import Horizontal, Container
 from textual.widgets import Static, Footer
+
+from map import MAP, MAP_LEGEND
 
 
 class SpaceSaga(App):
@@ -19,7 +21,12 @@ class SpaceSaga(App):
         """
         yield Horizontal(
             Container(
-                Static('Game info panel', id='info-panel'),
+                Horizontal(
+                    Static(MAP, id='map'),
+                    Static(MAP_LEGEND, id='map-legend'),
+                ),
+
+                Static('Quest Text', id='quest-text'),
                 id='left-part'
             ),
             Container(
