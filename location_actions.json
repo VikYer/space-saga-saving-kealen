@@ -1,0 +1,69 @@
+{
+  "Forsaken Iridium Mines": {
+    "description": "You stop at a big T-shaped canyon. A small river shines at the bottom. Two bridges – to the east and to the north – are broken. It looks like one of them went to the iridium mines. On the east side, you see a large truck. It is dented and its windows are broken.",
+    "options": {
+      "leave": {
+        "text": "Go back",
+        "goto": "Map"
+      }
+    }
+  },
+  "Corn farm": {
+    "description": "Your car is parked right in front of the farm gate. A young man in a hat, chewing on a stick, looks at you from the window:\n\nRight now, we have 36 tons of corn. It is packed in barrels, one ton each. We sell them for 25 coins per barrel. And if you want to sell something yourself, sorry – we don’t buy anything.",
+    "options": {
+      "take_one_barrel": {
+        "text": "Take one barrel of corn"
+      },
+      "take_two_barrels": {
+        "text": "Take two barrels of corn"
+      },
+      "take_three_barrels": {
+        "text": "Take three barrel of corn"
+      },
+      "fill_up_space": {
+        "text": "Stock up on corn to the max"
+      },
+      "take_all": {
+        "text": "Take all the remaining corn"
+      },
+      "ask_questions": {
+        "text": "Ask a few questions",
+        "options": {
+          "about_weapon": {
+            "text": "Do you have any weapons? I would like to buy",
+            "description": "Some people use a hoe as a weapon, - came the answer. - Do you need it?\n\nYou remained silent in response."
+          },
+          "about_money": {
+            "text": "I need money. Can I work on your farm?",
+            "description": "We can manage ourselves. And we don’t need anything right now…"
+          },
+          "back": {
+            "text": "Let’s go back to trading"
+          },
+          "leave": {
+            "text": "I think I’ll leave…",
+            "goto": "Map"
+          }
+        }
+      },
+      "leave": {
+        "text": "Return to the road",
+        "goto": "Map"
+      }
+    }
+  },
+  "Hyenas Hideout": {
+    "description": "You stand at a large base, surrounded by a high iron wall. A man in a leather jacket, holding a spear, stands on the wall:\n\nYou are in Hyenas territory. Say why you came, or get lost while you’re still alive…",
+    "options": {
+      "let_Kealen_go": {
+        "text": "Let Kealen go immediately!",
+        "description": "Who are you to threaten us, fool?! Kealen owes us, and we set the debt at 900 credits. About 10 days left. Yes, exactly 10. And if the money isn’t here by then, Kealen won’t live."
+      },
+      "leave": {
+        "text": "Return to the road",
+        "goto": "Map"
+      }
+    }
+  }
+}
+
