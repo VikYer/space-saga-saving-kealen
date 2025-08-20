@@ -21,7 +21,7 @@ MAP_LEGEND ="""💎 - Forsaken Iridium Mines
 ⛽ - Gruber’s Fuel Station
 🔧 - Bolt’s Garage
 🏠 - Brackenridge
-⚙️ - Wreckyard
+⚙️  - Wreckyard
 ⛰ - The Endless Rift
 🚀 - Spaceport
 🏞️ - Erratic Rocks

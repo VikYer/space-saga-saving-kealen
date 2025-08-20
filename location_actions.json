@@ -64,6 +64,213 @@
         "goto": "Map"
       }
     }
+  },
+  "The Stingray Bar": {
+    "description": "The bar was hot. Very hot. Almost unbearable. And full of cigarette smoke… But the mood was very cheerful. At the counter stood about ten guys, many of them tattooed from head to toe. In the far corner, on a table, a drox in a leather jacket was sleeping. Behind the counter, the bartender was cleaning glasses.\n\nLooking around once more, you noticed some kind of arcade machine in the dark corner.",
+    "options": {
+      "go_to_barman": {
+        "text": "Go to the bartender",
+        "description": "– Did you want something? – the bartender asked.\n\nBehind him you notice a sign:\nFried meat with mushrooms – 6 credits\nA bed for 6 hours – 10 credits (for Stingray: 5 credits)",
+        "options": {
+          "ask_questions": {
+            "text": "I want to ask a few questions…",
+            "description": "So, what do you want to ask me?",
+            "options": {
+              "about_place": {
+                "text": "What is this place?",
+                "description": "Wow, man! This is a bar, a tavern, or whatever you want to call it. The Stingrays hang out here."
+              },
+              "about_selling": {
+                "text": "Do you sell anything?",
+                "description": "Us?! We sell alcohol and roasted meat. That’s all. If you want to sell us something, we don’t buy anything."
+              },
+              "about_people": {
+                "text": "Who is the group at the counter?",
+                "description": "They are guys from the Stingrays gang. Can’t you see?"
+              },
+              "about_hyenas": {
+                "text": "Where can I find the Hyenas?",
+                "description": "Ha-ha-ha!!! Anywhere, but not here…"
+              },
+              "about_drox": {
+                "text": "Who is the guy sleeping on the table in the corner?",
+                "description": "That’s Zarven. He spent all his money in my bar and now can’t go back to Brackenbridge. But actually, he’s a good guy. You don’t see many like him among the droxes!"
+              },
+              "about_meat": {
+                "text": "What kind of meat do you roast? From what animal?",
+                "description": "O-o-o, man! You better not know…"
+              },
+              "back": {
+                "text": "I have no more questions."
+              }
+            }
+          },
+          "drinks": {
+            "text": "What drinks do you have?",
+            "description": "For drinks we have:\na glass of port wine – 3 credits\na glass of Moonberry Drink (non-alcoholic) – 4 credits.",
+            "options": {
+              "drink_wine": {
+                "text": "Drink a glass of port wine (3 Credits)",
+                "description": "The bartender poured a golden drink from the bottle. You drank the glass in one gulp. It felt like fire went through your stomach. Warmth spread in your body… Then you felt sick, but luckily you held it back."
+              },
+              "drink_cocktail": {
+                "text": "Take a Moonberry Drink (4 credits)",
+                "description": "The bartender filled the glass with a dark red drink. It tasted nice and even a little refreshing. After you finished it, you put the glass back on the counter."
+              },
+              "treat_everyone": {
+                "text": "I want to buy drinks for everyone!",
+                "description": "So, does our road king want to celebrate some lucky trip, or is it just a kind gesture? Anyway, this will cost you 50 credits, my friend. Well, what do you say? – the bartender said.",
+                "options": {
+                  "pay": {
+                    "text": "Okay. I’ll pay for everyone!",
+                    "description": "?"
+                  },
+                  "back": {
+                    "text": "Maybe this is not for me"
+                  }
+                }
+              }
+            }
+          },
+          "eat": {
+            "text": "I would like to eat. Give me fried meat with mushrooms…",
+            "options": {
+              "back": {
+                "text": "Next",
+                "description": "Here you go, – said the bartender and put in front of you a round metal plate with a piece of fried meat, covered with pieces of mushrooms. There were no utensils, so you had to eat with your hands. The taste was quite okay. At least it stopped your hunger well."
+              }
+            }
+          },
+          "sleep": {
+            "text": "I need to sleep. Give me one bed…",
+            "description": "Of course. Follow me, – said the bartender, signaling a boy.\nThe boy took you to the second floor, to a room where a couple of people were already sleeping on separate beds, and showed you your bed. After giving the money, you collapsed on the bed and fell asleep…\n\nYou woke up on your own. You feel much better now. Looking at the clock above the door, you see that your sleep time is almost over. It’s time to go downstairs.",
+            "options": {
+              "back": {
+                "text": "Next"
+              }
+            }
+          },
+          "back": {
+            "text": "Step away from the counter"
+          }
+        }
+      },
+      "go_to_rockers": {
+        "text": "Approach the group of rockers",
+        "description": "Hi! – you said friendly.\n\nGet out of here, idiot! – shouted a big guy with a stingray tattoo on his forehead.\n\nHmm… You can’t approach guys like this easily.",
+        "options": {
+          "back": {
+            "text": "Next"
+          }
+        }
+      },
+      "go_to_drox": {
+        "text": "Go to the sleeping drox",
+        "description": "Huh? What? – the drox got worried. – Listen. You look like a driver. Can you take me to Brakenbridge? I’ll be grateful! Don’t worry. I’m in my sleep period now. I’ll sleep in the seat – you won’t even notice me. And when we arrive, shake me well. I’ll wake up. So? Will you give me a ride?",
+        "options": {
+          "accept": {
+            "text": "Of course, no problem!",
+            "options": {
+              "back": {
+                "text": "Next",
+                "description": "Thanks, brother. Don’t worry. I’ll fall asleep in the cab right away and won’t bother you.\n\nYou led the drox to the truck and locked him in the cab. And indeed – he fell asleep immediately! But you still took out the ignition key. Just in case. After that, you returned to the bar."
+              }
+            }
+          },
+          "reject": {
+            "text": "Sorry, I’m busy with other things right now."
+          }
+        }
+      },
+      "go_to_automat": {
+        "text": "Walk to the arcade machine",
+        "description": "On the slot machine, there is a metal sign:\nInsert 1 credit and pull the handle.\nDouble number match – win 2 credits,\nTriple number match – win 25 credits.",
+        "options": {
+          "play": {
+            "text": "Play",
+            "description": "Барабаны бешено закрутились и остановились на комбинации:\n \n 4 -==- 4 -==- 1\n \n Двойная комбинация! В лоток вывалились 2 червонца."
+          },
+          "back": {
+            "text": "Step away from the machine"
+          }
+        }
+      },
+      "leave": {
+        "text": "Return to the road",
+        "goto": "Map"
+      }
+    }
+  },
+  "Gruber's fuel station": {
+    "description": "You drove along a country road and stopped right in front of a building. A boy with a rifle on his shoulder quickly came out. Coming to your truck window, he said:\n\nYou are at Gruber's Fuel Station. Five liters of fuel cost 7 credits. Will you buy some?",
+    "options": {
+      "fill_five_liters": {
+        "text": "Fill 5 liters for me",
+        "description": "You bought 5 liters of fuel.\n\nYou are at Gruber's Gas Station. Five liters of fuel cost 7 credits. Do you want more?"
+      },
+      "fil_fifteen_liters": {
+        "text": "Fill 15 liters for me",
+        "description": "You bought 15 liters of fuel.\n\nYou are at Gruber's Gas Station. Five liters of fuel cost 7 credits. Do you want more?"
+      },
+      "about_fixing": {
+        "text": "I need to fix my vehicle. Can I do it here?",
+        "description": "We don’t fix vehicles. It’s better to go southeast. Bolt lives there – the best mechanic around. He will fix your ride in no time."
+      },
+      "about_weapon": {
+        "text": "Do you have weapons?",
+        "description": "We have some, – the boy smirked. – But if you’re asking for yourself, I suggest looking somewhere else. Around here, everyone needs guns."
+      },
+      "about_gas": {
+        "text": "Where do you get your fuel from?",
+        "description": "Our gas station is on an oil field. We pump oil from the well and make fuel right here. Everyone knows that. But if anyone tries to mess with us, we will fight back, – the boy pointed to his rifle. – By the way, Dex’s Gas Station works the same way, if you’re interested."
+      },
+      "about_gruber": {
+        "text": "If this is Gruber's Gas Station, where is Gruber himself?",
+        "description": "Old man Gruber doesn’t fill cars with fuel himself. He deals with bigger matters. That’s it."
+      },
+      "leave": {
+        "text": "Leave the fuel station",
+        "goto": "Map"
+      }
+    }
+  },
+  "Bolt's Garage": {
+    "description": "Your truck is parked by a garage. Inside, there is another car. Right in front of your hood stands a man who just came out of the garage. He wears a greasy cloth jumpsuit, black welding glasses, and holds a wrench.\n\nDo you need something from Bolt? – he asks. This must be Bolt. He looks like a real car fan. And the name fits.",
+    "options": {
+      "fix_truck": {
+        "text": "I need to fix my truck…",
+        "description": "?"
+      },
+      "upgrade_truck": {
+        "text": "I see you really love your work. Can you also upgrade my truck?",
+        "description": "Bolt walked around the truck, looked at everything carefully, and said:\n\nHere’s the deal. I can make two steel trunks and weld them on your truck. Then you can carry 2 tons more. I won’t charge much. Let’s say 50 credits.\n\nI could also put spikes instead of wheels on your truck. For that, I need long iron rods. I don’t have many left. But if you bring me 5 tons of scrap metal, I could definitely find everything I need there. And the rest would be mine as payment.\n\nOf course, I don’t like carrying scrap myself, but I promise you – the result is worth it. Tested in practice. Enemy vehicles get smashed! Especially the Stingray gang’s jeeps.",
+        "options": {
+          "extend_trunk": {
+            "text": "Deal. I’ll pay, and you make my truck carry more.",
+            "description": "?"
+          },
+          "upgrade_truck": {
+            "text": "I have 5 tons of scrap metal ready. Take it and start working!",
+            "description": "?"
+          },
+          "back": {
+            "text": "Alright. Let’s talk about other matters instead."
+          }
+        }
+      },
+      "about_kealen": {
+        "text": "The Hyenas kidnapped a guy named Kealen. Can you help me rescue him?",
+        "description": "The Hyenas are serious guys. I don’t want to fight with them. So, sorry."
+      },
+      "about_selling": {
+        "text": "Do you sell anything? Or buy anything?",
+        "description": "Why? I fix cars, and I like it. If I need something, I go to Brackenbridge or the Varnock brothers."
+      },
+      "leave": {
+        "text": "I have to go",
+        "goto": "Map"
+      }
+    }
   }
 }
 
