@@ -449,5 +449,120 @@
         "goto": "Map"
       }
     }
+  },
+  "Spaceport": {
+    "description": "At the airport, everything is as usual. Your starship, the hut, the plateau…",
+    "options": {
+      "enter_hut": {
+        "text": "Enter the hut",
+        "description": "The interior matched the outside of the house — all the furniture was old and seemed on its last legs. You shifted your gaze to Ramina.\n\n- Do you want to tell me something? Or ask about anything? — the woman asked, holding on a leash two furry creatures that looked like either hairy crocodiles or something else entirely.",
+        "options": {
+          "about_kealen": {
+            "text": "Why was your husband kidnapped?",
+            "description": "- After the bridge to the iridium mines broke, things got very bad for us. Kealen had a new risky idea and borrowed 450 credits from the Hyenas. But it went wrong again, and we couldn’t pay back in time. The Hyenas don’t like waiting. They found out Kealen has a rich uncle and took my husband so the uncle would pay them with interest. But where will they get credits? – Cathena’s eyes filled with tears."
+          },
+          "about_hyenas": {
+            "text": "Where can I find the Hyenas?",
+            "description": "- Usually they find everyone themselves… But if you want to know about their base, it’s to the north-east, past the Corn Farm."
+          },
+          "about_dangers": {
+            "text": "What dangers might I face here?",
+            "description": "- Dangers? This whole area is full of danger! On the roads, Stingrays and Hyenas charge tolls. Plus, all sorts of thugs wander around. You must always stay alert here. And don’t sleep in your car or outside — there are lots of poisonous creatures. Only in Breakenbridge can you feel safe."
+          },
+          "about_earning": {
+            "text": "Where can I get some money?",
+            "description": "- My husband earned money by trading. But how can you trade if you have no money…? I heard you can work in the mining settlement, digging coal, to get some starting money. Also, my husband told me that in Brackenbrigde, our biggest city, they need coal and scrap metal. You can buy coal from the miners."
+          },
+          "about_climate": {
+            "text": "What’s the climate like here?",
+            "description": "- The climate is dry. It’s bright during the day, and at night there is twilight. But it never gets completely dark. So here, many people sleep when they are tired, not when night comes."
+          },
+          "about_rest": {
+            "text": "Can I spend the night here?",
+            "description": "- Unfortunately, no. At night my boys, – the woman pointed to the furry creatures – get aggressive. Especially to strangers. They could even attack. I can’t risk your life. Too much depends on you… By the way! You can sleep for free in the miners’ barracks. Drive to the Erratic Rocks, then south to the mining settlement."
+          },
+          "back": {
+            "text": "I think I’ll be going"
+          }
+        }
+      },
+      "leave_planet": {
+        "text": "Had enough of everything. Time to leave this planet",
+        "description": "?"
+      },
+      "back": {
+        "text": "Leave the airport"
+      }
+    }
+  },
+  "Erratic Rocks": {
+    "description": "You are in a place with many big, strange rocks. Some are stacked oddly, and there are narrow paths between them. Wind blows through the rocks, and shadows make the place look mysterious. It feels like something might be watching you.",
+    "options": {
+      "back": {
+        "text": "Back to the road"
+      }
+    }
+  },
+  "Marshal": {
+    "description": "You drove on a dirt road and soon reached the building. After a minute, you were at the door. It opened, and a man with a marshal’s star on his chest and two pistols on his belt came out. Two more men followed him.\n\nThe man with the star said:\n\n– I’m the Marshal. Who are you?\n\n– Ranger. I come in peace.\n\n– You must be new… Listen: if you make serious trouble here — especially in Brackenbridge — you’ll answer to me and my men.\n\n- Do you have business here? – the Marshal asked, keeping his hand near his holster.",
+    "options": {
+      "about_kealen": {
+        "text": "The Hyenas kidnapped Kealen. Please help me rescue him…",
+        "description": "The Hyenas? You think I’d risk trouble with them over some Kealen? I don’t even know who that is. Anyway, the Hyenas are serious people. If you want to talk to them, look for them in the north-east — past the Corn Farm."
+      },
+      "about_bandits": {
+        "text": "On the roads, some thugs attack honest people. I think, as Sheriff, you should stop this…",
+        "description": "– Really? — laughed the marshal with his men. — You’re not from here. Stingrays and Hyenas have charged tolls for decades. If I fight them, the bandits might stop me before I stop them.\n\nMy advice: pay the tolls if stopped, or fight if you’re tough. Carrying cargo? Expect higher fees. My guys? They just fine lawbreakers. Doubts? Come to the impound lot, we’ll sort it out."
+      },
+      "about_weapon": {
+        "text": "I need weapons. Do you have anything?",
+        "description": "You think I’d give a rogue like you a weapon? Bold! But… if you help us, I might give you a pack of shotgun ammo. You good with chemistry?",
+        "options": {
+          "accept": {
+            "text": "Well… just a little",
+            "description": "– Great! – shouted the marshal and waved for you to follow.\n\nYou walked past cells and old rooms, keeping the marshal in sight. Finally, he led you to a small room. A thin guy with a book sat on a metal box.\n\nHere. He will help you. He knows some chemistry. Explain what to do…\n\n - I won’t make drugs! – you said immediately.\n\n- Oh? Can you? – the chemist asked.\nYou shook your head.\n\nToo bad. Anyway, we need help for something else. We want to open a safe with cyclobeasing acid. I almost made it – just need to add x-gluconate. Here’s the problem: instructions say 3 grams of Viron (it has the right amount of x-gluconate). But I only have Kreman. Kreman also has x-gluconate. But how much per gram? I don’t know. So how many grams of Kreman should replace 3 grams of Viron?\n\n- Any other info? – you asked.\n\n– Some. I found it in a textbook:\n1 gram Sorben + 2 grams Ilium = x-gluconate in 4 grams Kreman\n3 grams Ilium = x-gluconate in 1 gram Viron\n1 gram Ilium + 3 grams Kreman = x-gluconate in 2 grams Sorben\n\n– That’s all? – you asked.\n\n– Yes. So… how many grams of Kreman do we need? Be careful – wrong amount = boom.",
+            "options": {
+              "dosage_0-33": {
+                "text": "0.33 g",
+                "description": "?"
+              },
+              "dosage_0_66": {
+                "text": "0.66 g",
+                "description": "?"
+              },
+              "dosage_1": {
+                "text": "1 g",
+                "description": "?"
+              },
+              "dosage_1_5": {
+                "text": "1.5 g",
+                "description": "?"
+              },
+              "dosage_2": {
+                "text": "2 g",
+                "description": "?"
+              },
+              "dosage_3_5": {
+                "text": "3.5 g",
+                "description": "?"
+              },
+              "dosage_9": {
+                "text": "9 g",
+                "description": "?"
+              },
+              "back": {
+                "text": "– To be honest, I don’t really understand this stuff, so I can’t help you."
+              }
+            }
+          },
+          "back": {
+            "text": "No"
+          }
+        }
+      },
+      "back": {
+        "text": "Go back the crossroads"
+      }
+    }
   }
 }
