@@ -271,6 +271,183 @@
         "goto": "Map"
       }
     }
+  },
+  "Brackenbridge": {
+    "description": "You stand in a big, but dirty, square. Almost all houses in the town are old and dirty. Only four look worth noticing:\n\n- a one-story building with a bright sign \"- Crimson Plate Restaurant\";\n\n- a three-story brick building with the words \"- Velvet Nights Hotel\";\n\n- a plastic building with a red cross on the door and windows (looks like a small clinic);\n\n- a white two-story house with a four-color flag on the roof.\n\nA wide road goes away from the square. It leads to a small factory with two chimneys, sending out black smoke. You might be able to reach the checkpoint using this road.",
+    "options": {
+      "go_to_factory": {
+        "text": "Drive to the factory checkpoint",
+        "description": "A dirty man leans out of the booth at the factory entrance and looks at you closely:\n\n- As usual, we don’t sell anything, only buy. Prices haven’t changed since last week.\n1 ton of scrap metal – 23 credits\n1 ton of coal – 12 credits",
+        "options": {
+          "about_factory": {
+            "text": "Ask what the factory makes",
+            "description": "- Right now, we work with rolled metal. But in a month, we’ll start making industrial goods, and in half a year, we might take on cars and maybe even weapons! Just don’t tell anyone too much about this. You never know…"
+          },
+          "sell_coal": {
+            "text": "Sell all the coal",
+            "description": "?"
+          },
+          "sell_scrap": {
+            "text": "Sell all the scrap metal",
+            "description": "?"
+          },
+          "back": {
+            "text": "Go to the square"
+          }
+        }
+      },
+      "go_to_clinic": {
+        "text": "Go to the clinic",
+        "description": "The little house was full of all kinds of equipment. On the right, there were several medical-looking devices in strange shapes. There was even a rusty machine with a big sign saying “Drill.” It looked like some kind of ancient torture tool.\n\nOpposite the door, on a shabby little couch, a small man in a spotless white coat was snoring. On his chest lay a little mirror with a hole and a strap. It seemed the medical expert didn’t want to work today, but you would have to wake him. Knocking loudly on the door made the doctor stir.\n\n- Huh? What? Only here! Energy treatment using a new revolutionary method. Complete wound healing. All for 50 credits.",
+        "options": {
+          "treat": {
+            "text": "My health isn’t great. Some energy treatment could help…",
+            "description": "?"
+          },
+          "about_treatments": {
+            "text": "What other procedures can you do?",
+            "description": "We also perform brain transplants (the head, of course), removal of hairs from heels and fins (for muttokes and droxex respectively), and, – the doctor leaned closer and whispered – we transplant… private parts for ools. What exactly are you interested in?\n\n- No, no. None of the above, – you replied quickly.\n\n- That’s a pity. Really a pity. Anything else?"
+          },
+          "back": {
+            "text": "I’ll take my leave and step outside."
+          }
+        }
+      },
+      "go_to_hotel": {
+        "text": "Go to the hotel",
+        "description": "Inside, the hotel turned out to be fairly clean.\n\n- Want to rest, cowboy? – asked a made-up lady sitting at the reception. – Eight hours in a single room – 20 credits. If you want it with a girl, th-e-e-n… 40 credits.",
+        "options": {
+          "rest": {
+            "text": "Just give me a room. No girls needed.",
+            "description": "?"
+          },
+          "take_girl": {
+            "text": "Girls aren’t for me. So I’ll take the full package.",
+            "description": "?"
+          },
+          "back": {
+            "text": "Thanks, I don’t need anything."
+          }
+        }
+      },
+      "go_to_restaurant": {
+        "text": "Go to the restaurant",
+        "description": "Grabbing the restaurant door handle, you noticed a sign on the glass:\n\"Open.\nThe restaurant operates daily:\nfrom 9:00 until the last visitor after 23:59.\"\n\nNoting this, you went inside. There weren’t many people, so you easily found a table.\nShall we order something? — asked the Chaldean waiter, dressed in a neat suit, handing you the menu.\nYou quickly looked through the options, noting what you could afford and what was too expensive.",
+        "options": {
+          "order_root": {
+            "text": "Golden Root Fries – 7 credits",
+            "description": "You quickly finished the roots. Not quite like the ones you’ve had at Earth diners, but still decent. Too bad the portion was a bit small…"
+          },
+          "order_wine": {
+            "text": "Brackenbridge Vineyard Red Wine – 9 credits",
+            "description": "?"
+          },
+          "order_tail": {
+            "text": "Lizard Tail with Herbs – 10 credits",
+            "description": "?"
+          },
+          "order_beaver": {
+            "text": "Pear-Stuffed Beaver – 20 credits",
+            "description": "?"
+          },
+          "order_cactus": {
+            "text": "Signature Dish: Spiky Cactus in Coriander Glaze – 23 credits",
+            "description": "?"
+          },
+          "back": {
+            "text": "Thanks for the warm welcome. I think I’ll be going."
+          }
+        }
+      },
+      "go_to_cityhall": {
+        "text": "Enter the house with the flag",
+        "description": "You pushed open the massive wooden door and stepped inside the snow-white house. To the left of the entrance, behind a sturdy desk, sat a woman typing something on a typewriter. Without looking up from her work, she said:\n— The mayor won’t be here for a while. So, please leave the premises.\n\nWell, nothing to do about it — you’ll have to go.",
+        "options": {
+          "back": {
+            "text": "Next"
+          }
+        }
+      },
+      "discover_city": {
+        "text": "Walk around the city to find other interesting places",
+        "description": "You wandered around for quite a while, but apart from dilapidated residential houses, you found nothing of interest. It seems that everything noteworthy is concentrated near the town’s main square. With that conclusion, you turned back.\n\nAs you slipped your hand into your pocket, you discovered that someone had stolen a few credits from you... This discovery, to put it mildly, did not improve your mood.",
+        "options": {
+          "back": {
+            "text": "Back to the city square"
+          }
+        }
+      },
+      "sleep_in_truck": {
+        "text": "Sleep in the car",
+        "description": "You pushed some junk away and tried to sleep on the seats of your truck. But you didn’t sleep long — people walking around woke you up. And it wasn’t very comfortable anyway.\n\nAt least it cost nothing!",
+        "options": {
+          "back": {
+            "text": "Next"
+          }
+        }
+      },
+      "leave": {
+        "text": "Leave the city"
+      }
+    }
+  },
+  "Wreckyard": {
+    "description": "The vehicle skillfully entered the scrapyard. You were about to delve deeper into the trash maze, but a three-meter-tall robot blocked your way. Rusty as it was, it looked impressive…\n\n- You’re in the Varnock brothers’ territory, gringo! – said the man inside the robot. – If you’re here on business, know this: we currently have 50 tons of scrap metal. 10 creditss per ton. The scrap is pressed and neatly packed—top quality stuff.",
+    "options": {
+      "buy_one_t": {
+        "text": "I’ll take one ton of scrap metal",
+        "description": "?"
+      },
+      "buy_three_t": {
+        "text": "I’ll take three tons of scrap metal",
+        "description": ""
+      },
+      "buy_all": {
+        "text": "I’ll take all the remaining scrap metal",
+        "description": "?"
+      },
+      "take_full_trunk": {
+        "text": "I’ll load up with scrap metal to the brim",
+        "description": "?"
+      },
+      "ask_question": {
+        "text": "I’ve got a couple of questions",
+        "description": "— And what do you want to ask about, gringo?",
+        "options": {
+          "about_wreckyard": {
+            "text": "Why do some signs say “military base” instead of “wreckyard”?",
+            "description": "Long ago, there was a big military base here, built before the Galactic Commonwealth. After many years the tech got old, so the army took useful parts, packed them up, and left. What was left turned into this junkyard.\n\nLater, me and my brothers took the place. Now it’s our small family business, and no Stingrays or Hyenas can boss us around.\n\nThe man lifted a robot’s steel arm – with a scary blaster on it."
+          },
+          "about_kealen": {
+            "text": "I’m looking for Kealen. Where is he?",
+            "description": "Kealen? I think he owes the Hyenas, and they’re keeping him prisoner. They’re asking for ransom… That’s all I’ve heard, unfortunately, – said Varnock."
+          },
+          "about_weapon": {
+            "text": "Do you have weapons?",
+            "description": "What weapons, buddy! Me and my brothers found a few guns in the junkyard, but they’re all ours. You get it — around here, you need weapons for yourself."
+          },
+          "about_metal": {
+            "text": "Where can I sell metal?",
+            "description": "In Brackenbridge, our town, they’ll gladly buy it from you"
+          },
+          "back": {
+            "text": "I’d like to trade with you some more"
+          }
+        }
+      },
+      "leave": {
+        "text": "Alright. Farewell, lad, I’m heading out",
+        "goto": "Map"
+      }
+    }
+  },
+  "The Endless Rift": {
+    "description": "You are standing in the middle of a huge crater, more like a massive funnel left by the explosion of an enormously powerful bomb.",
+    "options": {
+      "leave": {
+        "text": "Back to t road",
+        "goto": "Map"
+      }
+    }
   }
 }
-
