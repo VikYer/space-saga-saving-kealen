@@ -387,7 +387,8 @@
         }
       },
       "leave": {
-        "text": "Leave the city"
+        "text": "Leave the city",
+        "goto": "Map"
       }
     }
   },
@@ -490,16 +491,18 @@
         "text": "Had enough of everything. Time to leave this planet",
         "description": "?"
       },
-      "back": {
-        "text": "Leave the airport"
+      "leave": {
+        "text": "Leave the airport",
+        "goto": "Map"
       }
     }
   },
   "Erratic Rocks": {
     "description": "You are in a place with many big, strange rocks. Some are stacked oddly, and there are narrow paths between them. Wind blows through the rocks, and shadows make the place look mysterious. It feels like something might be watching you.",
     "options": {
-      "back": {
-        "text": "Back to the road"
+      "leave": {
+        "text": "Back to the road",
+        "goto": "Map"
       }
     }
   },
@@ -560,8 +563,167 @@
           }
         }
       },
-      "back": {
-        "text": "Go back the crossroads"
+      "leave": {
+        "text": "Go back the crossroads",
+        "goto": "Map"
+      }
+    }
+  },
+  "Forest Lake": {
+    "description": "You followed the road and soon reached a small lake covered with green moss. The trip here was about fifteen kilometers.",
+    "options": {
+      "swim": {
+        "text": "Swim in the water for five minutes",
+        "description": "You swam in the water for five minutes. In such water, it didn’t give you much pleasure. Only made you feel more tired.",
+        "options": {
+          "more_swim": {
+            "text": "Swim for another five minutes",
+            "description": "You swam in the water for five minutes. In such water, it didn’t give you much pleasure. Only made you feel more tired."
+          },
+          "back": {
+            "text": "Get out of the water, dry off, and head back to the road"
+          }
+        }
+      },
+      "rinse_off": {
+        "text": "Rinse off in the lake and go back",
+        "description": ""
+      },
+      "leave": {
+        "text": "Go back",
+        "goto": "Map"
+      }
+    }
+  },
+  "Mining Settlement": {
+    "description": "You are on sandy ground. Around you, there are only barracks and miners all covered in black coal. Close by, you see a small stall where a thin man gives miners some green stuff. Not far is a clean building with a sign “Trading House.” You can also see the entrance to the mine.",
+    "options": {
+      "go_to_trading_house": {
+        "text": "Go to the Trading House",
+        "description": "You are in a room full of coal bags. A man in a helmet sits on a small chair near the door.\n\n– Here’s the deal. We sell coal for 5 credits per ton. The coal is clean and ready to use, so no problems. Right now, we have 75 tons of coal in stock.\n\nAlso, we buy food. Especially corn. We pay 45 credits per ton. Miners eat corn with great appetite!",
+        "options": {
+          "buy_1t_coal": {
+            "text": "Buy one ton of coal",
+            "description": "?"
+          },
+          "buy_3t_coal": {
+            "text": "Buy three tons of coal",
+            "description": "?"
+          },
+          "buy_all_coal": {
+            "text": "Take all the remaining coal",
+            "description": "?"
+          },
+          "fill_trunk_coal": {
+            "text": "Fill up with coal completely",
+            "description": "?"
+          },
+          "sell_corn": {
+            "text": "Sell all the corn",
+            "description": "?"
+          },
+          "ask_question": {
+            "text": "Ask a few questions",
+            "description": "– You can ask your questions. But only about business. I won’t answer the others, – said the man.",
+            "options": {
+              "about_buy_corn": {
+                "text": "Where can I buy corn?",
+                "description": "– Where? At corn farm to the east."
+              },
+              "about_sell_coal": {
+                "text": "Where can I sell coal?",
+                "description": "– In Brackenbribge, the city to the east, - came the answer."
+              },
+              "about_earn": {
+                "text": "I need money. How can I earn it?",
+                "description": "– Oh-oh-oh! You came to the right place. Our mines are always happy to get new workers. Working here, you can earn up to three credits per hour. Not bad, right?"
+              },
+              "back": {
+                "text": "Let’s trade!"
+              }
+            }
+          },
+          "back": {
+            "text": "Say goodbye"
+          }
+        }
+      },
+      "enter_barracks": {
+        "text": "Enter one of the barracks",
+        "description": "You enter one of the barracks and see many two-level bunks. Almost all of them are taken by sleeping miners. But you notice one free bunk.",
+        "options": {
+          "sleep": {
+            "text": "Lie down to sleep",
+            "description": "Surprisingly, as soon as you lay down, you fell asleep right away…\n\n— Hey, get up! — you heard someone’s voice. — You’ve been sleeping for three hours. Your time is up...\n— What, were you timing me? — you mumbled angrily.\n— Are you stupid? The bunks have timers.\n\nYou opened your eyes and saw a timer, a big red hand holding it, and finally its owner — a huge, angry, dirty miner. Not wanting to argue, you got off the bunk. Well… you didn’t get to sleep as much as you wanted, but it was better than nothing."
+          },
+          "back": {
+            "text": "Leave the barrack"
+          }
+        }
+      },
+      "go_to_stall": {
+        "text": "Go to the stall",
+        "description": "The drox silently hands out food to the miners, working with all four of his hands.\nOn the counter below, a sign reads: Portion of Nutritious Porridge – 1 credit.",
+        "options": {
+          "buy_porridge": {
+            "text": "Buy a portion",
+            "description": "The drox took the coin, pressed a lever on some machine, and half a minute later the device spat out a portion of yellow mush. Dropping THIS onto a plate, the drox stuck a metal spoon in and handed it to you.\n\n— Bring the dish back, — he muttered.\n\nYou nodded.\n\nThe taste was even worse than the look. You managed a couple of spoons, but with each one it was harder to fight the urge to vomit. Finally, your stomach rebelled, and you threw up. Seems you weren’t hungry enough to finish that yellow substance."
+          },
+          "back": {
+            "text": "Step away from the stall"
+          }
+        }
+      },
+      "enter_mine": {
+        "text": "Go into the mine",
+        "description": "It was very dark inside the mine, but soon your eyes adjusted. The weak light of several lamps let you see what was going on. Dozens of people in helmets were busy digging coal.\n\nYou kept going deeper, when suddenly a huge miner stepped in front of you.\n\n— Hey! Why aren’t you working?! Take this pickaxe and get to it!!! — he roared, staring at you.",
+        "options": {
+          "work": {
+            "text": "Take the pickaxe and start working",
+            "description": "– That’s it! One hour is over, – the huge miner shouted behind you.\nHe wrote your name on the bag, put it on the lift, and said:\n– Go upstairs for your pay.\n\nAt the mine exit, a dirty man with a notebook was already waiting.\n– I weighed the bag. About one and a half tons. Good! You earned three credits.",
+            "options": {
+              "back": {
+                "text": "Next"
+              }
+            }
+          },
+          "back": {
+            "text": "I just came here to look around. I’m not a worker"
+          }
+        }
+      },
+      "leave": {
+        "text": "Leave the settlement",
+        "goto": "Map"
+      }
+    }
+  },
+  "Dex's Fuel Station": {
+    "description": "A steel building with cannons everywhere looked very serious.\n\n– 1 liter of fuel costs 1 credits, – said a metallic voice. – Give money to the robot, and it will do everything.\n\nLooking around, you noticed a fat woman sitting inside a spherical defense gun attached to the ceiling.",
+    "options": {
+      "fill_five_liters": {
+        "text": "Fill 5 liters for me",
+        "description": "You bought 5 liters of fuel.\n\n– 1 liter of fuel costs 1 chervonets, – the metallic voice said. – Give money to the robot, and it will do everything.\n\nMaybe buy more?"
+      },
+      "fil_fifteen_liters": {
+        "text": "Fill 15 liters for me",
+        "description": "You bought 15 liters of fuel.\n\n– 1 liter of fuel costs 1 chervonets, – the metallic voice said. – Give money to the robot, and it will do everything.\n\nMaybe buy more?"
+      },
+      "about_fixing": {
+        "text": "I need to fix my vehicle. Can I do it here?",
+        "description": "– Go to the garage. Aux will check your car, – said the woman.\n\nThe gates started to lift, and you drove in. Inside, the garage was full of all kinds of metal junk: mufflers, engines, gas tanks, springs. Among it all, a person in a work suit was moving around. This must be Lou.\n\nI’ll take a look, – said the mechanic, checking the car. After 15 minutes, he finished. – Your car is almost completely fine. I don’t see any reason to fix it!\n\nNothing to do, you had to leave the garage empty-handed."
+      },
+      "about_trading": {
+        "text": "Let's trade!",
+        "description": "Another trader on my head! How many times do I have to say – we have everything. We don’t need ANYTHING!!!"
+      },
+      "about_gas": {
+        "text": "Where do you get your fuel from?",
+        "description": "– None of your business, – came the reply."
+      },
+      "leave": {
+        "text": "Leave the fuel station",
+        "goto": "Map"
       }
     }
   }

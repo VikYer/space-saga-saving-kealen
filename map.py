@@ -24,9 +24,9 @@ MAP_LEGEND ="""💎 - Forsaken Iridium Mines
 ⚙️  - Wreckyard
 ⛰ - The Endless Rift
 🚀 - Spaceport
-🏞️ - Erratic Rocks
+🏞️  - Erratic Rocks
 👮 - Marshal
-🌊 - Whispering Lakewood
+🌊 - Forest Lake
 ⛏ - Mining Settlement
 🏪 - Dex’s Fuel Station
 """
