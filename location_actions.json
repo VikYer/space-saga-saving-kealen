@@ -8,7 +8,7 @@
       }
     }
   },
-  "Corn farm": {
+  "Corn Farm": {
     "description": "Your car is parked right in front of the farm gate. A young man in a hat, chewing on a stick, looks at you from the window:\n\nRight now, we have 36 tons of corn. It is packed in barrels, one ton each. We sell them for 25 coins per barrel. And if you want to sell something yourself, sorry – we don’t buy anything.",
     "options": {
       "take_one_barrel": {
@@ -201,7 +201,7 @@
       }
     }
   },
-  "Gruber's fuel station": {
+  "Gruber's Fuel Station": {
     "description": "You drove along a country road and stopped right in front of a building. A boy with a rifle on his shoulder quickly came out. Coming to your truck window, he said:\n\nYou are at Gruber's Fuel Station. Five liters of fuel cost 7 credits. Will you buy some?",
     "options": {
       "fill_five_liters": {

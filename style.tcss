@@ -18,12 +18,21 @@ Screen {
     border: double white;
 }
 
-#map {
+#map, #map-legend {
     width: 50%;
     text-style: bold;
 }
 
-#map-legend {
-    width: 50%;
+#quest-panel {
+    overflow-y:auto;
+}
+
+#quest-text {
+    text-style: bold;
+}
+
+#command-panel {
+    border: none;
+    background: black;
     text-style: bold;
 }
