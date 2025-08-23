@@ -3,11 +3,16 @@ from textual.containers import Horizontal, Container, ScrollableContainer
 from textual.widgets import Static, Footer, OptionList
 import json
 
+from textual.widgets._option_list import Option
+
 from map import MAP, MAP_LEGEND
 
 
 class SpaceSaga(App):
     """Main application class for Space Saga: Saving Kealen, a terminal based text quest."""
+
+    current_location = ''
+    options_stack = []
 
     try:
         with open('location_actions.json', 'r', encoding='utf-8') as f:
@@ -56,17 +61,60 @@ class SpaceSaga(App):
         )
         yield Footer()
 
-    def on_mount(self):
+    def on_mount(self) -> None:
         self.show_location('Corn Farm')
 
     def show_location(self, location_name: str) -> None:
         """Display location description in quest-text and available commands in command-panel"""
+        self.current_location = location_name
+        self.options_stack = []
+
         location = self.locations[location_name]
         self.quest_text.update(location['description'])
 
         options = location.get('options')
+        self._show_options(options)
+
+
+    def _show_options(self, options: dict) -> None:
+        """Helper: display command options in command-panel."""
         self.command_panel.clear_options()
-        for val in options.values():
-            self.command_panel.add_option(val['text'])
+        for opt_id, opt in options.items():
+            self.command_panel.add_option(Option(opt['text'], opt_id))
         self.set_focus(self.command_panel)
         self.command_panel.highlighted = 0
+
+    def on_option_list_option_selected(self, event: OptionList.OptionSelected) -> None:
+        """Handle option selection from command-panel."""
+        location = self.locations[self.current_location]
+        options = location.get('options')
+
+        for el in self.options_stack:
+            options = options[el].get('options')
+
+        option = options.get(event.option_id)
+        if not option:
+            return
+
+        if 'goto' in option:
+            self.show_location(option['goto'])
+
+        if 'description' in option:
+            self.quest_text.update(option['description'])
+
+        if 'options' in option:
+            self.options_stack.append(event.option_id)
+            self._show_options(option['options'])
+            return
+
+        if event.option_id == 'back':
+            if self.options_stack:
+                self.options_stack.pop()
+                options = location.get('options')
+                for el in self.options_stack:
+                    options = options[el].get('options')
+                self._show_options(options)
+            else:
+                self._show_options(location.get('options'))
+            return
+

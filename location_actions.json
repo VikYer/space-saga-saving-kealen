@@ -31,18 +31,14 @@
         "options": {
           "about_weapon": {
             "text": "Do you have any weapons? I would like to buy",
-            "description": "Some people use a hoe as a weapon, - came the answer. - Do you need it?\n\nYou remained silent in response."
+            "description": "– Some people use a hoe as a weapon, - came the answer. - Do you need it?\n\nYou remained silent in response."
           },
           "about_money": {
             "text": "I need money. Can I work on your farm?",
-            "description": "We can manage ourselves. And we don’t need anything right now…"
+            "description": "– We can manage ourselves. And we don’t need anything right now…"
           },
           "back": {
             "text": "Let’s go back to trading"
-          },
-          "leave": {
-            "text": "I think I’ll leave…",
-            "goto": "Map"
           }
         }
       },
@@ -554,7 +550,7 @@
                 "description": "?"
               },
               "back": {
-                "text": "– To be honest, I don’t really understand this stuff, so I can’t help you."
+                "text": "To be honest, I don’t really understand this stuff, so I can’t help you."
               }
             }
           },
