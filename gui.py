@@ -62,7 +62,7 @@ class SpaceSaga(App):
         yield Footer()
 
     def on_mount(self) -> None:
-        self.show_location('Corn farm')
+        self.show_location('Spaceport')
 
     def show_location(self, location_name: str) -> None:
         """Display location description in quest-text and available commands in command-panel"""
