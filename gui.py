@@ -110,11 +110,23 @@ class SpaceSaga(App):
         if event.option_id == 'back':
             if self.options_stack:
                 self.options_stack.pop()
+
                 options = location.get('options')
+                parent_option = None
+
                 for el in self.options_stack:
-                    options = options[el].get('options')
+                    parent_option = options[el]
+                    options = parent_option.get('options')
+
+                if parent_option and 'description' in parent_option:
+                    self.quest_text.update(parent_option['description'])
+                else:
+                    self.quest_text.update(location['description'])
+
                 self._show_options(options)
+
             else:
+                self.quest_text.update(location["description"])
                 self._show_options(location.get('options'))
             return
 

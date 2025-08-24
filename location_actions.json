@@ -28,6 +28,7 @@
       },
       "ask_questions": {
         "text": "Ask a few questions",
+        "description": "– And what questions do you have?” – the big guy asked.",
         "options": {
           "about_weapon": {
             "text": "Do you have any weapons? I would like to buy",
