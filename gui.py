@@ -11,6 +11,10 @@ from map import MAP, MAP_LEGEND
 class SpaceSaga(App):
     """Main application class for Space Saga: Saving Kealen, a terminal based text quest."""
 
+    def __init__(self, state, **kwargs):
+        super().__init__(**kwargs)
+        self.state = state
+
     current_location = ''
     options_stack = []
 
@@ -42,7 +46,7 @@ class SpaceSaga(App):
             self.quest_text,
             id='quest-panel'
         )
-        self.state_panel = Static('Game State Panel', id='state-panel')
+        self.state_panel = Static('', id='state-panel')
         self.command_panel = OptionList(id='command-panel')
         yield Horizontal(
             Container(
@@ -62,6 +66,8 @@ class SpaceSaga(App):
         yield Footer()
 
     def on_mount(self) -> None:
+        self.sp = StatePanel(self.state_panel, self.state)
+        self.sp.update_game_state()
         self.show_location('Spaceport')
 
     def show_location(self, location_name: str) -> None:
@@ -77,7 +83,6 @@ class SpaceSaga(App):
 
         options = location.get('options')
         self._show_options(options)
-
 
     def _show_options(self, options: dict) -> None:
         """Helper: display command options in command-panel."""
@@ -138,3 +143,53 @@ class SpaceSaga(App):
                 self.quest_text.update(location.get("description"))
                 self._show_options(location.get('options'))
             return
+
+        self.sp.update_game_state()
+
+
+class StatePanel:
+    """Handles rendering of game state into state panel."""
+
+    def __init__(self, state_panel_widget: Static, game_state):
+        """Initialize state panel with game state values."""
+        self.state_panel_widget = state_panel_widget
+        self.game_state = game_state
+
+    def grade(self, param: str, value: int) -> str:
+        """Return a textual level for health, fatigue and hunger."""
+        levels = []
+        if param == 'health':
+            levels = ['[red]critical[/red]', '[yellow]weak[/yellow]', '[yellow]wounded[/yellow]', 'healthy',
+                      'full strength']
+        if param == 'fatigue':
+            levels = ['[red]exhausted[/red]', '[yellow]very tired[/yellow]', '[yellow]weary[/yellow]', 'rested',
+                      'energetic']
+        if param == 'hanger':
+            levels = ['[red]starving[/red]', '[yellow]hungry[/yellow]', '[yellow]peckish[/yellow]', 'satisfied',
+                      'well fed']
+        index = min(value // 20, 4)
+        return levels[index]
+
+    def update_game_state(self):
+        """Update game state panel with current game state."""
+        world = self.game_state.world
+        hero = self.game_state.hero
+        truck = self.game_state.truck
+
+        text = (
+            f'Days passed: {world.days}\n'
+            f'Time: {world.show_time()}\n'
+            f'Current location: {world.current_location}\n\n'
+            f'HERO:\n'
+            f'Health: {self.grade('health', hero.health)}\n'
+            f'Fatigue: {self.grade('fatigue', hero.fatigue)}\n'
+            f'Hanger: {self.grade('hanger', hero.hanger)}\n'
+            f'Cash: {hero.cash}cr\n\n'
+            f'TRUCK:\n'
+            f'Truck condition: {truck.truck_condition}%\n'
+            f'Fuel: {truck.fuel}l\n'
+            f'Space available: {truck.truck_space}\n'
+        )
+
+        self.state_panel_widget.update(text)
+

@@ -22,7 +22,7 @@ class World:
 class Hero:
     """Represents the hero and his personal state."""
 
-    def __init__(self) -> None:
+    def __init__(self):
         """Initialize the hero with default health, hanger, fatigue, cash."""
         self.health = 100
         self.fatigue = 100
