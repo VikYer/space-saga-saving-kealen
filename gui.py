@@ -154,22 +154,25 @@ class StatePanel:
         self.state_panel_widget = state_panel_widget
         self.game_state = game_state
 
-    def grade(self, param: str, value: int) -> str:
-        """Return a textual level for health, fatigue and hunger."""
-        levels = []
+    @staticmethod
+    def _grade(param: str, value: int) -> str:
+        """Helper: return a textual level for health, fatigue and hunger."""
         if param == 'health':
             levels = ['[red]critical[/red]', '[yellow]weak[/yellow]', '[yellow]wounded[/yellow]', 'healthy',
                       'full strength']
-        if param == 'fatigue':
+        elif param == 'fatigue':
             levels = ['[red]exhausted[/red]', '[yellow]very tired[/yellow]', '[yellow]weary[/yellow]', 'rested',
                       'energetic']
-        if param == 'hanger':
+        elif param == 'hanger':
             levels = ['[red]starving[/red]', '[yellow]hungry[/yellow]', '[yellow]peckish[/yellow]', 'satisfied',
                       'well fed']
+        else:
+            levels =['unknown']
+
         index = min(value // 20, 4)
         return levels[index]
 
-    def update_game_state(self):
+    def update_game_state(self) -> None:
         """Update game state panel with current game state."""
         world = self.game_state.world
         hero = self.game_state.hero
@@ -180,9 +183,9 @@ class StatePanel:
             f'Time: {world.show_time()}\n'
             f'Current location: {world.current_location}\n\n'
             f'HERO:\n'
-            f'Health: {self.grade('health', hero.health)}\n'
-            f'Fatigue: {self.grade('fatigue', hero.fatigue)}\n'
-            f'Hanger: {self.grade('hanger', hero.hanger)}\n'
+            f'Health: {self._grade('health', hero.health)}\n'
+            f'Fatigue: {self._grade('fatigue', hero.fatigue)}\n'
+            f'Hanger: {self._grade('hanger', hero.hanger)}\n'
             f'Cash: {hero.cash}cr\n\n'
             f'TRUCK:\n'
             f'Truck condition: {truck.truck_condition}%\n'
