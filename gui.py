@@ -15,7 +15,6 @@ class SpaceSaga(App):
         super().__init__(**kwargs)
         self.state = state
 
-    current_location = ''
     options_stack = []
 
     try:
@@ -71,8 +70,8 @@ class SpaceSaga(App):
         self.show_location('Spaceport')
 
     def show_location(self, location_name: str) -> None:
-        """Display location description in quest-text and available commands in command-panel"""
-        self.current_location = location_name
+        """Display location description in quest-text and available commands in command-panel."""
+        self.state.world.current_location = location_name
         self.options_stack = []
 
         location = self.locations.get(location_name)
@@ -94,7 +93,7 @@ class SpaceSaga(App):
 
     def on_option_list_option_selected(self, event: OptionList.OptionSelected) -> None:
         """Handle option selection from command-panel."""
-        location = self.locations.get(self.current_location)
+        location = self.locations.get(self.state.world.current_location)
         if not location:
             return
 
