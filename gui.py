@@ -103,6 +103,7 @@ class SpaceSaga(App):
 
         for el in self.options_stack:
             parent = options.get(el)
+            self.sp.update_state_panel()
             if not parent:
                 return
             options = parent.get('options')
@@ -183,8 +184,7 @@ class StatePanel:
         hero = self.game_state.hero
         truck = self.game_state.truck
 
-        if truck.fuel <= 20:
-            fuel_color = 'red'
+        fuel_color = 'red' if truck.fuel <= 20 else 'white'
 
         text = (
             f'Days passed: {world.days}\n'

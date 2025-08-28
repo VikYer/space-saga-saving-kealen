@@ -15,14 +15,18 @@ class Engine:
         """Initialize game engine with game state values."""
         self.state = state
 
-    def apply_effect(self, effects: dict) -> None:
+    def apply_effect(self, effects: dict | None) -> None:
         """Handle support base game state changes."""
         if not effects:
+            self.state.world.current_time += 1
             return
 
         if 'distance' in effects:
-            distance = effects.get('distance')
+            distance = effects['distance']
             self._drive(distance)
+
+        if 'time' in effects:
+            self.state.world.current_time += effects['time']
 
     def _drive(self, distance: int) -> None:
         """
