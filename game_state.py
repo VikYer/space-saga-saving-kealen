@@ -1,21 +1,21 @@
 class World:
-    """Represents global game states (time and navigation)."""
+    """Represents global game states (current_time and navigation)."""
 
     def __init__(self) -> None:
-        """Initialize the world with default time and starting location."""
+        """Initialize the world with default current_time and starting location."""
         self.days = 0
-        self.time = 408
+        self.current_time = 408
         self.current_location = 'Start'
 
     def show_days(self) -> int:
         """Show how many days have passed since the start of game."""
-        days = (self.time // 60) // 24
+        days = (self.current_time // 60) // 24
         return days
 
     def show_time(self) -> str:
         """Show current tme in the game."""
-        h = (self.time // 60) % 24
-        m = self.time % 60
+        h = (self.current_time // 60) % 24
+        m = self.current_time % 60
         return f'{h:02}:{m:02}'
 
 
@@ -37,8 +37,11 @@ class Truck:
         """Initialize the truck with default truck condition, fuel, space available."""
         self.truck_condition = 100
         self.fuel = 100
-        self.truck_space = 10
         self.passenger = False
+        self.truck_space = 10
+        self.cargo = {'coal': 0, 'corn': 0}
+        self.avg_speed = 70 #Assume the average truck speed is 70 km/h
+        self.avg_fuel_consumption = 10 # Assume the average truck fuel consumption is 12 l/100km
 
 
 class GameState:

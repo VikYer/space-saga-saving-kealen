@@ -5,6 +5,7 @@ import json
 
 from textual.widgets._option_list import Option
 
+from engine import Engine
 from map import MAP, MAP_LEGEND
 
 
@@ -14,6 +15,7 @@ class SpaceSaga(App):
     def __init__(self, state, **kwargs):
         super().__init__(**kwargs)
         self.state = state
+        self.engine = Engine(state)
 
     options_stack = []
 
@@ -66,7 +68,7 @@ class SpaceSaga(App):
 
     def on_mount(self) -> None:
         self.sp = StatePanel(self.state_panel, self.state)
-        self.sp.update_game_state()
+        self.sp.update_state_panel()
         self.show_location('Spaceport')
 
     def show_location(self, location_name: str) -> None:
@@ -109,6 +111,9 @@ class SpaceSaga(App):
         if not option:
             return
 
+        effects = option.get('effects')
+        self.engine.apply_effect(effects)
+
         if 'goto' in option:
             self.show_location(option['goto'])
 
@@ -143,7 +148,7 @@ class SpaceSaga(App):
                 self._show_options(location.get('options'))
             return
 
-        self.sp.update_game_state()
+        self.sp.update_state_panel()
 
 
 class StatePanel:
@@ -172,11 +177,14 @@ class StatePanel:
         index = min(value // 20, 4)
         return levels[index]
 
-    def update_game_state(self) -> None:
+    def update_state_panel(self) -> None:
         """Update game state panel with current game state."""
         world = self.game_state.world
         hero = self.game_state.hero
         truck = self.game_state.truck
+
+        if truck.fuel <= 20:
+            fuel_color = 'red'
 
         text = (
             f'Days passed: {world.days}\n'
@@ -189,9 +197,8 @@ class StatePanel:
             f'Cash: {hero.cash}cr\n\n'
             f'TRUCK:\n'
             f'Truck condition: {truck.truck_condition}%\n'
-            f'Fuel: {truck.fuel}l\n'
+            f'Fuel: [{fuel_color}]{truck.fuel}[/{fuel_color}] l\n'
             f'Space available: {truck.truck_space}\n'
         )
 
         self.state_panel_widget.update(text)
-

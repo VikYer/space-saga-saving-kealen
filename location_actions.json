@@ -4,24 +4,36 @@
     "options": {
       "leave": {
         "text": "Go back",
-        "goto": "Gruber's Fuel Station"
+        "goto": "Gruber's Fuel Station",
+        "effects": {
+          "distance": 34
+        }
       }
     }
   },
   "Corn Farm": {
-    "description": "You stopped the car on the road to look around. Nearby is a large field with corn growing in it. At the edge of the field is a well-kept little house—obviously where the farmer lives.\n\nRight by the road is a sign:\n\"East direction - Hyenas hideout - 28 km,\nsouth direction - Bolt's garage - 36 km,\nwest direction - Iridium mines - 60 km\"",
+    "description": "You stopped the car on the road to look around. Nearby is a large field with corn growing in it. At the edge of the field is a well-kept little house—obviously where the farmer lives.\n\nRight by the road is a sign:\n\"East direction - Hyenas hideout - 28 km,\nsouth direction - Bolt's garage - 31 km,\nwest direction - Iridium mines - 60 km\"",
     "options": {
       "go_hyenas": {
         "text": "Go to the Hyenas",
-        "goto": "Hyenas Hideout"
+        "goto": "Hyenas Hideout",
+        "effects": {
+          "distance": 28
+        }
       },
       "go_iridium_mines": {
         "text": "Go to the Iridium mines",
-        "goto": "Forsaken Iridium Mines"
+        "goto": "Forsaken Iridium Mines",
+        "effects": {
+          "distance": 60
+        }
       },
       "go_to_garage": {
         "text": "Go to the Bolt's garage",
-        "goto": "Bolt's Garage"
+        "goto": "Bolt's Garage",
+        "effects": {
+          "distance": 31
+        }
       },
       "approach_farm": {
         "text": "Approach the farm",
@@ -75,20 +87,29 @@
       },
       "leave": {
         "text": "Return to the farm",
-        "goto": "Corn Farm"
+        "goto": "Corn Farm",
+        "effects": {
+          "distance": 28
+        }
       }
     }
   },
   "The Stingray Bar": {
-    "description": "You stopped on the road. The engine of your car kept beating a jazz rhythm under the hood. Everywhere on the side of the road were bottles, cans, and other trash. Nearby, you could see a wooden building, with drunken shouts and laughter coming from its windows. Looks like a cheap bar. Several jeeps and about ten motorcycles were parked next to it.\n\nLooking around again, you noticed a road sign:\n\"East road – Gruber's fuel station – 40 km,\nSouth road – Wreckyard – 36 km\"",
+    "description": "You stopped on the road. The engine of your car kept beating a jazz rhythm under the hood. Everywhere on the side of the road were bottles, cans, and other trash. Nearby, you could see a wooden building, with drunken shouts and laughter coming from its windows. Looks like a cheap bar. Several jeeps and about ten motorcycles were parked next to it.\n\nLooking around again, you noticed a road sign:\n\"East road – Gruber's fuel station – 35 km,\nSouth road – Wreckyard – 36 km\"",
     "options": {
       "go_gruber": {
         "text": "Go to the Gruber's fuel station",
-        "goto": "Gruber's Fuel Station"
+        "goto": "Gruber's Fuel Station",
+        "effects": {
+          "distance": 35
+        }
       },
       "go_wreckyard": {
         "text": "Go to the wreckyard",
-        "goto": "Wreckyard"
+        "goto": "Wreckyard",
+        "effects": {
+          "distance": 36
+        }
       },
       "go_bar": {
         "text": "Go to the bar",
@@ -229,23 +250,35 @@
     }
   },
   "Gruber's Fuel Station": {
-    "description": "Your truck stopped at the crossing of two roads. The asphalt here was very cracked, but you didn’t care. Nearby, you saw an old gas station fenced with barbed wire. At least, that’s what the sign said. A dirt road led to the building.\n\nNear the crossroads, you saw a road sign:\n\"North – Iridium mines – 36 km,\nSouth – Endless Rift – 60 km,\nWest – Bar – 36 km,\nEast – Bolt's Garage – 40 km\"",
+    "description": "Your truck stopped at the crossing of two roads. The asphalt here was very cracked, but you didn’t care. Nearby, you saw an old gas station fenced with barbed wire. At least, that’s what the sign said. A dirt road led to the building.\n\nNear the crossroads, you saw a road sign:\n\"North – Iridium mines – 34 km,\nSouth – Endless Rift – 57 km,\nWest – Bar – 35 km,\nEast – Bolt's Garage – 42 km\"",
     "options": {
       "go_iridium_mines": {
         "text": "Go to the forsaken iridium mines",
-        "goto": "Forsaken Iridium Mines"
+        "goto": "Forsaken Iridium Mines",
+        "effects": {
+          "distance": 34
+        }
       },
       "go_rift": {
         "text": "Go to the Endless Rift",
-        "goto": "The Endless Rift"
+        "goto": "The Endless Rift",
+        "effects": {
+          "distance": 57
+        }
       },
       "go_bar": {
         "text": "Go to the Stingray bar",
-        "goto": "The Stingray Bar"
+        "goto": "The Stingray Bar",
+        "effects": {
+          "distance": 35
+        }
       },
       "go_garage": {
         "text": "Go to the Bolt's garage",
-        "goto": "Bolt's Garage"
+        "goto": "Bolt's Garage",
+        "effects": {
+          "distance": 42
+        }
       },
       "go_gas_station": {
         "text": "Turn towards the fuel station",
@@ -283,23 +316,35 @@
     }
   },
   "Bolt's Garage": {
-    "description": "A strange area. All around were scattered pieces of metal and car parts. Nearby stood a wooden shack with a garage. Looks like this is the mechanic’s workshop.\n\nRight in front of you was a road sign made entirely from car parts:\n\"North – Corn farm – 36 km,\nSouth – Marshal – 24 km,\nWest – Fuel station – 64 km,\nEest – Brackenbridge – 60 km\"",
+    "description": "A strange area. All around were scattered pieces of metal and car parts. Nearby stood a wooden shack with a garage. Looks like this is the mechanic’s workshop.\n\nRight in front of you was a road sign made entirely from car parts:\n\"North – Corn farm – 31 km,\nSouth – Marshal – 28 km,\nWest – Fuel station – 42 km,\nEest – Brackenbridge – 22 km\"",
     "options": {
       "go_farm": {
         "text": "Go to the corn farm",
-        "goto": "Corn Farm"
+        "goto": "Corn Farm",
+        "effects": {
+          "distance": 31
+        }
       },
       "go_marshal": {
         "text": "Go to the marshal",
-        "goto": "Marshal"
+        "goto": "Marshal",
+        "effects": {
+          "distance": 28
+        }
       },
       "go_gruber": {
         "text": "Go to the Gruber's fuel station",
-        "goto": "Gruber's Fuel Station"
+        "goto": "Gruber's Fuel Station",
+        "effects": {
+          "distance": 42
+        }
       },
       "go_town": {
         "text": "Go to Brackenbridge",
-        "goto": "Brackenbridge"
+        "goto": "Brackenbridge",
+        "effects": {
+          "distance": 22
+        }
       },
       "go_garage": {
         "text": "Go to the garage",
@@ -342,15 +387,21 @@
     }
   },
   "Brackenbridge": {
-    "description": "You are standing on the edge of a big city (big for these lands), surrounded by a fence. From the highway, a good asphalt road leads into the city, with a sign that says: “Welcome to Brackenbridge.”\n\nRight nearby you noticed a road sign:\n“West – Bolt's garage – 96 km,\nSouth – Dex's Fuel Station – 24 km”",
+    "description": "You are standing on the edge of a big city (big for these lands), surrounded by a fence. From the highway, a good asphalt road leads into the city, with a sign that says: “Welcome to Brackenbridge.”\n\nRight nearby you noticed a road sign:\n“West – Bolt's garage – 22 km,\nSouth – Dex's Fuel Station – 97 km”",
     "options": {
       "go_garage": {
         "text": "Go to the Bolt's garage",
-        "goto": "Bolt's Garage"
+        "goto": "Bolt's Garage",
+        "effects": {
+          "distance": 22
+        }
       },
       "go_dex": {
         "text": "Go to the Dex's fuel station",
-        "goto": "Forest Lake"
+        "goto": "Forest Lake",
+        "effects": {
+          "distance": 36
+        }
       },
       "go_town": {
         "text": "Go to the town",
@@ -475,19 +526,28 @@
     }
   },
   "Wreckyard": {
-    "description": "Your car stopped at a fork in the road. To the northwest, a huge wreckyard rose up.\n\nA road sign with a skull on top said:\n\"North – Bar – 36 km,\nSouth – Erratic Rocks – 48 km,\nEast – The Endless Rift – 40 km\"",
+    "description": "Your car stopped at a fork in the road. To the northwest, a huge wreckyard rose up.\n\nA road sign with a skull on top said:\n\"North – Bar – 36 km,\nSouth – Erratic Rocks – 49 km,\nEast – The Endless Rift – 40 km\"",
     "options": {
       "go_bar": {
         "text": "Go to the Stingray Bar",
-        "goto": "The Stingray Bar"
+        "goto": "The Stingray Bar",
+        "effects": {
+          "distance": 36
+        }
       },
       "go_rocks": {
         "text": "Go to the Erratic Rocks",
-        "goto": "Erratic Rocks"
+        "goto": "Erratic Rocks",
+        "effects": {
+          "distance": 49
+        }
       },
       "go_rift": {
         "text": "Go to the Endless rift",
-        "goto": "The Endless Rift"
+        "goto": "The Endless Rift",
+        "effects": {
+          "distance": 40
+        }
       },
       "go_wreckyard": {
         "text": "Drive to the wreckyard",
@@ -542,24 +602,40 @@
     }
   },
   "The Endless Rift": {
-    "description": "You are standing in the middle of a huge rift, more like a giant crack in the Earth left after the explosion of a massive bomb. The road splits into two directions. Nearby stands a crooked sign with words painted in red.\n\n\"North – Fuel station – 40 km,\nSouth – Marshal – 20 km\"",
+    "description": "You are standing in the middle of a huge rift, more like a giant crack in the Earth left after the explosion of a massive bomb. The road splits into two directions. Nearby stands a crooked sign with words painted in red.\n\n\"North – Fuel station – 57 km,\nSouth – Marshal – 19 km, \nEast – Wreckyard – 40\"",
     "options": {
       "go_gruber": {
         "text": "Go to the Gruber's fuel station",
-        "goto": "Gruber's Fuel Station"
+        "goto": "Gruber's Fuel Station",
+        "effects": {
+          "distance": 57
+        }
       },
       "go_marshal": {
         "text": "Go to the marshal",
-        "goto": "Marshal"
+        "goto": "Marshal",
+        "effects": {
+          "distance": 19
+        }
+      },
+      "go_wreckyard": {
+        "text": "Go to the wreckyard",
+        "goto": "Wreckyard",
+        "effects": {
+          "distance": 40
+        }
       }
     }
   },
   "Spaceport": {
-    "description": "Your steel friend is standing at the entrance to the airport.\n\nThe road sign says:\n\"Eastern direction - Blue Rocks - 28 km\"",
+    "description": "Your steel friend is standing at the entrance to the airport.\n\nThe road sign says:\n\"Eastern direction - Erratic Rocks - 28 km\"",
     "options": {
       "go_erratic_rock": {
         "text": "Drive to Erratic Rocks",
-        "goto": "Erratic Rocks"
+        "goto": "Erratic Rocks",
+        "effects": {
+          "distance": 28
+        }
       },
       "go_spaceport": {
         "text": "Enter the spaceport field",
@@ -610,36 +686,54 @@
     }
   },
   "Erratic Rocks": {
-    "description": "Your car is driving along the highway. The Blue Rocks are already clearly visible.\n\nYou notice a rusty sign on the right. It seems to have been standing here for a thousand years!\n\"Northern direction - Military base (crossed out, \"Wreckyard\" written above) - 48 km,\nSouthern direction - Mining Settlement - 32 km,\nWestern direction - Spaceport - 28 km\"",
+    "description": "Your car is driving along the highway. The Erratic Rocks are already clearly visible.\n\nYou notice a rusty sign on the right. It seems to have been standing here for a thousand years!\n\"Northern direction - Military base (crossed out, \"Wreckyard\" written above) - 49 km,\nSouthern direction - Mining Settlement - 32 km,\nWestern direction - Spaceport - 28 km\"",
     "options": {
       "go_wreckyard": {
         "text": "Go to the military base (or wreckyard?)",
-        "goto": "Wreckyard"
+        "goto": "Wreckyard",
+        "effects": {
+          "distance": 49
+        }
       },
       "go_mines": {
         "text": "Go to the mining settlement",
-        "goto": "Mining Settlement"
+        "goto": "Mining Settlement",
+        "effects": {
+          "distance": 32
+        }
       },
       "go_spaceport": {
         "text": "Go to the Spaceport",
-        "goto": "Spaceport"
+        "goto": "Spaceport",
+        "effects": {
+          "distance": 28
+        }
       }
     }
   },
   "Marshal": {
-    "description": "Your truck is parked in a very scenic place. To the north, you see a huge sinkhole in the ground, cactuses are growing all around, and not far away stands a white two-story building with a torn flag on the roof. Looks like this is where the sheriff lives.\n\nNearby, you notice a surprisingly clean road sign:\n\"North – Endless Rift – 20 km,\nSouth – Dex's fuel station – 64 km,\nEast – Bolt's garage – 24 km\"",
+    "description": "Your truck is parked in a very scenic place. To the north, you see a huge sinkhole in the ground, cacti are growing all around, and not far away stands a white two-story building with a torn flag on the roof. Looks like this is where the sheriff lives.\n\nNearby, you notice a surprisingly clean road sign:\n\"North – Endless Rift – 19 km,\nSouth – Dex's fuel station – 40 km,\nEast – Bolt's garage – 28 km\"",
     "options": {
       "go_rift": {
         "text": "Go to the Endles Rift",
-        "goto": "The Endless Rift"
+        "goto": "The Endless Rift",
+        "effects": {
+          "distance": 19
+        }
       },
       "go_dex": {
         "text": "Go to the Dex's fuel station",
-        "goto": "Dex's Fuel Station"
+        "goto": "Dex's Fuel Station",
+        "effects": {
+          "distance": 40
+        }
       },
       "go_garage": {
         "text": "Go to the Bolt's garage",
-        "goto": "Bolt's Garage"
+        "goto": "Bolt's Garage",
+        "effects": {
+          "distance": 28
+        }
       },
       "go_marshal": {
         "text": "Drive up to the house",
@@ -711,15 +805,24 @@
     "options": {
       "go_town": {
         "text": "Go to the Brackenbridge",
-        "goto": "Brackenbridge"
+        "goto": "Brackenbridge",
+        "effects": {
+          "distance": 36
+        }
       },
       "go_dex": {
         "text": "Go to the Dex's fuel station",
-        "goto": "Dex's Fuel Station"
+        "goto": "Dex's Fuel Station",
+        "effects": {
+          "distance": 61
+        }
       },
       "go_lake": {
         "text": "Turn onto the dirt road",
         "description": "You followed the road and soon reached a small lake covered with green moss. The trip here was about fifteen kilometers.",
+        "effects": {
+          "distance": 15
+        },
         "options": {
           "swim": {
             "text": "Swim in the water for five minutes",
@@ -739,22 +842,31 @@
             "description": ""
           },
           "back": {
-            "text": "Go back"
+            "text": "Go back",
+            "effects": {
+              "distance": 15
+            }
           }
         }
       }
     }
   },
   "Mining Settlement": {
-    "description": "Your car is standing on a wide asphalt road. Right nearby rises a giant mountain, and at its foot lies a small miners’ settlement.\n\nAnd by the road, as always, stands a sign:\n“North – Erratic Rocks – 32 km,\nEast – Dex’s Fuel Station – 20 km”",
+    "description": "Your car is standing on a wide asphalt road. Right nearby rises a giant mountain, and at its foot lies a small miners’ settlement.\n\nAnd by the road, as always, stands a sign:\n“North – Erratic Rocks – 32 km,\nEast – Dex’s Fuel Station – 46 km”",
     "options": {
       "go_rocks": {
         "text": "Go to the Erratic Rocks",
-        "goto": "Erratic Rocks"
+        "goto": "Erratic Rocks",
+        "effects": {
+          "distance": 32
+        }
       },
       "go_dex": {
         "text": "Go to the Dex's fuel station",
-        "goto": "Dex's Fuel Station"
+        "goto": "Dex's Fuel Station",
+        "effects": {
+          "distance": 46
+        }
       },
       "go_mines": {
         "text": "Turn into the miners’ settlement",
@@ -862,19 +974,28 @@
     }
   },
   "Dex's Fuel Station": {
-    "description": "You stopped at a crossroads, thinking about where to go next. Looking around, you noticed a rather impressive building with the sign “Dex’s Fuel Station.” To be honest, the building looked more like a watchtower.\n\nOn a dry tree you saw a board with inscriptions:\n“West – Mines – 20 km,\nNorth – Marshal – 24 km,\nEast – the fine city of Brackenbridge – 96 km”",
+    "description": "You stopped at a crossroads, thinking about where to go next. Looking around, you noticed a rather impressive building with the sign “Dex’s Fuel Station.” To be honest, the building looked more like a watchtower.\n\nOn a dry tree you saw a board with inscriptions:\n“West – Mines – 46 km,\nNorth – Marshal – 40 km,\nEast – the fine city of Brackenbridge – 97 km”",
     "options": {
       "go_mines": {
         "text": "Go to the mining settlement",
-        "goto": "Mining Settlement"
+        "goto": "Mining Settlement",
+        "effects": {
+          "distance": 46
+        }
       },
       "go_marshal": {
         "text": "Go to the marshal",
-        "goto": "Marshal"
+        "goto": "Marshal",
+        "effects": {
+          "distance": 40
+        }
       },
       "go_lake": {
         "text": "Go to Brackenbridge",
-        "goto": "Forest Lake"
+        "goto": "Forest Lake",
+        "effects": {
+          "distance": 61
+        }
       },
       "go_dex": {
         "text": "Go to the fuel station",
