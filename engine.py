@@ -15,6 +15,20 @@ class Engine:
         """Initialize game engine with game state values."""
         self.state = state
 
+        # Allowed function list to call from location_actions.json
+        self.allowed_functions = {
+
+        }
+
+    def run_action(self, action_name: str, args: dict | None) -> None:
+        """Move the action with the name from the allow list."""
+        if not action_name:
+            return
+        fn = self.allowed_functions.get(action_name)
+        if not fn:
+            return
+        fn(args or {})
+
     def apply_effect(self, effects: dict | None) -> None:
         """Handle support base game state changes."""
         if not effects:
