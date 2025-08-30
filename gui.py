@@ -17,17 +17,17 @@ class SpaceSaga(App):
         self.state = state
         self.engine = Engine(state)
 
-    options_stack = []
+        try:
+            with open('location_actions.json', 'r', encoding='utf-8') as f:
+                self.state.locations = json.load(f)
+        except FileNotFoundError:
+            print('File with locations was not found.')
+            self.state.locations = {}
+        except json.JSONDecodeError as e:
+            print(f'Error in the file with locations: {e}')
+            self.state.locations = {}
 
-    try:
-        with open('location_actions.json', 'r', encoding='utf-8') as f:
-            locations = json.load(f)
-    except FileNotFoundError:
-        print('File with locations was not found.')
-        locations = {}
-    except json.JSONDecodeError as e:
-        print(f'Error in the file with locations: {e}')
-        locations = {}
+    options_stack = []
 
     CSS_PATH = 'style.tcss'
 
@@ -76,7 +76,7 @@ class SpaceSaga(App):
         self.state.world.current_location = location_name
         self.options_stack = []
 
-        location = self.locations.get(location_name)
+        location = self.state.locations.get(location_name)
         if not location:
             return
 
@@ -95,7 +95,7 @@ class SpaceSaga(App):
 
     def on_option_list_option_selected(self, event: OptionList.OptionSelected) -> None:
         """Handle option selection from command-panel."""
-        location = self.locations.get(self.state.world.current_location)
+        location = self.state.locations.get(self.state.world.current_location)
         if not location:
             return
 
@@ -112,8 +112,15 @@ class SpaceSaga(App):
         if not option:
             return
 
+        # Handle support base game state changes
         effects = option.get('effects')
         self.engine.apply_effect(effects)
+
+        # Handle specific game action
+        action_name = event.option_id
+        self.engine.run_action(action_name, effects)
+
+        self.sp.update_state_panel()
 
         if 'goto' in option:
             self.show_location(option['goto'])
@@ -149,8 +156,6 @@ class SpaceSaga(App):
                 self._show_options(location.get('options'))
             return
 
-        self.sp.update_state_panel()
-
 
 class StatePanel:
     """Handles rendering of game state into state panel."""
@@ -173,7 +178,7 @@ class StatePanel:
             levels = ['[red]starving[/red]', '[yellow]hungry[/yellow]', '[yellow]peckish[/yellow]', 'satisfied',
                       'well fed']
         else:
-            levels =['unknown']
+            levels = ['unknown']
 
         index = min(value // 20, 4)
         return levels[index]

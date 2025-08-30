@@ -14,37 +14,33 @@
   "Forsaken Iridium Mines - East": {
     "description": "You stop at a big T-shaped canyon. A small river shines at the bottom. Two bridges—on the western and northern sides of the ravine—are destroyed. A badly damaged truck stands nearby. It looks more spacious than yours.",
     "options": {
-      "inspect_truck": {
+      "go_farm": {
+        "text": "Go to the farm",
+        "goto": "Corn Farm",
+        "effects": {
+          "distance": 60
+        }
+      },
+      "inspect_lorry": {
         "text": "Inspect the lorry",
-        "description": "You started checking the car. You looked at the wheel, checked under the hood, and examined the tires. The car is in bad shape, almost falling apart, but maybe it can still be made to run... The problem is, you will need to strip your own truck for parts. That means you will lose your old machine forever, together with all the upgrades. So you must think carefully.\n\nAbout the broken truck: it has a fuel tank of 100 liters, a body that can carry 16 tons, but its top speed is lower than your truck’s. Because of this, fuel use will be higher.",
+        "description": "You started checking the car. You looked at the wheel, checked under the hood, and examined the tires. The car is in bad shape, almost falling apart, but maybe it can still be made to run... The problem is, you will need to strip your own truck for parts. That means you will lose your old machine forever, together with all the upgrades. So you must think carefully.\\n\\nAbout the broken truck: it has a fuel tank of 100 liters, a body that can carry 16 tons, but its top speed is lower than your truck’s. Because of this, fuel use will be higher.",
         "effects": {
           "time": 5
         },
-        "option": {
+        "options": {
           "repair_lorry": {
             "text": "Repair the lorry using parts from your old car",
-            "description": "You worked on the car for a long time, fixing part after part. Finally, you poured all the fuel from the old truck into the new iron beast. At first it wouldn’t start, but after more effort — miracle! The engine came alive.\n\nYou moved your things and cargo into the new truck. Then the old one suddenly rolled into the canyon — no brakes left. A pity, but you couldn’t use it anymore anyway.\n\nNow, in your new steel friend, you head back to the farm. It’s slower, but it can carry more.",
+            "description": "You worked on the car for a long time, fixing part after part. Finally, you poured all the fuel from the old truck into the new iron beast. At first it wouldn’t start, but after more effort — miracle! The engine came alive.\\n\\nYou moved your things and cargo into the new truck. Then the old one suddenly rolled into the canyon — no brakes left. A pity, but you couldn’t use it anymore anyway.\\n\\nNow, in your new steel friend, you head back to the farm. It’s slower, but it can carry more.",
             "effects": {
-              "time": 168
-            },
-            "options": {
-              "text": "Next",
-              "goto": "Corn Farm",
-              "effects": {
-                "distance": 60
-              }
+              "time": 168,
+              "load_change": 6,
+              "speed_change": -10,
+              "fuel_consumption_change": 2
             }
           },
           "back": {
-            "text": "Return to your truck"
+            "text": "Return to you car"
           }
-        }
-      },
-      "leave": {
-        "text": "Go to the farm",
-        "goto": "Corn farm",
-        "effects": {
-          "distance": 60
         }
       }
     }
@@ -61,7 +57,7 @@
       },
       "go_iridium_mines": {
         "text": "Go to the Iridium mines",
-        "goto": "Forsaken Iridium Mines",
+        "goto": "Forsaken Iridium Mines - East",
         "effects": {
           "distance": 60
         }
@@ -292,7 +288,7 @@
     "options": {
       "go_iridium_mines": {
         "text": "Go to the forsaken iridium mines",
-        "goto": "Forsaken Iridium Mines",
+        "goto": "Forsaken Iridium Mines - West",
         "effects": {
           "distance": 34
         }

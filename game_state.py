@@ -40,8 +40,8 @@ class Truck:
         self.passenger = False
         self.truck_space = 10
         self.cargo = {'coal': 0, 'corn': 0}
-        self.avg_speed = 70 #Assume the average truck speed is 70 km/h
-        self.avg_fuel_consumption = 10 # Assume the average truck fuel consumption is 12 l/100km
+        self.avg_speed = 70  # Assume the average truck speed is 70 km/h
+        self.avg_fuel_consumption = 10  # Assume the average truck fuel consumption is 12 l/100km
 
 
 class GameState:
@@ -52,3 +52,4 @@ class GameState:
         self.world = World()
         self.hero = Hero()
         self.truck = Truck()
+        self.locations = {}

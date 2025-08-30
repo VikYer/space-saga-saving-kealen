@@ -17,7 +17,7 @@ class Engine:
 
         # Allowed function list to call from location_actions.json
         self.allowed_functions = {
-
+            "repair_lorry": self._repair_lorry,
         }
 
     def run_action(self, action_name: str, args: dict | None) -> None:
@@ -60,3 +60,11 @@ class Engine:
         speed = self.state.truck.avg_speed - load * 2
         time = round((distance / speed) * 60)
         self.state.world.current_time += time
+
+    def _repair_lorry(self, args: dict)  -> None:
+        """"""
+        self.state.truck.truck_space += args.get('load_change')
+        self.state.truck.avg_speed += args.get('speed_change')
+        self.state.truck.avg_fuel_consumption += args.get('fuel_consumption_change')
+
+        self.state.locations['Forsaken Iridium Mines - East']
