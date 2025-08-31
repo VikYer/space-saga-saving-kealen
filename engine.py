@@ -62,9 +62,14 @@ class Engine:
         self.state.world.current_time += time
 
     def _repair_lorry(self, args: dict)  -> None:
-        """"""
-        self.state.truck.truck_space += args.get('load_change')
-        self.state.truck.avg_speed += args.get('speed_change')
-        self.state.truck.avg_fuel_consumption += args.get('fuel_consumption_change')
+        """
+        Hero get new truck (has other parameters) by repairing it with previous truck parts.
+        Changing locations description.
+        """
+        self.state.truck.truck_space += args.get('load_change', 0)
+        self.state.truck.avg_speed += args.get('speed_change', 0)
+        self.state.truck.avg_fuel_consumption += args.get('fuel_consumption_change', 0)
 
-        self.state.locations['Forsaken Iridium Mines - East']
+        self.state.invisible_options.add('inspect_lorry')
+        self.state.locations[self.state.world.current_location]['description'] = 'You stop at a big T-shaped canyon. A small river shines at the bottom. Two bridges — on the western and northern sides of the ravine — are destroyed. At the bottom of the canyon, you notice a wrecked lorry. It looks like it\'s yours...'
+        self.state.locations['Forsaken Iridium Mines - West']['description'] = 'You stop at a big T-shaped canyon. A small river shines at the bottom and, it seems, a broken car, looking like your old truck. Two bridges – to the east and to the north – are broken. It looks like one of them went to the iridium mines.'

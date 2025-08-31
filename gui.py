@@ -75,6 +75,7 @@ class SpaceSaga(App):
         """Display location description in quest-text and available commands in command-panel."""
         self.state.world.current_location = location_name
         self.options_stack = []
+        self.sp.update_state_panel()
 
         location = self.state.locations.get(location_name)
         if not location:
@@ -89,9 +90,13 @@ class SpaceSaga(App):
         """Helper: display command options in command-panel."""
         self.command_panel.clear_options()
         for opt_id, opt in options.items():
+            if hasattr(self.state, 'invisible_options') and opt_id in self.state.invisible_options:
+                continue
             self.command_panel.add_option(Option(opt.get('text'), opt_id))
-        self.set_focus(self.command_panel)
-        self.command_panel.highlighted = 0
+
+        if options:
+            self.set_focus(self.command_panel)
+            self.command_panel.highlighted = 0
 
     def on_option_list_option_selected(self, event: OptionList.OptionSelected) -> None:
         """Handle option selection from command-panel."""

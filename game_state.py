@@ -53,3 +53,4 @@ class GameState:
         self.hero = Hero()
         self.truck = Truck()
         self.locations = {}
+        self.invisible_options = set()
