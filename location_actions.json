@@ -77,7 +77,7 @@
       },
       "approach_farm": {
         "text": "Approach the farm",
-        "description": "Your car was parked right in front of the gate of the farmhouse. A young man in a hat with a cane in his teeth was looking at you from the window:\n \n – We currently have 35 tonnes of corn, packed in barrels, one tonne each. We sell them for 25 credits per barrel. And if you want to sell something yourself, sorry, we're not buying anything. It's all ours.’",
+        "description": "Your car was parked right in front of the gate of the farmhouse. A young man in a hat with a cane in his teeth was looking at you from the window:\n \n – We currently have 35 tonnes of corn, packed in barrels, one tonne each. We sell them for 25 credits per barrel. And if you want to sell something yourself, sorry, we're not buying anything. It's all ours.",
         "options": {
           "take_one_barrel": {
             "text": "Take one barrel of corn"
@@ -96,7 +96,7 @@
           },
           "ask_questions": {
             "text": "Ask a few questions",
-            "description": "– And what questions do you have?” – the big guy asked.",
+            "description": "– And what questions do you have? – the big guy asked.",
             "options": {
               "about_weapon": {
                 "text": "Do you have any weapons? I would like to buy",

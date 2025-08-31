@@ -13,10 +13,35 @@ class World:
         return days
 
     def show_time(self) -> str:
-        """Show current tme in the game."""
+        """Show current time in the game."""
         h = (self.current_time // 60) % 24
         m = self.current_time % 60
         return f'{h:02}:{m:02}'
+
+    class CornFarm:
+        """Represents corn farm and its state."""
+        def __init__(self) -> None:
+            """Initialize parameters of corn farm."""
+            self.offer = 35
+            self.price = 25
+
+        def can_buy(self, amount: int, hero, truck) -> bool:
+            """Checks hero available to buy a given amount of corn."""
+            if amount > self.offer:
+                return False
+            if hero.cash < amount * self.price:
+                return False
+            if truck.truck_space < amount:
+                return False
+            return True
+
+        def buy(self, amount: int, hero, truck) -> None:
+            """Make the purchase if it's possible."""
+            if not self.can_buy(amount, hero, truck):
+                return
+            self.offer -= amount
+            hero.cash -= amount * self.price
+            truck.truck_space -= amount
 
 
 class Hero:
