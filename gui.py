@@ -144,8 +144,12 @@ class SpaceSaga(App):
         if 'goto' in option:
             self.show_location(option['goto'])
 
+        # Check whether the description is generated dynamically
         if 'description' in option:
-            self.quest_text.update(option['description'])
+            if option['description'] == 'dynamic':
+                self.quest_text.update(self._get_dynamic_description(event.option_id))
+            else:
+                self.quest_text.update(option['description'])
 
         if 'options' in option:
             self.options_stack.append(event.option_id)
@@ -164,7 +168,10 @@ class SpaceSaga(App):
                     options = parent_option.get('options')
 
                 if parent_option and 'description' in parent_option:
-                    self.quest_text.update(parent_option['description'])
+                    if parent_option['description'] == 'dynamic':
+                        self.quest_text.update(self._get_dynamic_description(self.options_stack[-1]))
+                    else:
+                        self.quest_text.update(parent_option['description'])
                 else:
                     self.quest_text.update(location.get('description'))
 
@@ -174,6 +181,20 @@ class SpaceSaga(App):
                 self.quest_text.update(location.get("description"))
                 self._show_options(location.get('options'))
             return
+
+    def _get_dynamic_description(self, option_name: str) -> str:
+        """Helper: generate a context-sensitive description text for the quest panel."""
+        if option_name.startswith('buy_corn') or option_name == 'approach_farm':
+            return (
+                f'Your car was parked right in front of the gate of the farmhouse. '
+                f'A young man in a hat with a cane in his teeth was looking at you from the window:\n\n'
+                f'We currently have {self.state.world.corn_farm.offer} tonnes '
+                f'of corn, packed in barrels, one tonne each. '
+                f'We sell them for {self.state.world.corn_farm.price} credits per barrel. '
+                f'And if you want to sell something yourself, sorry, '
+                f'we\'re not buying anything. We have everything we need.'
+            )
+        return ''
 
 
 class StatePanel:
@@ -222,7 +243,7 @@ class StatePanel:
             f'TRUCK:\n'
             f'Truck condition: {truck.truck_condition}%\n'
             f'Fuel: [{fuel_color}]{truck.fuel}[/{fuel_color}] l\n'
-            f'Space available: {truck.truck_space}\n'
+            f'Available space: {truck.truck_space}\n'
         )
 
         for goods, amount in truck.cargo.items():
