@@ -6,6 +6,7 @@ class World:
         self.days = 0
         self.current_time = 408
         self.current_location = 'Start'
+        self.corn_farm = self.CornFarm()
 
     def show_days(self) -> int:
         """Show how many days have passed since the start of game."""
@@ -20,6 +21,7 @@ class World:
 
     class CornFarm:
         """Represents corn farm and its state."""
+
         def __init__(self) -> None:
             """Initialize parameters of corn farm."""
             self.offer = 35
@@ -42,6 +44,7 @@ class World:
             self.offer -= amount
             hero.cash -= amount * self.price
             truck.truck_space -= amount
+            truck.cargo['corn'] += amount
 
 
 class Hero:

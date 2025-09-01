@@ -17,7 +17,12 @@ class Engine:
 
         # Allowed function list to call from location_actions.json
         self.allowed_functions = {
-            "repair_lorry": self._repair_lorry,
+            'repair_lorry': self._repair_lorry,
+            'buy_corn_1': self._buy_corn,
+            'buy_corn_2': self._buy_corn,
+            'buy_corn_3': self._buy_corn,
+            'buy_corn_5': self._buy_corn,
+            'buy_corn_10': self._buy_corn,
         }
 
     def run_action(self, action_name: str, args: dict | None) -> None:
@@ -61,7 +66,7 @@ class Engine:
         time = round((distance / speed) * 60)
         self.state.world.current_time += time
 
-    def _repair_lorry(self, args: dict)  -> None:
+    def _repair_lorry(self, args: dict) -> None:
         """
         Hero get new truck (has other parameters) by repairing it with previous truck parts.
         Changing locations description.
@@ -71,5 +76,12 @@ class Engine:
         self.state.truck.avg_fuel_consumption += args.get('fuel_consumption_change', 0)
 
         self.state.invisible_options.add('inspect_lorry')
-        self.state.locations[self.state.world.current_location]['description'] = 'You stop at a big T-shaped canyon. A small river shines at the bottom. Two bridges — on the western and northern sides of the ravine — are destroyed. At the bottom of the canyon, you notice a wrecked lorry. It looks like it\'s yours...'
-        self.state.locations['Forsaken Iridium Mines - West']['description'] = 'You stop at a big T-shaped canyon. A small river shines at the bottom and, it seems, a broken car, looking like your old truck. Two bridges – to the east and to the north – are broken. It looks like one of them went to the iridium mines.'
+        self.state.locations[self.state.world.current_location][
+            'description'] = 'You stop at a big T-shaped canyon. A small river shines at the bottom. Two bridges — on the western and northern sides of the ravine — are destroyed. At the bottom of the canyon, you notice a wrecked lorry. It looks like it\'s yours...'
+        self.state.locations['Forsaken Iridium Mines - West'][
+            'description'] = 'You stop at a big T-shaped canyon. A small river shines at the bottom and, it seems, a broken car, looking like your old truck. Two bridges – to the east and to the north – are broken. It looks like one of them went to the iridium mines.'
+
+    def _buy_corn(self, args: dict) -> None:
+        """Corn purchase on the farm."""
+        amount = args.get('corn')
+        self.state.world.corn_farm.buy(amount, self.state.hero, self.state.truck)

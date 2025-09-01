@@ -90,9 +90,22 @@ class SpaceSaga(App):
         """Helper: display command options in command-panel."""
         self.command_panel.clear_options()
         for opt_id, opt in options.items():
+
+            disabled = False
+
             if hasattr(self.state, 'invisible_options') and opt_id in self.state.invisible_options:
                 continue
-            self.command_panel.add_option(Option(opt.get('text'), opt_id))
+
+            # Shop options for corn farm location
+            if self.state.world.current_location == "Corn Farm":
+                if opt_id.startswith('buy_corn'):
+                    amount = int(opt_id.split('_')[-1])
+                    if not self.state.world.corn_farm.can_buy(amount,
+                                                              self.state.hero,
+                                                              self.state.truck):
+                        disabled = True
+
+            self.command_panel.add_option(Option(opt.get('text'), opt_id, disabled=disabled))
 
         if options:
             self.set_focus(self.command_panel)
@@ -126,6 +139,7 @@ class SpaceSaga(App):
         self.engine.run_action(action_name, effects)
 
         self.sp.update_state_panel()
+        self._show_options(options)
 
         if 'goto' in option:
             self.show_location(option['goto'])
@@ -204,11 +218,15 @@ class StatePanel:
             f'Health: {self._grade('health', hero.health)}\n'
             f'Fatigue: {self._grade('fatigue', hero.fatigue)}\n'
             f'Hanger: {self._grade('hanger', hero.hanger)}\n'
-            f'Cash: {hero.cash}cr\n\n'
+            f'Cash: {hero.cash} cr\n\n'
             f'TRUCK:\n'
             f'Truck condition: {truck.truck_condition}%\n'
             f'Fuel: [{fuel_color}]{truck.fuel}[/{fuel_color}] l\n'
             f'Space available: {truck.truck_space}\n'
         )
+
+        for goods, amount in truck.cargo.items():
+            if amount > 0:
+                text += f'{goods.capitalize()}: {amount} t\n'
 
         self.state_panel_widget.update(text)

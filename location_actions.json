@@ -79,20 +79,40 @@
         "text": "Approach the farm",
         "description": "Your car was parked right in front of the gate of the farmhouse. A young man in a hat with a cane in his teeth was looking at you from the window:\n \n – We currently have 35 tonnes of corn, packed in barrels, one tonne each. We sell them for 25 credits per barrel. And if you want to sell something yourself, sorry, we're not buying anything. It's all ours.",
         "options": {
-          "take_one_barrel": {
-            "text": "Take one barrel of corn"
+          "buy_corn_1": {
+            "text": "Take one barrel of corn",
+            "effects": {
+              "corn": 1,
+              "time": 1
+            }
           },
-          "take_two_barrels": {
-            "text": "Take two barrels of corn"
+          "buy_corn_2": {
+            "text": "Take two barrels of corn",
+            "effects": {
+              "corn": 2,
+              "time": 2
+            }
           },
-          "take_three_barrels": {
-            "text": "Take three barrel of corn"
+          "buy_corn_3": {
+            "text": "Take three barrels of corn",
+            "effects": {
+              "corn": 3,
+              "time": 3
+            }
           },
-          "fill_up_space": {
-            "text": "Stock up on corn to the max"
+          "buy_corn_5": {
+            "text": "Take five barrels of corn",
+            "effects": {
+              "corn": 5,
+              "time": 5
+            }
           },
-          "take_all": {
-            "text": "Take all the remaining corn"
+          "buy_corn_10": {
+            "text": "Take ten barrels of corn",
+            "effects": {
+              "corn": 10,
+              "time": 10
+            }
           },
           "ask_questions": {
             "text": "Ask a few questions",
