@@ -77,9 +77,19 @@ class Engine:
 
         self.state.invisible_options.add('inspect_lorry')
         self.state.locations[self.state.world.current_location][
-            'description'] = 'You stop at a big T-shaped canyon. A small river shines at the bottom. Two bridges — on the western and northern sides of the ravine — are destroyed. At the bottom of the canyon, you notice a wrecked lorry. It looks like it\'s yours...'
+            'description'] = (
+            f'You stop at a big T-shaped canyon. A small river shines at the bottom. '
+            f'Two bridges — on the western and northern sides of the ravine — are destroyed. '
+            f'At the bottom of the canyon, you notice a wrecked lorry. '
+            f'It looks like it\'s yours...'
+        )
         self.state.locations['Forsaken Iridium Mines - West'][
-            'description'] = 'You stop at a big T-shaped canyon. A small river shines at the bottom and, it seems, a broken car, looking like your old truck. Two bridges – to the east and to the north – are broken. It looks like one of them went to the iridium mines.'
+            'description'] = (
+            'You stop at a big T-shaped canyon. A small river shines at the bottom and, '
+            'it seems, a broken car, looking like your old truck. Two bridges – '
+            'to the east and to the north – are broken. '
+            'It looks like one of them went to the iridium mines.'
+        )
 
     def _buy_corn(self, args: dict) -> None:
         """Corn purchase on the farm."""
