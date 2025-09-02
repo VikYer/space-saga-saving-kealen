@@ -47,11 +47,16 @@ class Engine:
         if 'time' in effects:
             self.state.world.current_time += effects['time']
 
-        if 'fatigue' in effects:
-            self.state.hero.fatigue += effects['fatigue']
-
         if 'cash' in effects:
             self.state.hero.cash += effects['cash']
+
+        # Hero health, fatigue and hanger max level is 100
+        if 'health' in effects:
+            self.state.hero.health = min(self.state.hero.health + effects['health'], 100)
+        if 'fatigue' in effects:
+            self.state.hero.fatigue = min(self.state.hero.fatigue + effects['fatigue'], 100)
+        if 'hanger' in effects:
+            self.state.hero.hanger = min(self.state.hero.hanger + effects['hanger'], 100)
 
     def _drive(self, distance: int) -> None:
         """
