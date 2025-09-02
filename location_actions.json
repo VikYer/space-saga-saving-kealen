@@ -182,35 +182,35 @@
         "options": {
           "go_to_barman": {
             "text": "Go to the bartender",
-            "description": "– Did you want something? – the bartender asked.\n\nBehind him you notice a sign:\nFried meat with mushrooms – 6 credits\nA bed for 6 hours – 10 credits (for Stingray: 5 credits)",
+            "description": "– Did you want something? – the bartender asked.\n\nBehind him you notice a sign:\n\"Fried meat with mushrooms – 6 credits\nA bed for 6 hours – 10 credits (for Stingrays: 5 credits)\"",
             "options": {
               "ask_questions": {
                 "text": "I want to ask a few questions…",
-                "description": "So, what do you want to ask me?",
+                "description": "– So, what do you want to ask me?",
                 "options": {
                   "about_place": {
                     "text": "What is this place?",
-                    "description": "Wow, man! This is a bar, a tavern, or whatever you want to call it. The Stingrays hang out here."
+                    "description": "– Wow, man! This is a bar, a tavern, or whatever you want to call it. The Stingrays hang out here."
                   },
                   "about_selling": {
                     "text": "Do you sell anything?",
-                    "description": "Us?! We sell alcohol and roasted meat. That’s all. If you want to sell us something, we don’t buy anything."
+                    "description": "– Us?! We sell alcohol and roasted meat. That’s all. If you want to sell us something, we don’t buy anything."
                   },
                   "about_people": {
                     "text": "Who is the group at the counter?",
-                    "description": "They are guys from the Stingrays gang. Can’t you see?"
+                    "description": "– They are guys from the Stingrays gang. Can’t you see?"
                   },
                   "about_hyenas": {
                     "text": "Where can I find the Hyenas?",
-                    "description": "Ha-ha-ha!!! Anywhere, but not here…"
+                    "description": "– Ha-ha-ha!!! Anywhere, but not here…"
                   },
                   "about_drox": {
                     "text": "Who is the guy sleeping on the table in the corner?",
-                    "description": "That’s Zarven. He spent all his money in my bar and now can’t go back to Brackenbridge. But actually, he’s a good guy. You don’t see many like him among the droxes!"
+                    "description": "– That’s Zarven. He spent all his money in my bar and now can’t go back to Brackenbridge. But actually, he’s a good guy. You don’t see many like him among the droxes!"
                   },
                   "about_meat": {
                     "text": "What kind of meat do you roast? From what animal?",
-                    "description": "O-o-o, man! You better not know…"
+                    "description": "– O-o-o, man! You better not know…"
                   },
                   "back": {
                     "text": "I have no more questions."
@@ -219,21 +219,29 @@
               },
               "drinks": {
                 "text": "What drinks do you have?",
-                "description": "For drinks we have:\na glass of port wine – 3 credits\na glass of Moonberry Drink (non-alcoholic) – 4 credits.",
+                "description": "– For drinks we have:\na glass of port wine – 3 credits\na glass of Moonberry Drink (non-alcoholic) – 4 credits.",
                 "options": {
-                  "drink_wine": {
+                  "drink_port_wine": {
                     "text": "Drink a glass of port wine (3 Credits)",
-                    "description": "The bartender poured a golden drink from the bottle. You drank the glass in one gulp. It felt like fire went through your stomach. Warmth spread in your body… Then you felt sick, but luckily you held it back."
+                    "description": "The bartender poured a golden drink from the bottle. You drank the glass in one gulp. It felt like fire went through your stomach. Warmth spread in your body… Then you felt sick, but luckily you held it back.",
+                    "effects": {
+                      "fatigue": -10,
+                      "cash": -3
+                    }
                   },
                   "drink_cocktail": {
                     "text": "Take a Moonberry Drink (4 credits)",
-                    "description": "The bartender filled the glass with a dark red drink. It tasted nice and even a little refreshing. After you finished it, you put the glass back on the counter."
+                    "description": "The bartender filled the glass with a dark red drink. It tasted nice and even a little refreshing. After you finished it, you put the glass back on the counter.",
+                    "effects": {
+                      "fatigue": -5,
+                      "cash": -4
+                    }
                   },
-                  "treat_everyone": {
+                  "buy_drinks_everyone": {
                     "text": "I want to buy drinks for everyone!",
-                    "description": "So, does our road king want to celebrate some lucky trip, or is it just a kind gesture? Anyway, this will cost you 50 credits, my friend. Well, what do you say? – the bartender said.",
+                    "description": "– So, does our road king want to celebrate some lucky trip, or is it just a kind gesture? Anyway, this will cost you 50 credits, my friend. Well, what do you say? – the bartender said.",
                     "options": {
-                      "pay": {
+                      "treat_everyone": {
                         "text": "Okay. I’ll pay for everyone!",
                         "description": "?"
                       },
@@ -278,10 +286,11 @@
           },
           "go_to_drox": {
             "text": "Go to the sleeping drox",
-            "description": "Huh? What? – the drox got worried. – Listen. You look like a driver. Can you take me to Brakenbridge? I’ll be grateful! Don’t worry. I’m in my sleep period now. I’ll sleep in the seat – you won’t even notice me. And when we arrive, shake me well. I’ll wake up. So? Will you give me a ride?",
+            "description": "– Huh? What? – the drox got worried. – Listen. You look like a driver. Can you take me to Brakenbridge? I’ll be grateful! Don’t worry. I’m in my sleep period now. I’ll sleep in the seat – you won’t even notice me. And when we arrive, shake me well. I’ll wake up. So? Will you give me a ride?",
             "options": {
               "accept": {
                 "text": "Of course, no problem!",
+                "description": "– Thanks, brother. Don’t worry. I will sleep right away in the cabin and will not disturb you.\n\nYou walked the drox to the truck and locked him in the cabin. And true — he fell asleep at once! But you still took out the spark plug. Just in case. After that, you went back to the bar.",
                 "options": {
                   "back": {
                     "text": "Next",
@@ -289,7 +298,7 @@
                   }
                 }
               },
-              "reject": {
+              "back": {
                 "text": "Sorry, I’m busy with other things right now."
               }
             }

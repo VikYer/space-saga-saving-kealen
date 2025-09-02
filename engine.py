@@ -17,7 +17,7 @@ class Engine:
 
         # Allowed function list to call from location_actions.json
         self.allowed_functions = {
-            'repair_lorry': self._repair_lorry,
+            'repair_lorry': self._get_new_truck,
             'buy_corn_1': self._buy_corn,
             'buy_corn_2': self._buy_corn,
             'buy_corn_3': self._buy_corn,
@@ -47,6 +47,12 @@ class Engine:
         if 'time' in effects:
             self.state.world.current_time += effects['time']
 
+        if 'fatigue' in effects:
+            self.state.hero.fatigue += effects['fatigue']
+
+        if 'cash' in effects:
+            self.state.hero.cash += effects['cash']
+
     def _drive(self, distance: int) -> None:
         """
         Simulate driving the truck for a given distance.
@@ -66,7 +72,7 @@ class Engine:
         time = round((distance / speed) * 60)
         self.state.world.current_time += time
 
-    def _repair_lorry(self, args: dict) -> None:
+    def _get_new_truck(self, args: dict) -> None:
         """
         Hero get new truck (has other parameters) by repairing it with previous truck parts.
         Changing locations description.

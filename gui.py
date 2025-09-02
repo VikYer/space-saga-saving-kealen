@@ -96,7 +96,7 @@ class SpaceSaga(App):
             if hasattr(self.state, 'invisible_options') and opt_id in self.state.invisible_options:
                 continue
 
-            # Shop options for corn farm location
+            # Show options for corn farm location
             if self.state.world.current_location == "Corn Farm":
                 if opt_id.startswith('buy_corn'):
                     amount = int(opt_id.split('_')[-1])
@@ -104,6 +104,16 @@ class SpaceSaga(App):
                                                               self.state.hero,
                                                               self.state.truck):
                         disabled = True
+
+            # Show option for the Stingray bar location
+            if self.state.world.current_location == 'The Stingray Bar':
+                if opt_id == 'drink_port_wine' and self.state.hero.cash < 3:
+                    disabled = True
+                if opt_id == 'drink_cocktail' and self.state.hero.cash < 4:
+                    disabled = True
+                if opt_id == 'treat_everyone' and self.state.hero.cash < 50:
+                    disabled = True
+
 
             self.command_panel.add_option(Option(opt.get('text'), opt_id, disabled=disabled))
 
