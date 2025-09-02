@@ -219,18 +219,24 @@ class StatePanel:
     def _grade(param: str, value: int) -> str:
         """Helper: return a textual level for health, fatigue and hunger."""
         if param == 'health':
-            levels = ['[red]critical[/red]', '[yellow]weak[/yellow]', '[yellow]wounded[/yellow]', 'healthy',
-                      'full strength']
+            levels = ['[red]dying[/red]', '[red]critical[/red]',
+                      '[yellow]weak[/yellow]', '[yellow]wounded[/yellow]',
+                      'hurt', 'scratched', 'fine',
+                      'healthy', 'strong', 'perfect']
         elif param == 'fatigue':
-            levels = ['[red]exhausted[/red]', '[yellow]very tired[/yellow]', '[yellow]weary[/yellow]', 'rested',
-                      'energetic']
+            levels = ['[red]unconscious[/red]', '[red]barely awake[/red]',
+                      '[yellow]drained[/yellow]', '[yellow]exhausted[/yellow]',
+                      'sleepy', 'tired', 'okay',
+                      'active', 'rested', 'fresh']
         elif param == 'hanger':
-            levels = ['[red]starving[/red]', '[yellow]hungry[/yellow]', '[yellow]peckish[/yellow]', 'satisfied',
-                      'well fed']
+            levels = ['[red]dying of hunger[/red]', '[red]faint[/red]',
+                      '[yellow]weak from hanger[/yellow]', '[yellow]starving[/yellow]',
+                      'very hangry', 'hungry', 'peckish',
+                      'fed', 'satisfied', 'full']
         else:
             levels = ['unknown']
 
-        index = min(value // 20, 4)
+        index = min(value // 10, 9)
         return levels[index]
 
     def update_state_panel(self) -> None:
@@ -239,7 +245,7 @@ class StatePanel:
         hero = self.game_state.hero
         truck = self.game_state.truck
 
-        fuel_color = 'red' if truck.fuel <= 20 else 'white'
+        fuel_color = 'red' if truck.fuel <= 25 else 'white'
 
         text = (
             f'Days passed: {world.days}\n'
