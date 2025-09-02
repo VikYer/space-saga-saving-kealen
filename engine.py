@@ -1,3 +1,5 @@
+import random
+
 from game_state import GameState
 
 
@@ -106,3 +108,34 @@ class Engine:
         """Corn purchase on the farm."""
         amount = args.get('corn')
         self.state.world.corn_farm.buy(amount, self.state.hero, self.state.truck)
+
+    def _play_slot_machine(self) -> str:
+        """
+        Simulates playing slot machine.
+        Machine reels has numbers from 1 to 7.
+        Double match - win 2 cr.
+        Triple match - win 25 cr.
+        """
+        first_reels = random.randint(1, 7)
+        second_reels = random.randint(1, 7)
+        third_reels = random.randint(1, 7)
+
+        result = f'{first_reels} <---> {second_reels} <---> {third_reels}\n\n'
+
+        if first_reels == second_reels == third_reels:
+            self.state.hero.cash += 25
+            return (
+                f'{result}'
+                f'A triple match! 25 credits dropped into the tray.'
+            )
+        elif first_reels == second_reels or second_reels == third_reels or first_reels == third_reels:
+            self.state.hero.cash += 2
+            return (
+                f'{result}'
+                f'A double match! 2 credits dropped into the tray.'
+            )
+        else:
+            return (
+                f'{result}'
+                f'You have lost.'
+            )

@@ -207,6 +207,13 @@ class SpaceSaga(App):
                 f'And if you want to sell something yourself, sorry, '
                 f'we\'re not buying anything. We have everything we need.'
             )
+        if option_name == 'play_slot_machine':
+            result = self.engine._play_slot_machine()
+            self.sp.update_state_panel()
+            return (
+                f'The reels spun wildly and stopped at the combination:\n\n'
+                f'{result}'
+            )
         return ''
 
 

@@ -290,7 +290,7 @@
           },
           "go_to_rockers": {
             "text": "Approach the group of rockers",
-            "description": "Hi! – you said friendly.\n\nGet out of here, idiot! – shouted a big guy with a stingray tattoo on his forehead.\n\nHmm… You can’t approach guys like this easily.",
+            "description": "– Hi! – you said friendly.\n\n– Get out of here, idiot! – shouted a big guy with a stingray tattoo on his forehead.\n\nHmm… You can’t approach guys like this easily.",
             "options": {
               "back": {
                 "text": "Next"
@@ -307,7 +307,7 @@
                 "options": {
                   "back": {
                     "text": "Next",
-                    "description": "Thanks, brother. Don’t worry. I’ll fall asleep in the cab right away and won’t bother you.\n\nYou led the drox to the truck and locked him in the cab. And indeed – he fell asleep immediately! But you still took out the ignition key. Just in case. After that, you returned to the bar."
+                    "description": "– Thanks, brother. Don’t worry. I’ll fall asleep in the cab right away and won’t bother you.\n\nYou led the drox to the truck and locked him in the cab. And indeed – he fell asleep immediately! But you still took out the ignition key. Just in case. After that, you returned to the bar."
                   }
                 }
               },
@@ -316,13 +316,16 @@
               }
             }
           },
-          "go_to_automat": {
-            "text": "Walk to the arcade machine",
+          "go_to_slot_machine": {
+            "text": "Walk to the slot machine",
             "description": "On the slot machine, there is a metal sign:\nInsert 1 credit and pull the handle.\nDouble number match – win 2 credits,\nTriple number match – win 25 credits.",
             "options": {
-              "play": {
+              "play_slot_machine": {
                 "text": "Play",
-                "description": "Барабаны бешено закрутились и остановились на комбинации:\n \n 4 -==- 4 -==- 1\n \n Двойная комбинация! В лоток вывалились 2 червонца."
+                "description": "dynamic",
+                "effects": {
+                  "cash": -1
+                }
               },
               "back": {
                 "text": "Step away from the machine"
