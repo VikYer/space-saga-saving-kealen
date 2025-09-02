@@ -113,7 +113,10 @@ class SpaceSaga(App):
                     disabled = True
                 if opt_id == 'treat_everyone' and self.state.hero.cash < 50:
                     disabled = True
-
+                if opt_id == 'eat_mushrooms_with_meat' and self.state.hero.cash < 6:
+                    disabled = True
+                if opt_id == 'sleep' and self.state.hero.cash < 10:
+                    disabled = True
 
             self.command_panel.add_option(Option(opt.get('text'), opt_id, disabled=disabled))
 

@@ -249,21 +249,34 @@
                         "text": "Maybe this is not for me"
                       }
                     }
+                  },
+                  "back": {
+                    "text": "I'm not really interested in drinks right now"
                   }
                 }
               },
-              "eat": {
+              "eat_mushrooms_with_meat": {
                 "text": "I would like to eat. Give me fried meat with mushrooms…",
+                "description": "– Here you go, – said the bartender and put in front of you a round metal plate with a piece of fried meat, covered with pieces of mushrooms. There were no utensils, so you had to eat with your hands. The taste was quite okay. At least it stopped your hunger well.",
+                "effects" : {
+                  "hanger": 80,
+                  "time": 5,
+                  "cash": -6
+                },
                 "options": {
                   "back": {
-                    "text": "Next",
-                    "description": "Here you go, – said the bartender and put in front of you a round metal plate with a piece of fried meat, covered with pieces of mushrooms. There were no utensils, so you had to eat with your hands. The taste was quite okay. At least it stopped your hunger well."
+                    "text": "Next"
                   }
                 }
               },
               "sleep": {
                 "text": "I need to sleep. Give me one bed…",
-                "description": "Of course. Follow me, – said the bartender, signaling a boy.\nThe boy took you to the second floor, to a room where a couple of people were already sleeping on separate beds, and showed you your bed. After giving the money, you collapsed on the bed and fell asleep…\n\nYou woke up on your own. You feel much better now. Looking at the clock above the door, you see that your sleep time is almost over. It’s time to go downstairs.",
+                "description": "– Of course. Follow me, – said the bartender, signaling a boy.\nThe boy took you to the second floor, to a room where a couple of people were already sleeping on separate beds, and showed you your bed. After giving the money, you collapsed on the bed and fell asleep…\n\nYou woke up on your own. You feel much better now. Looking at the clock above the door, you see that your sleep time is almost over. It’s time to go downstairs.",
+                "effects": {
+                  "fatigue": 100,
+                  "time": 360,
+                  "cash": -10
+                },
                 "options": {
                   "back": {
                     "text": "Next"
