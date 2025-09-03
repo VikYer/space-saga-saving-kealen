@@ -301,13 +301,13 @@
             "text": "Go to the sleeping drox",
             "description": "– Huh? What? – the drox got worried. – Listen. You look like a driver. Can you take me to Brakenbridge? I’ll be grateful! Don’t worry. I’m in my sleep period now. I’ll sleep in the seat – you won’t even notice me. And when we arrive, shake me well. I’ll wake up. So? Will you give me a ride?",
             "options": {
-              "accept": {
+              "take_drox": {
                 "text": "Of course, no problem!",
-                "description": "– Thanks, brother. Don’t worry. I will sleep right away in the cabin and will not disturb you.\n\nYou walked the drox to the truck and locked him in the cabin. And true — he fell asleep at once! But you still took out the spark plug. Just in case. After that, you went back to the bar.",
+                "description": "– Thanks, brother. Don’t worry. I will sleep right away in the cabin and will not disturb you.\n\nYou walked the drox to the truck and locked him in the cabin. And true — he fell asleep at once! But you still took out the spark plug. Just in case.",
                 "options": {
-                  "back": {
+                  "take_drox_to_car": {
                     "text": "Next",
-                    "description": "– Thanks, brother. Don’t worry. I’ll fall asleep in the cab right away and won’t bother you.\n\nYou led the drox to the truck and locked him in the cab. And indeed – he fell asleep immediately! But you still took out the ignition key. Just in case. After that, you returned to the bar."
+                    "goto": "The Stingray Bar"
                   }
                 }
               },

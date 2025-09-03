@@ -126,6 +126,11 @@ class SpaceSaga(App):
 
     def on_option_list_option_selected(self, event: OptionList.OptionSelected) -> None:
         """Handle option selection from command-panel."""
+
+        if event.option_id == 'drox_delivered':
+            self.show_location('Brackenbridge')
+            return
+
         location = self.state.locations.get(self.state.world.current_location)
         if not location:
             return
@@ -153,6 +158,26 @@ class SpaceSaga(App):
 
         self.sp.update_state_panel()
         self._show_options(options)
+
+        # Drox delivery quest completion
+        if self.state.world.current_location == 'Brackenbridge':
+            if 'drox' in self.state.truck.passenger:
+                self.quest_text.update(
+                    f'You stopped in the city square and tried to wake up the drox. '
+                    f'He didn’t wake at first, so you shook him for five minutes until he opened his eyes.\n'
+                    f'– What? What is it? – he asked sleepily.\n'
+                    f'– We\'re here!'
+                    f'– Really? Thanks, brother. I came to work at the factory now, '
+                    f'no more wild life for me. So take my trophy shotgun and six shells — it may help you.\n'
+                    f'He handed you a small shotgun with ammo, said goodbye, '
+                    f'and walked toward the factory until he disappeared.'
+                )
+                self.engine._drox_delivered()
+                self.command_panel.clear_options()
+                self.command_panel.add_option(Option('Next', 'drox_delivered'))
+                self.set_focus(self.command_panel)
+                self.command_panel.highlighted = 0
+                return
 
         if 'goto' in option:
             self.show_location(option['goto'])
@@ -265,7 +290,8 @@ class StatePanel:
             f'Health: {self._grade('health', hero.health)}\n'
             f'Fatigue: {self._grade('fatigue', hero.fatigue)}\n'
             f'Hanger: {self._grade('hanger', hero.hanger)}\n'
-            f'Cash: {hero.cash} cr\n\n'
+            f'Cash: {hero.cash} cr\n'
+            f'{hero.is_ammo()}'
             f'TRUCK:\n'
             f'Truck condition: {truck.truck_condition}%\n'
             f'Fuel: [{fuel_color}]{truck.fuel}[/{fuel_color}] l\n'
@@ -275,5 +301,9 @@ class StatePanel:
         for goods, amount in truck.cargo.items():
             if amount > 0:
                 text += f'{goods.capitalize()}: {amount} t\n'
+
+        if truck.passenger:
+            for passang, destination in truck.passenger.items():
+                text += f'{passang} to {destination}'
 
         self.state_panel_widget.update(text)

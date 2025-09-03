@@ -25,6 +25,7 @@ class Engine:
             'buy_corn_3': self._buy_corn,
             'buy_corn_5': self._buy_corn,
             'buy_corn_10': self._buy_corn,
+            'take_drox': self._take_drox,
         }
 
     def run_action(self, action_name: str, args: dict | None) -> None:
@@ -139,3 +140,17 @@ class Engine:
                 f'{result}'
                 f'You have lost.'
             )
+
+    def _take_drox(self, args) -> None:
+        """
+        Start of the quest with the delivery of drox to the city.
+        Add drox to the passenger dictionary (passenger: destination).
+        The quest is one-time only.
+        """
+        self.state.truck.passenger['drox'] = 'Brackenbridge'
+        self.state.invisible_options.add('go_to_drox')
+
+    def _drox_delivered(self) -> None:
+        """The reward for delivering drox to the city is a shotgun with 6 shells."""
+        self.state.hero.ammo += 6
+        del self.state.truck.passenger['drox']
