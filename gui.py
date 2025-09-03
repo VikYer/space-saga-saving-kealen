@@ -230,9 +230,9 @@ class StatePanel:
         """Helper: return a textual level for health, fatigue and hunger."""
         if param == 'health':
             levels = ['[red]dying[/red]', '[red]critical[/red]',
-                      '[yellow]weak[/yellow]', '[yellow]wounded[/yellow]',
-                      'hurt', 'scratched', 'fine',
-                      'healthy', 'strong', 'perfect']
+                      '[yellow]very weak[/yellow]', '[yellow]badly wounded[/yellow]',
+                      'bleeding', 'injured', 'hurt',
+                      'scratched', 'bruised', 'unharmed']
         elif param == 'fatigue':
             levels = ['[red]unconscious[/red]', '[red]barely awake[/red]',
                       '[yellow]drained[/yellow]', '[yellow]exhausted[/yellow]',
