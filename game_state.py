@@ -7,6 +7,7 @@ class World:
         self.current_time = 408
         self.current_location = 'Start'
         self.corn_farm = self.CornFarm()
+        self.biker_mood = None # ('Biker looks determined', 'Biker is confident', 'Biker is careful', 'Biker is afraid', 'Biker is afraid')
 
     def show_days(self) -> int:
         """Show how many days have passed since the start of game."""
@@ -57,6 +58,7 @@ class Hero:
         self.hanger = 100
         self.cash = 20
         self.ammo = 0
+        self.stingrays_member = False
 
     def is_ammo(self) -> str:
         """Checks if the character has ammo for shotgun."""
@@ -64,6 +66,15 @@ class Hero:
             return f'Shotgun: {self.ammo} shells\n\n'
         return '\n'
 
+    def is_stingrays_member(self) -> str:
+        """
+        Checks if the character is Stingrays gang member.
+
+        :return: str for hero part in the state panel.
+        """
+        if self.stingrays_member == True:
+            return f'Stingray tattoo\n\n'
+        return '\n'
 
 class Truck:
     """Represents the truck and its state."""

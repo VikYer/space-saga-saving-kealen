@@ -105,7 +105,7 @@ class SpaceSaga(App):
                                                               self.state.truck):
                         disabled = True
 
-            # Show option for the Stingray bar location
+            # Show options for the Stingray bar location
             if self.state.world.current_location == 'The Stingray Bar':
                 if opt_id == 'drink_port_wine' and self.state.hero.cash < 3:
                     disabled = True
@@ -172,7 +172,7 @@ class SpaceSaga(App):
                     f'He handed you a small shotgun with ammo, said goodbye, '
                     f'and walked toward the factory until he disappeared.'
                 )
-                self.engine._drox_delivered()
+                self.engine.drox_delivered()
                 self.command_panel.clear_options()
                 self.command_panel.add_option(Option('Next', 'drox_delivered'))
                 self.set_focus(self.command_panel)
@@ -232,13 +232,74 @@ class SpaceSaga(App):
                 f'And if you want to sell something yourself, sorry, '
                 f'we\'re not buying anything. We have everything we need.'
             )
+
         if option_name == 'play_slot_machine':
-            result = self.engine._play_slot_machine()
+            result = self.engine.play_slot_machine()
             self.sp.update_state_panel()
             return (
                 f'The reels spun wildly and stopped at the combination:\n\n'
                 f'{result}'
             )
+
+        if option_name == 'do_nothing_against_biker':
+            if self.state.world.biker_mood < 3:
+                biker_attack_result = self.engine._biker_attacks()
+                self.sp.update_state_panel()
+                return (
+                    f'{biker_attack_result}\n\n'
+                    'You stand in front of a drunk biker. He looks unfriendly. '
+                    'If you have the strength, maybe it’s time to punch that arrogant face.'
+                )
+            else:
+                return 'The biker did nothing. It looked like he was waiting for your move.'
+
+        if option_name == 'hit_head':
+            biker_attack_result = self.engine._biker_attacks()
+            self.sp.update_state_panel()
+            if self.state.world.biker_mood < 3:
+                return (
+                    'You tried to hit your opponent, but your poor condition betrayed you. '
+                    'Your hand missed his ear, and you stumbled onto him instead. '
+                    'The biker quickly used this chance and threw you to the ground, '
+                    'while everyone laughed. Not wanting things to '
+                    'get worse, you stood back up.\n\n'
+                    f'{biker_attack_result}'
+                )
+            else:
+                return (
+                    'You tried to hit your opponent, but your poor condition betrayed you. '
+                    'Your hand missed his ear, and you stumbled onto him instead. '
+                    'The biker quickly used this chance and threw you to the ground, '
+                    'while everyone laughed. Not wanting things to '
+                    'get worse, you stood back up.\n\n'
+                    'The biker did nothing. It looked like he was waiting for your move.'
+                )
+
+        if option_name == 'hit_stomach':
+            if self.state.world.biker_mood < 3:
+                biker_attack_result = self.engine._biker_attacks()
+                self.sp.update_state_panel()
+                return (
+                    'You hit the biker in the stomach. Not as strong as a punch to the head, '
+                    'but at least hard to miss.\n\n'
+                    f'{biker_attack_result}'
+                )
+            elif self.state.world.biker_mood == 3:
+                return (
+                    'You hit the biker in the stomach. Not as strong as a punch to the head, '
+                    'but at least hard to miss.\n\n'
+                    'The biker did nothing. It looked like he was waiting for your move.'
+                )
+            else:
+                self.engine.defeat_biker()
+                return ('Alright, alright. Good job, – said the biker, raising his hands. '
+                        'The crowd rushed to you and started tossing you up in the air. '
+                        'Suddenly, you blacked out again… '
+                        'You woke up at the entrance of the bar. '
+                        'Your right shoulder hurt badly. Looking at it, you saw '
+                        'a fresh tattoo of a scorpion. Looks like you’re in the gang now!'
+                        )
+
         return ''
 
 
@@ -291,6 +352,7 @@ class StatePanel:
             f'Fatigue: {self._grade('fatigue', hero.fatigue)}\n'
             f'Hanger: {self._grade('hanger', hero.hanger)}\n'
             f'Cash: {hero.cash} cr\n'
+            f'{hero.is_stingrays_member()}'
             f'{hero.is_ammo()}'
             f'TRUCK:\n'
             f'Truck condition: {truck.truck_condition}%\n'
@@ -305,5 +367,11 @@ class StatePanel:
         if truck.passenger:
             for passang, destination in truck.passenger.items():
                 text += f'{passang} to {destination}'
+
+        if world.biker_mood != None and world.biker_mood <= 4:
+            biker_mood = world.biker_mood
+            text += f'\n{
+            ('Biker looks determined', 'Biker is confident', 'Biker is careful',
+             'Biker is afraid', 'Biker is afraid')[biker_mood]}'
 
         self.state_panel_widget.update(text)

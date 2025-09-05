@@ -19,13 +19,15 @@ class Engine:
 
         # Allowed function list to call from location_actions.json
         self.allowed_functions = {
-            'repair_lorry': self._get_new_truck,
-            'buy_corn_1': self._buy_corn,
-            'buy_corn_2': self._buy_corn,
-            'buy_corn_3': self._buy_corn,
-            'buy_corn_5': self._buy_corn,
-            'buy_corn_10': self._buy_corn,
-            'take_drox': self._take_drox,
+            'repair_lorry': self.get_new_truck,
+            'buy_corn_1': self.buy_corn,
+            'buy_corn_2': self.buy_corn,
+            'buy_corn_3': self.buy_corn,
+            'buy_corn_5': self.buy_corn,
+            'buy_corn_10': self.buy_corn,
+            'take_drox': self.take_drox,
+            'treat_everyone': self.treat_everyone,
+            'hit_stomach': self.hit_stomach,
         }
 
     def run_action(self, action_name: str, args: dict | None) -> None:
@@ -45,7 +47,7 @@ class Engine:
 
         if 'distance' in effects:
             distance = effects['distance']
-            self._drive(distance)
+            self.drive(distance)
 
         if 'time' in effects:
             self.state.world.current_time += effects['time']
@@ -61,9 +63,10 @@ class Engine:
         if 'hanger' in effects:
             self.state.hero.hanger = min(self.state.hero.hanger + effects['hanger'], 100)
 
-    def _drive(self, distance: int) -> None:
+    def drive(self, distance: int) -> None:
         """
         Simulate driving the truck for a given distance.
+
         Truck speed and fuel consumption depend on cargo value.
         """
         load = 0
@@ -80,7 +83,7 @@ class Engine:
         time = round((distance / speed) * 60)
         self.state.world.current_time += time
 
-    def _get_new_truck(self, args: dict) -> None:
+    def get_new_truck(self, args: dict) -> None:
         """
         Hero get new truck (has other parameters) by repairing it with previous truck parts.
         Changing locations description.
@@ -105,14 +108,15 @@ class Engine:
             'It looks like one of them went to the iridium mines.'
         )
 
-    def _buy_corn(self, args: dict) -> None:
+    def buy_corn(self, args: dict) -> None:
         """Corn purchase on the farm."""
         amount = args.get('corn')
         self.state.world.corn_farm.buy(amount, self.state.hero, self.state.truck)
 
-    def _play_slot_machine(self) -> str:
+    def play_slot_machine(self) -> str:
         """
         Simulates playing slot machine.
+
         Machine reels has numbers from 1 to 7.
         Double match - win 2 cr.
         Triple match - win 25 cr.
@@ -141,7 +145,7 @@ class Engine:
                 f'You have lost.'
             )
 
-    def _take_drox(self, args) -> None:
+    def take_drox(self, args) -> None:
         """
         Start of the quest with the delivery of drox to the city.
         Add drox to the passenger dictionary (passenger: destination).
@@ -150,7 +154,49 @@ class Engine:
         self.state.truck.passenger['drox'] = 'Brackenbridge'
         self.state.invisible_options.add('go_to_drox')
 
-    def _drox_delivered(self) -> None:
+    def drox_delivered(self) -> None:
         """The reward for delivering drox to the city is a shotgun with 6 shells."""
         self.state.hero.ammo += 6
         del self.state.truck.passenger['drox']
+
+    def treat_everyone(self, args) -> None:
+        """The party at the bar tires the hero."""
+        self.state.hero.fatigue = 19
+        self.state.world.biker_mood = 0
+
+    def _biker_attacks(self) -> str:
+        """
+        Simulate the single bikers hit after party in the Stingray bar.
+
+        - hit on the head reduces hero's health by 20;
+        - hit in the stomach reduces hero's health by 7.
+
+        :return: kind of attack for dynamic description.
+        """
+        hit = random.randint(0, 1)
+        if hit == 0:
+            self.state.hero.health -= 20
+            return ('The biker landed a heavy blow on your head. '
+                    'Sparks danced before your eyes. '
+                    'The crowd cheered and whistled with joy.')
+        else:
+            self.state.hero.health -= 7
+            return ('The biker hit you twice in the stomach. '
+                    'For a moment you lost your breath. '
+                    'A crooked smile crossed his face, but too early — '
+                    'you quickly recovered.')
+
+    def hit_stomach(self,args):
+        """
+        Hit on stomach causes the biker's mood to worsen.
+
+        Biker looks determined -> Biker is careful -> Biker is afraid
+        (is reflected in state_panel)
+        """
+        if self.state.world.biker_mood <= 3:
+            self.state.world.biker_mood += 1
+
+    def defeat_biker(self) -> None:
+        """"""
+        self.state.world.biker_mood = None
+        self.state.hero.stingrays_member = True

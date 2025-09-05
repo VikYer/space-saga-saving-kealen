@@ -243,7 +243,51 @@
                     "options": {
                       "treat_everyone": {
                         "text": "Okay. I’ll pay for everyone!",
-                        "description": "?"
+                        "description": "The bartender put a box of port wine bottles on the counter.\n– Oh! The brave driver is buying drinks! – shouted one of the tattooed guys.\nAfter that, everything is blurry. You drank with the bikers, laughed, shouted crazy toasts… then darkness. Now you sit in a field, hugging a drunk punk.\n– Friend, wanna join our gang? – he asked.\n– Sure, – you answered with a hiccup.\nThe punk yelled, and soon a group of Scorpions ran up.\n– Alright. To join us, you must beat me in a fistfight. Get ready!",
+                        "effects": {
+                          "time": 180,
+                          "cash": -50
+                        },
+                        "options": {
+                          "fight": {
+                            "text": "Next",
+                            "description": "You stand in front of a drunk biker. He looks unfriendly. If you have the strength, maybe it’s time to punch that arrogant face.",
+                            "options": {
+                              "do_nothing_against_biker": {
+                                "text": "Do nothing",
+                                "description": "dynamic"
+                              },
+                              "not_fighting": {
+                                "text": "Hey guys! Joke’s over. I’m not fighting anymore!",
+                                "description": "Coward! – your opponent waved his hand and spat on your clothes. The others did the same...\n\nYou wiped the spit off your ranger suit, took your truck, and returned to the road.",
+                                "options": {
+                                  "leave_bikers": {
+                                    "text": "Next",
+                                    "goto": "The Stingray Bar"
+                                  }
+                                }
+                              },
+                              "hit_head": {
+                                "text": "Hit the biker on the head",
+                                "description": "dynamic",
+                                "options": {
+                                  "back": {
+                                    "text": "Next"
+                                  }
+                                }
+                              },
+                              "hit_stomach": {
+                                "text": "Punch him in the stomach",
+                                "description": "dynamic",
+                                "options": {
+                                  "back": {
+                                    "text": "Next"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
                       },
                       "back": {
                         "text": "Maybe this is not for me"
