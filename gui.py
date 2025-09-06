@@ -222,6 +222,8 @@ class SpaceSaga(App):
 
     def _get_dynamic_description(self, option_name: str) -> str:
         """Helper: generate a context-sensitive description text for the quest panel."""
+
+        # Dynamic quest text depending on the quantity and price of corn.
         if option_name.startswith('buy_corn') or option_name == 'approach_farm':
             return (
                 'Your car was parked right in front of the gate of the farmhouse. '
@@ -233,6 +235,7 @@ class SpaceSaga(App):
                 'we\'re not buying anything. We have everything we need.'
             )
 
+        # Hero play slot machine in the bar
         if option_name == 'play_slot_machine':
             result = self.engine.play_slot_machine()
             self.sp.update_state_panel()
@@ -241,6 +244,8 @@ class SpaceSaga(App):
                 f'{result}'
             )
 
+        # Fight with biker. Hero does not take any action against the opponent.
+        # If the biker is afraid of the hero, he waits; otherwise, he attacks.
         if option_name == 'do_nothing_against_biker':
             if self.state.world.biker_mood < 3:
                 biker_attack_result = self.engine._biker_attacks()
@@ -253,6 +258,9 @@ class SpaceSaga(App):
             else:
                 return 'The biker did nothing. It looked like he was waiting for your move.'
 
+        # Fight with biker. Hero  hits the biker on the head, but to no avail.
+        # Hero receives a blow in return.
+        # If biker is afraid, he waits for hero's reaction.
         if option_name == 'hit_head':
             biker_attack_result = self.engine._biker_attacks()
             self.sp.update_state_panel()
@@ -275,6 +283,10 @@ class SpaceSaga(App):
                     'The biker did nothing. It looked like he was waiting for your move.'
                 )
 
+        # Fight with biker. Hero  hits the biker on the stomach -
+        # biker's fighting spirit is waning.
+        # Hero receives a blow in return.
+        # If biker is afraid, he waits for hero's reaction.
         if option_name == 'hit_stomach':
             if self.state.world.biker_mood < 3:
                 biker_attack_result = self.engine._biker_attacks()
