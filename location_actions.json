@@ -182,7 +182,7 @@
         "options": {
           "go_to_barman": {
             "text": "Go to the bartender",
-            "description": "– Did you want something? – the bartender asked.\n\nBehind him you notice a sign:\n\"Fried meat with mushrooms – 6 credits\nA bed for 6 hours – 10 credits (for Stingrays: 5 credits)\"",
+            "description": "dynamic",
             "options": {
               "ask_barman_questions": {
                 "text": "I want to ask a few questions…",
@@ -259,7 +259,7 @@
                               },
                               "not_fighting": {
                                 "text": "Hey guys! Joke’s over. I’m not fighting anymore!",
-                                "description": "Coward! – your opponent waved his hand and spat on your clothes. The others did the same...\n\nYou wiped the spit off your ranger suit, took your truck, and returned to the road.",
+                                "description": "– Coward! – your opponent waved his hand and spat on your clothes. The others did the same...\n\nYou wiped the spit off your ranger suit, took your truck, and returned to the road.",
                                 "options": {
                                   "leave_bikers": {
                                     "text": "Next",
@@ -293,6 +293,24 @@
                           }
                         }
                       },
+                      "treat_everyone_is_stingray": {
+                        "text": "Okay. I'll pay for everyone!",
+                        "description": "– Our newbie is throwing a party! — shouted one of the Stingrays. The others joined in, and it all began: port wine, laughter, more port wine, more laughing, port wine, a fistfight, port wine, \"chase the rabbit on a jeep\", port wine… blackout.\n\nYou woke up outside next the bar. Thank God, nothing was broken. Your head hurt, but it should pass soon…",
+                        "effects": {
+                          "time": 210,
+                          "cash": -50
+                        },
+                        "options": {
+                          "after_party_is_stingray": {
+                            "text": "Next",
+                            "goto": "The Stingray Bar"
+                          }
+                        },
+                        "after_party_is_stingray": {
+                          "text": "Next",
+                          "goto": "The Stingray Bar"
+                        }
+                      },
                       "back": {
                         "text": "Maybe this is not for me"
                       }
@@ -317,13 +335,12 @@
                   }
                 }
               },
-              "sleep": {
+              "sleep_in_bar": {
                 "text": "I need to sleep. Give me one bed…",
                 "description": "– Of course. Follow me, – said the bartender, signaling a boy.\nThe boy took you to the second floor, to a room where a couple of people were already sleeping on separate beds, and showed you your bed. After giving the money, you collapsed on the bed and fell asleep…\n\nYou woke up on your own. You feel much better now. Looking at the clock above the door, you see that your sleep time is almost over. It’s time to go downstairs.",
                 "effects": {
                   "fatigue": 100,
-                  "time": 360,
-                  "cash": -10
+                  "time": 360
                 },
                 "options": {
                   "back": {
@@ -342,6 +359,34 @@
             "options": {
               "back": {
                 "text": "Next"
+              }
+            }
+          },
+          "go_to_rockers_is_stingray": {
+            "text": "Approach the group of rockers",
+            "description": "– Our young stingray. What do you want? – asked the biker with the word Grog tattooed on his chin. It was the same guy you fought the other day.",
+            "options": {
+              "ask_about_weapon": {
+                "text": "Do you have any serious weapons? I would buy...",
+                "description": "– Every Stingray makes his own crossbow and carries it through life. A Stingray who sells his crossbow is despised and must be killed on the spot… And other weapons? We don’t respect them. Remember that."
+              },
+              "have_some_fun": {
+                "text": "Let's go have some fun. Scare people. Rob them!!!",
+                "description": "– We just came back from a job. Made some money. Now we’ll stay here for a week or two. So better hang out with us for now. Drink some port wine, – said Grog."
+              },
+              "crush_hyenas": {
+                "text": "Let's go crush the Hyenas!",
+                "description": "Grog almost choked on his drink:\n– Are you crazy? You want your head cut off, and all Stingrays with it? Listen — now is not the time to fight the Hyenas. We just made peace with them about splitting the territory..."
+              },
+              "talk": {
+                "text": "Just want to chat",
+                "description": "You spent about ten minutes chatting with the rockers about engines, crossbows, and drinks. Nothing useful came out of it.",
+                "effects": {
+                  "time": 10
+                }
+              },
+              "back": {
+                "text": "Step away from rockers"
               }
             }
           },

@@ -28,6 +28,8 @@ class Engine:
             'take_drox': self.take_drox,
             'treat_everyone': self.treat_everyone,
             'hit_stomach': self.hit_stomach,
+            'sleep_in_bar': self.sleep_in_bar,
+            'treat_everyone_is_stingray': self.treat_everyone_is_stingray,
         }
 
     def run_action(self, action_name: str, args: dict | None) -> None:
@@ -197,6 +199,18 @@ class Engine:
             self.state.world.biker_mood += 1
 
     def defeat_biker(self) -> None:
-        """"""
+        """Hero becomes a member of the Stingrays gang."""
         self.state.world.biker_mood = None
         self.state.hero.stingrays_member = True
+        self.state.world.current_time += 90
+
+    def sleep_in_bar(self, args) -> None:
+        """After joining the gang, the hero gets cheaper accommodation at the bar."""
+        if self.state.hero.stingrays_member:
+            self.state.hero.cash -= 5
+        else:
+            self.state.hero.cash -= 10
+
+    def treat_everyone_is_stingray(self, args) -> None:
+        """The party at the bar with new Stingrays friends tires the hero."""
+        self.state.hero.fatigue = 19

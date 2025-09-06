@@ -115,8 +115,10 @@ class SpaceSaga(App):
                     disabled = True
                 if opt_id == 'eat_mushrooms_with_meat' and self.state.hero.cash < 6:
                     disabled = True
-                if opt_id == 'sleep' and self.state.hero.cash < 10:
-                    disabled = True
+                if opt_id == 'sleep_in_bar':
+                    if (not self.state.hero.stingrays_member and self.state.hero.cash < 10 or
+                            (self.state.hero.stingrays_member and self.state.hero.cash < 5)):
+                        disabled = True
 
             self.command_panel.add_option(Option(opt.get('text'), opt_id, disabled=disabled))
 
@@ -235,6 +237,19 @@ class SpaceSaga(App):
                 'we\'re not buying anything. We have everything we need.'
             )
 
+        # The bartender's greeting depends on whether the hero is a member of the gang.
+        if option_name == 'go_to_barman':
+            if self.state.hero.stingrays_member:
+                text = 'What do you want, our little stingray? – asked the barman, smiling from ear to ear.'
+            else:
+                text = '– Did you want something? – the bartender asked.'
+            return (
+                f'{text}\n\n'
+                'Behind him you notice a sign:\n'
+                '\"Fried meat with mushrooms – 6 credits. '
+                'A bed for 6 hours – 10 credits (for Stingrays: 5 credits)\"'
+            )
+
         # Hero play slot machine in the bar
         if option_name == 'play_slot_machine':
             result = self.engine.play_slot_machine()
@@ -306,7 +321,11 @@ class SpaceSaga(App):
                 self.engine.defeat_biker()
                 self.state.invisible_options.add('back_to_fight')
                 self.state.invisible_options.discard('biker_defeated')
-                return ('Alright, alright. Good job, – said the biker, raising his hands. '
+                self.state.invisible_options.add('go_to_rockers')
+                self.state.invisible_options.discard('go_to_rockers_is_stingray')
+                self.state.invisible_options.add('treat_everyone')
+                self.state.invisible_options.discard('treat_everyone_is_stingray')
+                return ('– Alright, alright. Good job, – said the biker, raising his hands. '
                         'The crowd rushed to you and started tossing you up in the air. '
                         'Suddenly, you blacked out again… '
                         'You woke up at the entrance of the bar. '
