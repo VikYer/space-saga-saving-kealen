@@ -194,7 +194,7 @@ class SpaceSaga(App):
             self._show_options(option['options'])
             return
 
-        if event.option_id == 'back':
+        if event.option_id.startswith('back'):
             if self.options_stack:
                 self.options_stack.pop()
 
@@ -224,20 +224,20 @@ class SpaceSaga(App):
         """Helper: generate a context-sensitive description text for the quest panel."""
         if option_name.startswith('buy_corn') or option_name == 'approach_farm':
             return (
-                f'Your car was parked right in front of the gate of the farmhouse. '
-                f'A young man in a hat with a cane in his teeth was looking at you from the window:\n\n'
+                'Your car was parked right in front of the gate of the farmhouse. '
+                'A young man in a hat with a cane in his teeth was looking at you from the window:\n\n'
                 f'We currently have {self.state.world.corn_farm.offer} tonnes '
-                f'of corn, packed in barrels, one tonne each. '
+                'of corn, packed in barrels, one tonne each. '
                 f'We sell them for {self.state.world.corn_farm.price} credits per barrel. '
-                f'And if you want to sell something yourself, sorry, '
-                f'we\'re not buying anything. We have everything we need.'
+                'And if you want to sell something yourself, sorry, '
+                'we\'re not buying anything. We have everything we need.'
             )
 
         if option_name == 'play_slot_machine':
             result = self.engine.play_slot_machine()
             self.sp.update_state_panel()
             return (
-                f'The reels spun wildly and stopped at the combination:\n\n'
+                'The reels spun wildly and stopped at the combination:\n\n'
                 f'{result}'
             )
 
@@ -292,6 +292,8 @@ class SpaceSaga(App):
                 )
             else:
                 self.engine.defeat_biker()
+                self.state.invisible_options.add('back_to_fight')
+                self.state.invisible_options.discard('biker_defeated')
                 return ('Alright, alright. Good job, – said the biker, raising his hands. '
                         'The crowd rushed to you and started tossing you up in the air. '
                         'Suddenly, you blacked out again… '

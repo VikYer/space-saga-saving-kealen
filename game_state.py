@@ -56,7 +56,7 @@ class Hero:
         self.health = 100
         self.fatigue = 100
         self.hanger = 100
-        self.cash = 20
+        self.cash = 100
         self.ammo = 0
         self.stingrays_member = False
 
@@ -99,4 +99,4 @@ class GameState:
         self.hero = Hero()
         self.truck = Truck()
         self.locations = {}
-        self.invisible_options = set()
+        self.invisible_options = {'biker_defeated',}

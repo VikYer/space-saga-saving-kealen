@@ -184,7 +184,7 @@
             "text": "Go to the bartender",
             "description": "– Did you want something? – the bartender asked.\n\nBehind him you notice a sign:\n\"Fried meat with mushrooms – 6 credits\nA bed for 6 hours – 10 credits (for Stingrays: 5 credits)\"",
             "options": {
-              "ask_questions": {
+              "ask_barman_questions": {
                 "text": "I want to ask a few questions…",
                 "description": "– So, what do you want to ask me?",
                 "options": {
@@ -280,8 +280,12 @@
                                 "text": "Punch him in the stomach",
                                 "description": "dynamic",
                                 "options": {
-                                  "back": {
+                                  "back_to_fight": {
                                     "text": "Next"
+                                  },
+                                  "biker_defeated": {
+                                    "text": "Next",
+                                    "goto": "The Stingray Bar"
                                   }
                                 }
                               }
