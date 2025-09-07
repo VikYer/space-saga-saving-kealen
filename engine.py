@@ -179,12 +179,12 @@ class Engine:
         """
         hit = random.randint(0, 1)
         if hit == 0:
-            self.state.hero.health -= 20
+            self.state.hero.health -= 25
             return ('The biker landed a heavy blow on your head. '
                     'Sparks danced before your eyes. '
                     'The crowd cheered and whistled with joy.')
         else:
-            self.state.hero.health -= 7
+            self.state.hero.health -= 10
             return ('The biker hit you twice in the stomach. '
                     'For a moment you lost your breath. '
                     'A crooked smile crossed his face, but too early — '
@@ -205,6 +205,11 @@ class Engine:
         self.state.world.biker_mood = None
         self.state.hero.stingrays_member = True
         self.state.world.current_time += 90
+        self.state.invisible_options.discard('biker_defeated')
+        self.state.invisible_options.add('go_to_rockers')
+        self.state.invisible_options.discard('go_to_rockers_is_stingray')
+        self.state.invisible_options.add('treat_everyone')
+        self.state.invisible_options.discard('treat_everyone_is_stingray')
 
     def sleep_in_bar(self, args) -> None:
         """After joining the gang, the hero gets cheaper accommodation at the bar."""

@@ -320,11 +320,6 @@ class SpaceSaga(App):
             else:
                 self.engine.defeat_biker()
                 self.state.invisible_options.add('back_to_fight')
-                self.state.invisible_options.discard('biker_defeated')
-                self.state.invisible_options.add('go_to_rockers')
-                self.state.invisible_options.discard('go_to_rockers_is_stingray')
-                self.state.invisible_options.add('treat_everyone')
-                self.state.invisible_options.discard('treat_everyone_is_stingray')
                 return ('– Alright, alright. Good job, – said the biker, raising his hands. '
                         'The crowd rushed to you and started tossing you up in the air. '
                         'Suddenly, you blacked out again… '
