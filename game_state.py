@@ -103,4 +103,5 @@ class GameState:
             'biker_defeated',
             'go_to_rockers_is_stingray',
             'treat_everyone_is_stingray',
+            'treat_everyone_is_coward',
         }

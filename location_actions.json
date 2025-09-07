@@ -257,7 +257,7 @@
                                 "text": "Do nothing",
                                 "description": "dynamic"
                               },
-                              "not_fighting": {
+                              "not_fighting_with_biker": {
                                 "text": "Hey guys! Joke’s over. I’m not fighting anymore!",
                                 "description": "– Coward! – your opponent waved his hand and spat on your clothes. The others did the same...\n\nYou wiped the spit off your ranger suit, took your truck, and returned to the road.",
                                 "options": {
@@ -311,6 +311,19 @@
                           "goto": "The Stingray Bar"
                         }
                       },
+                      "treat_everyone_is_coward": {
+                        "text": "Okay. I'll pay for everyone!",
+                        "description": "We don’t drink port wine ordered by cowards! — shouted the Stingrays at the bar.\n– But I do! — mumbled a toothless old man, who appeared out of nowhere. He packed all the bottles into a net bag and disappeared just as suddenly.\n\nAh… money wasted for nothing…",
+                        "effects": {
+                          "cash": -50
+                        },
+                        "options": {
+                          "leave": {
+                            "text": "Next",
+                            "goto": "The Stingray Bar"
+                          }
+                        }
+                      },
                       "back": {
                         "text": "Maybe this is not for me"
                       }
@@ -324,7 +337,7 @@
               "eat_mushrooms_with_meat": {
                 "text": "I would like to eat. Give me fried meat with mushrooms…",
                 "description": "– Here you go, – said the bartender and put in front of you a round metal plate with a piece of fried meat, covered with pieces of mushrooms. There were no utensils, so you had to eat with your hands. The taste was quite okay. At least it stopped your hunger well.",
-                "effects" : {
+                "effects": {
                   "hanger": 80,
                   "time": 5,
                   "cash": -6

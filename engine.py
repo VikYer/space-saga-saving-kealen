@@ -30,6 +30,7 @@ class Engine:
             'hit_stomach': self.hit_stomach,
             'sleep_in_bar': self.sleep_in_bar,
             'treat_everyone_is_stingray': self.treat_everyone_is_stingray,
+            'not_fighting_with_biker': self.not_fighting_with_biker,
         }
 
     def run_action(self, action_name: str, args: dict | None) -> None:
@@ -214,3 +215,12 @@ class Engine:
     def treat_everyone_is_stingray(self, args) -> None:
         """The party at the bar with new Stingrays friends tires the hero."""
         self.state.hero.fatigue = 19
+
+    def not_fighting_with_biker(self, args) -> None:
+        """
+        After starting a fight with a biker, the hero gives up.
+        Chance to join Stingrays gang is lost.
+        """
+        self.state.world.biker_mood = None
+        self.state.invisible_options.add('treat_everyone')
+        self.state.invisible_options.discard('treat_everyone_is_coward')
