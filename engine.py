@@ -156,6 +156,7 @@ class Engine:
         """
         self.state.truck.passenger['drox'] = 'Brackenbridge'
         self.state.invisible_options.add('go_to_drox')
+        self.state.invisible_options.add('ask_barman_about_drox')
 
     def drox_delivered(self) -> None:
         """The reward for delivering drox to the city is a shotgun with 6 shells."""

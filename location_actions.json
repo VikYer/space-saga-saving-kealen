@@ -204,7 +204,7 @@
                     "text": "Where can I find the Hyenas?",
                     "description": "– Ha-ha-ha!!! Anywhere, but not here…"
                   },
-                  "about_drox": {
+                  "ask_barman_about_drox": {
                     "text": "Who is the guy sleeping on the table in the corner?",
                     "description": "– That’s Zarven. He spent all his money in my bar and now can’t go back to Brackenbridge. But actually, he’s a good guy. You don’t see many like him among the droxes!"
                   },
