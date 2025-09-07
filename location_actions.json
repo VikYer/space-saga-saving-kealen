@@ -478,31 +478,38 @@
       },
       "go_gas_station": {
         "text": "Turn towards the fuel station",
-        "description": "You drove along a country road and stopped right in front of a building. A boy with a rifle on his shoulder quickly came out. Coming to your truck window, he said:\n\nYou are at Gruber's Fuel Station. Five liters of fuel cost 7 credits. Will you buy some?",
+        "description": "You drove along a country road and stopped right in front of a building. A boy with a rifle on his shoulder quickly came out. Coming to your truck window, he said:\n\n– You are at Gruber's Fuel Station. 5 liters of fuel cost 7 credits. Will you buy some?",
         "options": {
-          "fill_five_liters": {
-            "text": "Fill 5 liters for me",
-            "description": "You bought 5 liters of fuel.\n\nYou are at Gruber's Gas Station. Five liters of fuel cost 7 credits. Do you want more?"
+          "gruber_fill_up_5": {
+            "text": "Fill up 5 liters for me",
+            "description": "You bought 5 liters of fuel.\n\n– You are at Gruber's Gas Station. Five liters of fuel cost 7 credits. Do you want more?",
+            "effects": {
+              "fuel": 5
+            }
           },
-          "fil_fifteen_liters": {
-            "text": "Fill 15 liters for me",
-            "description": "You bought 15 liters of fuel.\n\nYou are at Gruber's Gas Station. Five liters of fuel cost 7 credits. Do you want more?"
+          "gruber_fill_up_15": {
+            "text": "Fill up 15 liters for me",
+            "description": "You bought 15 liters of fuel.\n\n– You are at Gruber's Gas Station. Five liters of fuel cost 7 credits. Do you want more?",
+            "effects": {
+              "fuel": 15,
+              "time": 2
+            }
           },
           "about_fixing": {
             "text": "I need to fix my vehicle. Can I do it here?",
-            "description": "We don’t fix vehicles. It’s better to go southeast. Bolt lives there – the best mechanic around. He will fix your ride in no time."
+            "description": "– We don’t fix vehicles. It’s better to go east. Bolt lives there – the best mechanic around. He will fix your ride in no time."
           },
           "about_weapon": {
             "text": "Do you have weapons?",
-            "description": "We have some, – the boy smirked. – But if you’re asking for yourself, I suggest looking somewhere else. Around here, everyone needs guns."
+            "description": "– We have some, – the boy smirked. – But if you’re asking for yourself, I suggest looking somewhere else. Around here, everyone needs guns."
           },
           "about_gas": {
             "text": "Where do you get your fuel from?",
-            "description": "Our gas station is on an oil field. We pump oil from the well and make fuel right here. Everyone knows that. But if anyone tries to mess with us, we will fight back, – the boy pointed to his rifle. – By the way, Dex’s Gas Station works the same way, if you’re interested."
+            "description": "– Our gas station is on an oil field. We pump oil from the well and make fuel right here. Everyone knows that. But if anyone tries to mess with us, we will fight back, – the boy pointed to his rifle. – By the way, Dex’s Gas Station works the same way, if you’re interested."
           },
           "about_gruber": {
             "text": "If this is Gruber's Gas Station, where is Gruber himself?",
-            "description": "Old man Gruber doesn’t fill cars with fuel himself. He deals with bigger matters. That’s it."
+            "description": "– Old man Gruber doesn’t fill cars with fuel himself. He deals with bigger matters. That’s it."
           },
           "back": {
             "text": "Leave the fuel station"

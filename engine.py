@@ -31,6 +31,8 @@ class Engine:
             'sleep_in_bar': self.sleep_in_bar,
             'treat_everyone_is_stingray': self.treat_everyone_is_stingray,
             'not_fighting_with_biker': self.not_fighting_with_biker,
+            'gruber_fill_up_5': self.gruber_fill_up,
+            'gruber_fill_up_15': self.gruber_fill_up,
         }
 
     def run_action(self, action_name: str, args: dict | None) -> None:
@@ -230,3 +232,8 @@ class Engine:
         self.state.world.biker_mood = None
         self.state.invisible_options.add('treat_everyone')
         self.state.invisible_options.discard('treat_everyone_is_coward')
+
+    def gruber_fill_up(self, args: dict) -> None:
+        """Hero fills up the truck on the Gruber's gas station."""
+        amount = args.get('fuel')
+        self.state.world.gruber_gas_station.fill_up(amount, self.state.hero, self.state.truck)

@@ -7,7 +7,8 @@ class World:
         self.current_time = 408
         self.current_location = 'Start'
         self.corn_farm = self.CornFarm()
-        self.biker_mood = None # ('Biker looks determined', 'Biker is confident', 'Biker is careful', 'Biker is afraid', 'Biker is afraid')
+        self.gruber_gas_station = self.GruberGasStation()
+        self.biker_mood = None  # ('Biker looks determined', 'Biker is confident', 'Biker is careful', 'Biker is afraid', 'Biker is afraid')
 
     def show_days(self) -> int:
         """Show how many days have passed since the start of game."""
@@ -28,7 +29,7 @@ class World:
             self.offer = 35
             self.price = 25
 
-        def can_buy(self, amount: int, hero, truck) -> bool:
+        def can_buy_corn(self, amount: int, hero, truck) -> bool:
             """Checks hero available to buy a given amount of corn."""
             if amount > self.offer:
                 return False
@@ -40,12 +41,35 @@ class World:
 
         def buy(self, amount: int, hero, truck) -> None:
             """Make the purchase if it's possible."""
-            if not self.can_buy(amount, hero, truck):
+            if not self.can_buy_corn(amount, hero, truck):
                 return
             self.offer -= amount
             hero.cash -= amount * self.price
             truck.truck_space -= amount
             truck.cargo['corn'] += amount
+
+    class GruberGasStation:
+        """Represents Gruber's gas station."""
+
+        def __init__(self) -> None:
+            """
+            Initialize Gruber's gas station with fuel's price.
+            Price is for 5 liters of fuel.
+            """
+            self.price = 7
+
+        def can_fill_up(self, amount: int, hero, truck) -> bool:
+            """Checks if hero can fill up the truck."""
+            if hero.cash < (amount / 5) * self.price or truck.fuel + amount > 100:
+                return False
+            return True
+
+        def fill_up(self, amount: int, hero, truck) -> None:
+            """Fill ip the truck if it's possible."""
+            if not self.can_fill_up(amount, hero, truck):
+                return
+            hero.cash -= int((amount / 5) * self.price)
+            truck.fuel += amount
 
 
 class Hero:
@@ -56,13 +80,13 @@ class Hero:
         self.health = 100
         self.fatigue = 100
         self.hanger = 100
-        self.cash = 20
+        self.cash = 200
         self.ammo = 0
         self.stingrays_member = False
 
     def is_ammo(self) -> str:
         """Checks if the character has ammo for shotgun."""
-        if self.ammo !=0:
+        if self.ammo != 0:
             return f'Shotgun: {self.ammo} shells\n\n'
         return '\n'
 
@@ -75,6 +99,7 @@ class Hero:
         if self.stingrays_member == True:
             return f'Stingray tattoo\n\n'
         return '\n'
+
 
 class Truck:
     """Represents the truck and its state."""

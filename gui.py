@@ -100,9 +100,9 @@ class SpaceSaga(App):
             if self.state.world.current_location == "Corn Farm":
                 if opt_id.startswith('buy_corn'):
                     amount = int(opt_id.split('_')[-1])
-                    if not self.state.world.corn_farm.can_buy(amount,
-                                                              self.state.hero,
-                                                              self.state.truck):
+                    if not self.state.world.corn_farm.can_buy_corn(amount,
+                                                                   self.state.hero,
+                                                                   self.state.truck):
                         disabled = True
 
             # Show options for the Stingray bar location
@@ -118,6 +118,15 @@ class SpaceSaga(App):
                 if opt_id == 'sleep_in_bar':
                     if (not self.state.hero.stingrays_member and self.state.hero.cash < 10 or
                             (self.state.hero.stingrays_member and self.state.hero.cash < 5)):
+                        disabled = True
+
+            # Show options for Gruber's gas station
+            if self.state.world.current_location == 'Gruber\'s Fuel Station':
+                if opt_id.startswith('gruber_fill_up'):
+                    amount = int(opt_id.split('_')[-1])
+                    if not self.state.world.gruber_gas_station.can_fill_up(amount,
+                                                                           self.state.hero,
+                                                                           self.state.truck):
                         disabled = True
 
             self.command_panel.add_option(Option(opt.get('text'), opt_id, disabled=disabled))
