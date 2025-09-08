@@ -152,6 +152,11 @@ class SpaceSaga(App):
                     disabled = True
                 if opt_id == 'energy_treatment' and self.state.hero.health == 100:
                     disabled = True
+                if opt_id == 'rest' and self.state.hero.fatigue == 100:
+                    disabled = True
+                if opt_id == 'take_girl':
+                    if self.state.hero.health == 100 and self.state.hero.fatigue == 100:
+                        disabled = True
 
             self.command_panel.add_option(Option(opt.get('text'), opt_id, disabled=disabled))
 

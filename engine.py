@@ -38,7 +38,7 @@ class Engine:
             'upgrade_truck': self.upgrade_truck,
             'sell_all_coal': self.sell_all_coal,
             'sell_all_scrap': self.sell_all_scrap,
-            'energy_treatment': self.energy_treatment,
+            # 'energy_treatment': self.energy_treatment,
         }
 
     def run_action(self, action_name: str, args: dict | None) -> None:
@@ -222,6 +222,7 @@ class Engine:
 
     def sleep_in_bar(self, args) -> None:
         """After joining the gang, the hero gets cheaper accommodation at the bar."""
+        self.state.hero.fatigue = 89
         if self.state.hero.stingrays_member:
             self.state.hero.cash -= 5
         else:
@@ -281,8 +282,8 @@ class Engine:
         self.state.hero.cash += 23 * self.state.truck.cargo.get('scrap')
         self.state.truck.cargo['scrap'] = 0
 
-    def energy_treatment(self, args) -> None:
-        """Full treatment in the city clinic."""
-        self.state.hero.cash -= 50
-        self.state.hero.health = 100
-        self.state.hero.fatigue = min(self.state.hero.fatigue + 20, 100)
+    # def energy_treatment(self, args) -> None:
+    #     """Full treatment in the city clinic."""
+    #     self.state.hero.cash -= 50
+    #     self.state.hero.health = 100
+    #     self.state.hero.fatigue = min(self.state.hero.fatigue + 20, 100)

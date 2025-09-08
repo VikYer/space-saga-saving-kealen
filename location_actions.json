@@ -352,7 +352,6 @@
                 "text": "I need to sleep. Give me one bed…",
                 "description": "– Of course. Follow me, – said the bartender, signaling a boy.\nThe boy took you to the second floor, to a room where a couple of people were already sleeping on separate beds, and showed you your bed. After giving the money, you collapsed on the bed and fell asleep…\n\nYou woke up on your own. You feel much better now. Looking at the clock above the door, you see that your sleep time is almost over. It’s time to go downstairs.",
                 "effects": {
-                  "fatigue": 100,
                   "time": 360
                 },
                 "options": {
@@ -674,7 +673,10 @@
                 "text": "My health isn’t great. Some energy treatment could help…",
                 "description": "– Energy treatment? Sure, – the doctor took your money, sat you in a hard chair, put on a helmet and electrodes, strapped your arms, and pulled a big lever with a laugh.\n\nA strong shock ran through your body. You thought it was the end, but soon the current grew weaker and you felt energy filling you. You closed your eyes and fell asleep.\n\nYou woke up to the doctor patting your cheeks.\n\n– Wake up, it’s done, – he said, removing the wires.\n\nStanding up, you really felt better. Not much fresher, but healthier.",
                 "effects": {
-                  "time": 30
+                  "time": 30,
+                  "fatigue": 15,
+                  "health": 100,
+                  "cash": -50
                 }
               },
               "about_treatments": {
@@ -692,11 +694,22 @@
             "options": {
               "rest": {
                 "text": "Just give me a room. No girls needed.",
-                "description": "?"
+                "description": "The room was very good, and with no neighbors around, you rested well. You came back to the reception desk.",
+                "effects": {
+                  "time": 480,
+                  "fatigue": 100,
+                  "cash": -20
+                }
               },
               "take_girl": {
-                "text": "Girls aren’t for me. So I’ll take the full package.",
-                "description": "?"
+                "text": "Girls are beautiful. So I’ll take the full package.",
+                "description": "The lady from reception found you a girl to your taste and sent you to the room.\n\nEverything went great — even some plaster fell off the walls. You had a good rest! When you woke up, the girl was already gone. A pity, you wanted more. After fixing your hair and clothes, you returned to the reception desk.",
+                "effects": {
+                  "time": 480,
+                  "fatigue": 100,
+                  "heath": 30,
+                  "cash": -40
+                }
               },
               "back": {
                 "text": "Thanks, I don’t need anything."
