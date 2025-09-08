@@ -551,7 +551,7 @@
       },
       "go_garage": {
         "text": "Go to the garage",
-        "description": "Your truck is parked by a garage. Inside, there is another car. Right in front of your hood stands a man who just came out of the garage. He wears a greasy cloth jumpsuit, black welding glasses, and holds a wrench.\n\nDo you need something from Bolt? – he asks. This must be Bolt. He looks like a real car fan. And the name fits.",
+        "description": "Your truck is parked by a garage. Inside, there is another car. Right in front of your hood stands a man who just came out of the garage. He wears a greasy cloth jumpsuit, black welding glasses, and holds a wrench.\n\n– Do you need something from Bolt? – he asks. This must be Bolt. He looks like a real car fan. And the name fits.",
         "options": {
           "fix_truck": {
             "text": "I need to fix my truck…",
@@ -559,7 +559,7 @@
           },
           "upgrade_truck": {
             "text": "I see you really love your work. Can you also upgrade my truck?",
-            "description": "Bolt walked around the truck, looked at everything carefully, and said:\n\nHere’s the deal. I can make two steel trunks and weld them on your truck. Then you can carry 2 tons more. I won’t charge much. Let’s say 50 credits.\n\nI could also put spikes instead of wheels on your truck. For that, I need long iron rods. I don’t have many left. But if you bring me 5 tons of scrap metal, I could definitely find everything I need there. And the rest would be mine as payment.\n\nOf course, I don’t like carrying scrap myself, but I promise you – the result is worth it. Tested in practice. Enemy vehicles get smashed! Especially the Stingray gang’s jeeps.",
+            "description": "Bolt walked around the truck, looked at everything carefully, and said:\n\n– Here’s the deal. I can make two steel trunks and weld them on your truck. Then you can carry 2 tons more. I won’t charge much. Let’s say 50 credits.\n\nI could also put spikes instead of wheels on your truck. For that, I need long iron rods. I don’t have many left. But if you bring me 5 tons of scrap metal, I could definitely find everything I need there. And the rest would be mine as payment.\n\nOf course, I don’t like carrying scrap myself, but I promise you – the result is worth it. Tested in practice. Enemy vehicles get smashed! Especially the Stingrays gang’s jeeps.",
             "options": {
               "extend_trunk": {
                 "text": "Deal. I’ll pay, and you make my truck carry more.",
@@ -576,11 +576,11 @@
           },
           "about_kealen": {
             "text": "The Hyenas kidnapped a guy named Kealen. Can you help me rescue him?",
-            "description": "The Hyenas are serious guys. I don’t want to fight with them. So, sorry."
+            "description": "– The Hyenas are serious guys. I don’t want to fight with them. So, sorry."
           },
           "about_selling": {
             "text": "Do you sell anything? Or buy anything?",
-            "description": "Why? I fix cars, and I like it. If I need something, I go to Brackenbridge or the Varnock brothers."
+            "description": "– Why? I fix cars, and I like it. If I need something, I go to Brackenbridge or the Varnock brothers."
           },
           "back": {
             "text": "I have to go"

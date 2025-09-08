@@ -87,8 +87,8 @@ class Hero:
     def is_ammo(self) -> str:
         """Checks if the character has ammo for shotgun."""
         if self.ammo != 0:
-            return f'Shotgun: {self.ammo} shells\n\n'
-        return '\n'
+            return f'Shotgun: {self.ammo} shells\n'
+        return ''
 
     def is_stingrays_member(self) -> str:
         """
@@ -97,8 +97,8 @@ class Hero:
         :return: str for hero part in the state panel.
         """
         if self.stingrays_member == True:
-            return f'Stingray tattoo\n\n'
-        return '\n'
+            return f'Stingray tattoo\n'
+        return ''
 
 
 class Truck:

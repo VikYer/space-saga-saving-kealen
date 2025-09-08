@@ -380,18 +380,25 @@ class StatePanel:
 
         fuel_color = 'red' if truck.fuel <= 25 else 'white'
 
-        text = (
+        world_state = (
             f'Days passed: {world.days}\n'
             f'Time: {world.show_time()}\n'
             f'Current location: {world.current_location}\n\n'
+        )
+        hero_state = (
             f'HERO:\n'
             f'Health: {self._grade('health', hero.health)}\n'
             f'Fatigue: {self._grade('fatigue', hero.fatigue)}\n'
             f'Hanger: {self._grade('hanger', hero.hanger)}\n'
             f'Cash: {hero.cash} cr\n'
-            f'{hero.is_stingrays_member()}'
-            f'{hero.is_ammo()}'
-            f'TRUCK:\n'
+        )
+        if hero.is_stingrays_member():
+            hero_state += f'{hero.is_stingrays_member()}'
+        if hero.is_ammo():
+            hero_state += f'{hero.is_ammo()}'
+
+        truck_state = (
+            f'\nTRUCK:\n'
             f'Truck condition: {truck.truck_condition}%\n'
             f'Fuel: [{fuel_color}]{truck.fuel}[/{fuel_color}] l\n'
             f'Available space: {truck.truck_space}\n'
@@ -399,16 +406,16 @@ class StatePanel:
 
         for goods, amount in truck.cargo.items():
             if amount > 0:
-                text += f'{goods.capitalize()}: {amount} t\n'
+                truck_state += f'{goods.capitalize()}: {amount} t\n'
 
         if truck.passenger:
             for passang, destination in truck.passenger.items():
-                text += f'{passang} to {destination}'
+                truck_state += f'{passang} to {destination}'
 
         if world.biker_mood != None and world.biker_mood <= 4:
             biker_mood = world.biker_mood
-            text += f'\n{
+            truck_state += f'\n{
             ('Biker looks determined', 'Biker is confident', 'Biker is careful',
              'Biker is afraid', 'Biker is afraid')[biker_mood]}'
 
-        self.state_panel_widget.update(text)
+        self.state_panel_widget.update(world_state + hero_state + truck_state)
