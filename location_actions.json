@@ -555,19 +555,56 @@
         "options": {
           "fix_truck": {
             "text": "I need to fix my truck…",
-            "description": "?"
+            "description": "dynamic",
+            "options": {
+              "repair_truck": {
+                "text": "Ok. Start the repair.",
+                "description": "You paid the agreed sum. Bolt drove the truck into the garage, lifted it with a portable crane, and started the repair.\n\nThe mechanic worked like a real master – it was a pleasure to watch.\n\n– Done! – Bolt shouted, rolling the car outside. Now it shines like the polar star. No dents, no scratches. Perfect job!",
+                "effects": {
+                  "time": 200
+                },
+                "options": {
+                  "leave": {
+                    "text": "Next",
+                    "goto": "Bolt's Garage"
+                  }
+                }
+              },
+              "back": {
+                "text": "I'm not ready for such expenses..."
+              }
+            }
           },
-          "upgrade_truck": {
+          "improve_truck": {
             "text": "I see you really love your work. Can you also upgrade my truck?",
             "description": "Bolt walked around the truck, looked at everything carefully, and said:\n\n– Here’s the deal. I can make two steel trunks and weld them on your truck. Then you can carry 2 tons more. I won’t charge much. Let’s say 50 credits.\n\nI could also put spikes instead of wheels on your truck. For that, I need long iron rods. I don’t have many left. But if you bring me 5 tons of scrap metal, I could definitely find everything I need there. And the rest would be mine as payment.\n\nOf course, I don’t like carrying scrap myself, but I promise you – the result is worth it. Tested in practice. Enemy vehicles get smashed! Especially the Stingrays gang’s jeeps.",
             "options": {
               "extend_trunk": {
                 "text": "Deal. I’ll pay, and you make my truck carry more.",
-                "description": "?"
+                "description": "Taking your money, Bolt went into his garage. You heard bangs, scraping, and hissing. What was he doing in there? While you wondered, the mechanic came out driving a strange loader with a big box in its claws. He welded the box to the side of your truck. Then he did the same on the other side.\n\n— Done! Now your cargo bed can hold 2 more tons, — Bolt said.\n\nYou looked out the truck window. Indeed, each box could fit at least a ton of goods.",
+                "effects": {
+                  "cash": -50,
+                  "time": 150
+                },
+                "options": {
+                  "leave": {
+                    "text": "Next",
+                    "goto": "Bolt's Garage"
+                  }
+                }
               },
               "upgrade_truck": {
-                "text": "I have 5 tons of scrap metal ready. Take it and start working!",
-                "description": "?"
+                "text": "I have 5 tons of scrap metal. Take it and start working!",
+                "description": "With a magnetic loader, Bolt quickly took 5 tons of scrap from you and piled it nearby. Then the work began. The master picked rods and sheets of metal, shaped them, and made cones. To each cone he attached sharp blades. Finally, Bolt fixed these creations onto your wheels.\n\nAnd done! Now your steel beast looked really scary.",
+                "effects": {
+                  "time": 90
+                },
+                "options": {
+                  "leave": {
+                    "text": "Next",
+                    "goto": "Bolt's Garage"
+                  }
+                }
               },
               "back": {
                 "text": "Alright. Let’s talk about other matters instead."

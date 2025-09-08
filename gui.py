@@ -129,6 +129,19 @@ class SpaceSaga(App):
                                                                            self.state.truck):
                         disabled = True
 
+            # Show options for Bolt;s garage
+            if self.state.world.current_location == 'Bolt\'s Garage':
+                if opt_id == 'fix_truck' and self.state.truck.truck_condition == 100:
+                    disabled = True
+                if opt_id == 'extend_trunk' and self.state.hero.cash < 50:
+                    disabled = True
+                if opt_id == 'extend_trunk' and self.state.truck.upgrade_load_capacity:
+                    disabled = True
+                if opt_id == 'upgrade_truck' and not self.engine.has_scrap_for_truck_upgrade():
+                    disabled = True
+                if opt_id == 'upgrade_truck' and self.state.truck.blades_on_wheels:
+                    disabled = True
+
             self.command_panel.add_option(Option(opt.get('text'), opt_id, disabled=disabled))
 
         if options:
@@ -337,6 +350,13 @@ class SpaceSaga(App):
                         'a fresh tattoo of a scorpion. Looks like you’re in the gang now!'
                         )
 
+        if option_name == 'fix_truck' and self.state.world.current_location == 'Bolt\'s Garage':
+            return ('Bolt quickly looked over the car and said: '
+                    f'— So, here the repair will cost {self.engine.bolt_repair_cost()} credits. '
+                    'You understand, I don’t use cheap parts like Dex, '
+                    'so my prices are real. But your car will be like new! Well, do we fix it?'
+                    )
+
         return ''
 
 
@@ -403,6 +423,11 @@ class StatePanel:
             f'Fuel: [{fuel_color}]{truck.fuel}[/{fuel_color}] l\n'
             f'Available space: {truck.truck_space}\n'
         )
+        if truck.upgrade_load_capacity:
+            truck_state += 'Load capacity increased\n'
+
+        if truck.blades_on_wheels:
+            truck_state += 'Blades on the wheels\n'
 
         for goods, amount in truck.cargo.items():
             if amount > 0:

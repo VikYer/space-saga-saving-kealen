@@ -33,6 +33,9 @@ class Engine:
             'not_fighting_with_biker': self.not_fighting_with_biker,
             'gruber_fill_up_5': self.gruber_fill_up,
             'gruber_fill_up_15': self.gruber_fill_up,
+            'repair_truck': self.repair_truck,
+            'extend_trunk': self.extend_trunk,
+            'upgrade_truck': self.upgrade_truck,
         }
 
     def run_action(self, action_name: str, args: dict | None) -> None:
@@ -96,7 +99,8 @@ class Engine:
         self.state.truck.truck_space += args.get('load_change', 0)
         self.state.truck.avg_speed += args.get('speed_change', 0)
         self.state.truck.avg_fuel_consumption += args.get('fuel_consumption_change', 0)
-
+        self.state.truck.upgrade_load_capacity = False
+        self.state.truck.blades_on_wheels = False
         self.state.invisible_options.add('inspect_lorry')
         self.state.locations[self.state.world.current_location][
             'description'] = (
@@ -237,3 +241,29 @@ class Engine:
         """Hero fills up the truck on the Gruber's gas station."""
         amount = args.get('fuel')
         self.state.world.gruber_gas_station.fill_up(amount, self.state.hero, self.state.truck)
+
+    def bolt_repair_cost(self) -> int:
+        """Bolt estimates the repairing cost of the truck."""
+        cost = 100 - self.state.truck.truck_condition
+        return cost
+
+    def repair_truck(self, args) -> None:
+        """Simulate truck repair."""
+        self.state.hero.cash -= self.bolt_repair_cost()
+        self.state.truck.truck_condition = 100
+
+    def has_scrap_for_truck_upgrade(self) -> bool:
+        """Checks if hero has enough scrap for truck upgrading."""
+        if self.state.truck.cargo.get('scrap') < 5:
+            return False
+        return True
+
+    def extend_trunk(self, args) -> None:
+        """Mechanic increase truck load capacity."""
+        self.state.truck.truck_space += 2
+        self.state.truck.upgrade_load_capacity = True
+
+    def upgrade_truck(self, args) -> None:
+        """Mechanic welds sharp blades onto truck wheels."""
+        self.state.truck.blades_on_wheels = True
+        self.state.truck.cargo['scrap'] -= 5
