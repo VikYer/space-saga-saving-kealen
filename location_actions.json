@@ -645,7 +645,7 @@
       },
       "go_town": {
         "text": "Go to the town",
-        "description": "You stand in a big, but dirty, square. Almost all houses in the town are old and dirty. Only four look worth noticing:\n\n- a one-story building with a bright sign \"- Crimson Plate Restaurant\";\n\n- a three-story brick building with the words \"- Velvet Nights Hotel\";\n\n- a plastic building with a red cross on the door and windows (looks like a small clinic);\n\n- a white two-story house with a four-color flag on the roof.\n\nA wide road goes away from the square. It leads to a small factory with two chimneys, sending out black smoke. You might be able to reach the checkpoint using this road.",
+        "description": "You stand in a big, but dirty, square. Almost all houses in the town are old and dirty. Only four look worth noticing:\n\n- a one-story building with a bright sign \"Crimson Plate Restaurant\";\n\n- a three-story brick building with the words \"Velvet Nights Hotel\";\n\n- a plastic building with a red cross on the door and windows (looks like a small clinic);\n\n- a white two-story house with a four-color flag on the roof.\n\nA wide road goes away from the square. It leads to a small factory with two chimneys, sending out black smoke. You might be able to reach the checkpoint using this road.",
         "options": {
           "go_to_factory": {
             "text": "Drive to the factory checkpoint",
@@ -668,15 +668,18 @@
           },
           "go_to_clinic": {
             "text": "Go to the clinic",
-            "description": "The little house was full of all kinds of equipment. On the right, there were several medical-looking devices in strange shapes. There was even a rusty machine with a big sign saying “Drill.” It looked like some kind of ancient torture tool.\n\nOpposite the door, on a shabby little couch, a small man in a spotless white coat was snoring. On his chest lay a little mirror with a hole and a strap. It seemed the medical expert didn’t want to work today, but you would have to wake him. Knocking loudly on the door made the doctor stir.\n\n- Huh? What? Only here! Energy treatment using a new revolutionary method. Complete wound healing. All for 50 credits.",
+            "description": "The little house was full of all kinds of equipment. On the right, there were several medical-looking devices in strange shapes. There was even a rusty machine with a big sign saying “Drill.” It looked like some kind of ancient torture tool.\n\nOpposite the door, on a shabby little couch, a small man in a spotless white coat was snoring. On his chest lay a little mirror with a hole and a strap. It seemed the medical expert didn’t want to work today, but you would have to wake him. Knocking loudly on the door made the doctor stir.\n\n– Huh? What? Only here! Energy treatment using a new revolutionary method. Complete wound healing. All for 50 credits.",
             "options": {
-              "treat": {
+              "energy_treatment": {
                 "text": "My health isn’t great. Some energy treatment could help…",
-                "description": "?"
+                "description": "– Energy treatment? Sure, – the doctor took your money, sat you in a hard chair, put on a helmet and electrodes, strapped your arms, and pulled a big lever with a laugh.\n\nA strong shock ran through your body. You thought it was the end, but soon the current grew weaker and you felt energy filling you. You closed your eyes and fell asleep.\n\nYou woke up to the doctor patting your cheeks.\n\n– Wake up, it’s done, – he said, removing the wires.\n\nStanding up, you really felt better. Not much fresher, but healthier.",
+                "effects": {
+                  "time": 30
+                }
               },
               "about_treatments": {
                 "text": "What other procedures can you do?",
-                "description": "We also perform brain transplants (the head, of course), removal of hairs from heels and fins (for muttokes and droxex respectively), and, – the doctor leaned closer and whispered – we transplant… private parts for ools. What exactly are you interested in?\n\n- No, no. None of the above, – you replied quickly.\n\n- That’s a pity. Really a pity. Anything else?"
+                "description": "– We also perform brain transplants (the head, of course), removal of hairs from heels and fins (for muttokes and droxes respectively), and, – the doctor leaned closer and whispered – we transplant… private parts for ools. What exactly are you interested in?\n\n– No, no. None of the above, – you replied quickly.\n\n– That’s a pity. Really a pity. Anything else?"
               },
               "back": {
                 "text": "I’ll take my leave and step outside."
