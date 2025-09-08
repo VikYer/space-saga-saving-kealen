@@ -36,6 +36,8 @@ class Engine:
             'repair_truck': self.repair_truck,
             'extend_trunk': self.extend_trunk,
             'upgrade_truck': self.upgrade_truck,
+            'sell_all_coal': self.sell_all_coal,
+            'sell_all_scrap': self.sell_all_scrap,
         }
 
     def run_action(self, action_name: str, args: dict | None) -> None:
@@ -267,3 +269,13 @@ class Engine:
         """Mechanic welds sharp blades onto truck wheels."""
         self.state.truck.blades_on_wheels = True
         self.state.truck.cargo['scrap'] -= 5
+
+    def sell_all_coal(self, args) -> None:
+        """Hero sells all coal for factory in the city."""
+        self.state.hero.cash += 12 * self.state.truck.cargo.get('coal')
+        self.state.truck.cargo['coal'] = 0
+
+    def sell_all_scrap(self, args) -> None:
+        """Hero sells all scarp for factory in the city."""
+        self.state.hero.cash += 23 * self.state.truck.cargo.get('scrap')
+        self.state.truck.cargo['scrap'] = 0

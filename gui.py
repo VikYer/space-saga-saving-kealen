@@ -129,7 +129,7 @@ class SpaceSaga(App):
                                                                            self.state.truck):
                         disabled = True
 
-            # Show options for Bolt;s garage
+            # Show options for Bolt's garage
             if self.state.world.current_location == 'Bolt\'s Garage':
                 if opt_id == 'fix_truck' and self.state.truck.truck_condition == 100:
                     disabled = True
@@ -140,6 +140,13 @@ class SpaceSaga(App):
                 if opt_id == 'upgrade_truck' and not self.engine.has_scrap_for_truck_upgrade():
                     disabled = True
                 if opt_id == 'upgrade_truck' and self.state.truck.blades_on_wheels:
+                    disabled = True
+
+            # Show options for town
+            if self.state.world.current_location == 'Brackenbridge':
+                if opt_id == 'sell_all_coal' and self.state.truck.cargo.get('coal') == 0:
+                    disabled = True
+                if opt_id == 'sell_all_scrap' and self.state.truck.cargo.get('scrap') == 0:
                     disabled = True
 
             self.command_panel.add_option(Option(opt.get('text'), opt_id, disabled=disabled))

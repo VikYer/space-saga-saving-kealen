@@ -655,13 +655,11 @@
                 "text": "Ask what the factory makes",
                 "description": "- Right now, we work with rolled metal. But in a month, we’ll start making industrial goods, and in half a year, we might take on cars and maybe even weapons! Just don’t tell anyone too much about this. You never know…"
               },
-              "sell_coal": {
-                "text": "Sell all the coal",
-                "description": "?"
+              "sell_all_coal": {
+                "text": "Sell all the coal"
               },
-              "sell_scrap": {
-                "text": "Sell all the scrap metal",
-                "description": "?"
+              "sell_all_scrap": {
+                "text": "Sell all the scrap metal"
               },
               "back": {
                 "text": "Go to the square"
