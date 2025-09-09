@@ -281,9 +281,3 @@ class Engine:
         """Hero sells all scarp for factory in the city."""
         self.state.hero.cash += 23 * self.state.truck.cargo.get('scrap')
         self.state.truck.cargo['scrap'] = 0
-
-    # def energy_treatment(self, args) -> None:
-    #     """Full treatment in the city clinic."""
-    #     self.state.hero.cash -= 50
-    #     self.state.hero.health = 100
-    #     self.state.hero.fatigue = min(self.state.hero.fatigue + 20, 100)

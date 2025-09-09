@@ -766,6 +766,10 @@
           "sleep_in_truck": {
             "text": "Sleep in the car",
             "description": "You pushed some junk away and tried to sleep on the seats of your truck. But you didn’t sleep long — people walking around woke you up. And it wasn’t very comfortable anyway.\n\nAt least it cost nothing!",
+            "effects": {
+              "fatigue": 5,
+              "time": 180
+            },
             "options": {
               "back": {
                 "text": "Next"
