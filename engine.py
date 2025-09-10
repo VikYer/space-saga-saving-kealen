@@ -1,4 +1,5 @@
 import random
+from datetime import datetime
 
 from game_state import GameState
 
@@ -38,7 +39,10 @@ class Engine:
             'upgrade_truck': self.upgrade_truck,
             'sell_all_coal': self.sell_all_coal,
             'sell_all_scrap': self.sell_all_scrap,
-            # 'energy_treatment': self.energy_treatment,
+            'back_nothing_interesting': self.back_nothing_interesting,
+            'back_meet_beggar': self.meet_beggar,
+            'back_conflict_with_hooligans': self.back_conflict_with_hooligans,
+            'back_stolen_money': self.back_stolen_money,
         }
 
     def run_action(self, action_name: str, args: dict | None) -> None:
@@ -199,7 +203,7 @@ class Engine:
                     'A crooked smile crossed his face, but too early — '
                     'you quickly recovered.')
 
-    def hit_stomach(self,args):
+    def hit_stomach(self, args):
         """
         Hit on stomach causes the biker's mood to worsen.
 
@@ -281,3 +285,60 @@ class Engine:
         """Hero sells all scarp for factory in the city."""
         self.state.hero.cash += 23 * self.state.truck.cargo.get('scrap')
         self.state.truck.cargo['scrap'] = 0
+
+    def randomize_city_exploration_event(self) -> None:
+        """
+        Randomizes events during the hero's walks around the city.
+        During the day and at night, possible events and their probability of occurrence differ.
+        """
+        if self._is_time_in_range('23:00', '05:00'):
+            self.state.discover_city_event = random.choices(
+                ['back_nothing_interesting',
+                 'meet_beggar',
+                 'back_conflict_with_hooligans'],
+                weights=[0.45, 0.45, 0.1],
+                k=1
+            )[0]
+        else:
+            self.state.discover_city_event = random.choices(
+                ['back_stolen_money',
+                 'back_nothing_interesting',
+                 'meet_beggar'],
+                weights=[0.2, 0.4, 0.4],
+                k=1
+            )[0]
+        self.state.invisible_options.discard(self.state.discover_city_event)
+
+    def _is_time_in_range(self, start: str, end: str) -> bool:
+        """Checks if the current time is in the range [start, end]."""
+        t = datetime.strptime(self.state.world.show_time(), '%H:%M').time()
+        t_start = datetime.strptime(start, '%H:%M').time()
+        t_end = datetime.strptime(end, '%H:%M').time()
+
+        if t_start <= t_end:
+            # Supports ranges that do not pass through midnight
+            return t_start <= t and t <= t_end
+        else:
+            # Supports ranges that cross midnight
+            return t >= t_start or t <= t_end
+
+    def back_stolen_money(self, args) -> None:
+        """Hides this dynamic method."""
+        self.state.hero.cash = max(0, self.state.hero.cash - 7)
+        self.state.invisible_options.add('back_stolen_money')
+        self.state.discover_city_event = None
+
+    def back_nothing_interesting(self, args) -> None:
+        """Hides this dynamic method."""
+        self.state.invisible_options.add('back_nothing_interesting')
+        self.state.discover_city_event = None
+
+    def meet_beggar(self, args) -> None:
+        """Hides this dynamic method."""
+        self.state.invisible_options.add('meet_beggar')
+        self.state.discover_city_event = None
+
+    def back_conflict_with_hooligans(self, args) -> None:
+        """Hides this dynamic method."""
+        self.state.invisible_options.add('back_conflict_with_hooligans')
+        self.state.discover_city_event = None

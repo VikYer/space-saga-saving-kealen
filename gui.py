@@ -1,3 +1,5 @@
+import random
+
 from textual.app import App, ComposeResult
 from textual.containers import Horizontal, Container, ScrollableContainer
 from textual.widgets import Static, Footer, OptionList
@@ -157,6 +159,8 @@ class SpaceSaga(App):
                 if opt_id == 'take_girl':
                     if self.state.hero.health == 100 and self.state.hero.fatigue == 100:
                         disabled = True
+                if opt_id == 'coins_for_beggar' and self.state.hero.cash < 4:
+                    disabled = True
 
             self.command_panel.add_option(Option(opt.get('text'), opt_id, disabled=disabled))
 
@@ -167,9 +171,14 @@ class SpaceSaga(App):
     def on_option_list_option_selected(self, event: OptionList.OptionSelected) -> None:
         """Handle option selection from command-panel."""
 
+        # Finish the quest to deliver drox to the city
         if event.option_id == 'drox_delivered':
             self.show_location('Brackenbridge')
             return
+
+        # City exploration has a few options
+        if event.option_id == 'discover_city':
+            self.engine.randomize_city_exploration_event()
 
         location = self.state.locations.get(self.state.world.current_location)
         if not location:
@@ -366,12 +375,46 @@ class SpaceSaga(App):
                         'a fresh tattoo of a scorpion. Looks like you’re in the gang now!'
                         )
 
+        # Dynamic car repair pricing
         if option_name == 'fix_truck' and self.state.world.current_location == 'Bolt\'s Garage':
             return ('Bolt quickly looked over the car and said: '
-                    f'— So, here the repair will cost {self.engine.bolt_repair_cost()} credits. '
+                    f'– So, here the repair will cost {self.engine.bolt_repair_cost()} credits. '
                     'You understand, I don’t use cheap parts like Dex, '
                     'so my prices are real. But your car will be like new! Well, do we fix it?'
                     )
+
+        # Hero's exploration of the city
+        if self.state.world.current_location == 'Brackenbridge' and option_name == 'discover_city':
+            if self.state.discover_city_event == 'back_stolen_money':
+                return (
+                    'You walked around for a long time but found nothing except old houses. '
+                    'It seemed that all the interesting places were near the main square. '
+                    'With that thought, you went back. When you put your hand in your pocket, '
+                    'you saw that someone had stolen a few credits '
+                    'This did not make your mood any better.'
+                )
+            if self.state.discover_city_event == 'back_nothing_interesting':
+                return (
+                    'You wandered for a long time but found only old houses. '
+                    'It seemed all the interesting places were near the main square. '
+                    'With that thought, you went back to where your trip began.'
+                )
+            if self.state.discover_city_event == 'meet_beggar':
+                return (
+                    'You wandered for a long time but found only old shabby houses. '
+                    'It seemed all the real life was near the main square. '
+                    'Just as you were about to head back, you noticed a beggar '
+                    'sitting on the sidewalk, asking for coins.'
+                )
+            if self.state.discover_city_event == 'back_conflict_with_hooligans':
+                return (
+                    'You walked around but found only old houses. '
+                    'On the way back, someone hit you from behind and you fell.\n'
+                    'Three teenage punks stood over you. They looked tough together.\n'
+                    'You got up, kicked one in the legs, broke another’s nose, '
+                    'and the gang ran off. You were hurt too. Better not to walk here '
+                    'at twilight – it’s their time.'
+                )
 
         return ''
 

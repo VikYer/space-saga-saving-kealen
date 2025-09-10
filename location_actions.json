@@ -756,10 +756,51 @@
           },
           "discover_city": {
             "text": "Walk around the city to find other interesting places",
-            "description": "You wandered around for quite a while, but apart from dilapidated residential houses, you found nothing of interest. It seems that everything noteworthy is concentrated near the town’s main square. With that conclusion, you turned back.\n\nAs you slipped your hand into your pocket, you discovered that someone had stolen a few credits from you... This discovery, to put it mildly, did not improve your mood.",
+            "description": "dynamic",
             "options": {
-              "back": {
-                "text": "Back to the city square"
+              "back_nothing_interesting": {
+                "text": "Next",
+                "effects": {
+                  "time": 90
+                }
+              },
+              "meet_beggar": {
+                "text": "Go to the beggar",
+                "effects": {
+                  "time": 45
+                },
+                "options": {
+                  "coins_for_beggar": {
+                    "text": "Throw a couple of coins to the old man",
+                    "description": "– Thank you, son, – the old man said. I see you’re a traveler. Let me give you some advice. On the road from city to Dex's fuel station, there’s a turn to a lake. It looks dirty and small, but if you swim there for fifteen minutes, your wounds will heal as if by magic. Now go in peace.\n\nRemembering his words, you left the city.",
+                    "effects": {
+                      "cash": -4
+                    },
+                    "options": {
+                      "leave_beggar": {
+                        "text": "Next",
+                        "goto": "Brackenbridge"
+                      }
+                    }
+                  },
+                  "leave": {
+                    "text": "Return to the road",
+                    "goto": "Brackenbridge"
+                  }
+                }
+              },
+              "back_conflict_with_hooligans": {
+                "text": "Next",
+                "effects": {
+                  "health": -20,
+                  "time": 90
+                }
+              },
+              "back_stolen_money": {
+                "text": "Next",
+                "effect": {
+                  "time": 45
+                }
               }
             }
           },

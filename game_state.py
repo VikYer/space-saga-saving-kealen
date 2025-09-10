@@ -126,9 +126,16 @@ class GameState:
         self.hero = Hero()
         self.truck = Truck()
         self.locations = {}
+        # List of options hidden from the player
         self.invisible_options = {
             'biker_defeated',
             'go_to_rockers_is_stingray',
             'treat_everyone_is_stingray',
             'treat_everyone_is_coward',
+            'back_stolen_money',
+            'back_nothing_interesting',
+            'meet_beggar',
+            'back_conflict_with_hooligans',
         }
+        # Randomly selected event for the hero's walk around the city
+        self.discover_city_event = None
