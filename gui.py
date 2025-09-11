@@ -300,11 +300,20 @@ class SpaceSaga(App):
         """Helper: generate a context-sensitive description text for the quest panel."""
 
         # Dynamic quest text depending on the quantity and price of corn.
-        if option_name.startswith('buy_corn') or option_name == 'approach_farm':
+        if option_name == 'approach_farm':
             return (
                 'Your car was parked right in front of the gate of the farmhouse. '
                 'A young man in a hat with a cane in his teeth was looking at you from the window:\n\n'
-                f'We currently have {self.state.world.corn_farm.offer} tonnes '
+                f'– We currently have {self.state.world.corn_farm.offer} tonnes '
+                'of corn, packed in barrels, one tonne each. '
+                f'We sell them for {self.state.world.corn_farm.price} credits per barrel. '
+                'And if you want to sell something yourself, sorry, '
+                'we\'re not buying anything. We have everything we need.'
+            )
+
+        if option_name.startswith('buy_corn'):
+            return (
+                f'– We currently have {self.state.world.corn_farm.offer} tonnes '
                 'of corn, packed in barrels, one tonne each. '
                 f'We sell them for {self.state.world.corn_farm.price} credits per barrel. '
                 'And if you want to sell something yourself, sorry, '
