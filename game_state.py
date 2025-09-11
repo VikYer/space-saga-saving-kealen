@@ -9,6 +9,7 @@ class World:
         self.corn_farm = self.CornFarm()
         self.gruber_gas_station = self.GruberGasStation()
         self.biker_mood = None  # ('Biker looks determined', 'Biker is confident', 'Biker is careful', 'Biker is afraid', 'Biker is afraid')
+        self.wreckyard = self.Wreckyard()
 
     def show_days(self) -> int:
         """Show how many days have passed since the start of game."""
@@ -70,6 +71,33 @@ class World:
                 return
             hero.cash -= int((amount / 5) * self.price)
             truck.fuel += amount
+
+    class Wreckyard:
+        """Represents corn farm and its state."""
+
+        def __init__(self):
+            """Initialize parameters of corn farm."""
+            self.offer = 51
+            self.price = 10
+
+        def can_buy_scrap(self, amount, hero, truck) -> bool:
+            """Checks hero available to buy a given amount of corn."""
+            if amount > self.offer:
+                return False
+            if hero.cash < self.price * amount:
+                return False
+            if amount > truck.truck_space:
+                return False
+            return True
+
+        def buy(self, amount: int, hero, truck) -> None:
+            """Make the purchase if it's possible."""
+            if not self.can_buy_scrap(amount, hero, truck):
+                return
+            self.offer -= amount
+            hero.cash -= amount * self.price
+            truck.truck_space -= amount
+            truck.cargo['scrap'] += amount
 
 
 class Hero:

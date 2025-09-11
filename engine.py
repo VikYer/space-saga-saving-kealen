@@ -45,6 +45,10 @@ class Engine:
             'back_stolen_money': self.back_stolen_money,
             'wait_restaurant_opening': self.wait_restaurant_opening,
             'back_to_square': self.back_to_square,
+            'buy_scrap_1': self.buy_scrap,
+            'buy_scrap_2': self.buy_scrap,
+            'buy_scrap_3': self.buy_scrap,
+            'buy_scrap_5': self.buy_scrap,
         }
 
     def run_action(self, action_name: str, args: dict | None) -> None:
@@ -370,3 +374,8 @@ class Engine:
         self.state.invisible_options.add('order_beaver')
         self.state.invisible_options.add('order_cactus')
         self.state.invisible_options.add('wait_restaurant_opening')
+
+    def buy_scrap(self, args: dict) -> None:
+        """Scrap purchase on the farm."""
+        amount = args.get('scrap')
+        self.state.world.wreckyard.buy(amount, self.state.hero, self.state.truck)

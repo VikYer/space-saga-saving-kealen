@@ -170,6 +170,15 @@ class SpaceSaga(App):
                 if opt_id == 'order_cactus' and self.state.hero.cash < 23:
                     disabled = True
 
+            # Show option for wreckyard
+            if self.state.world.current_location == 'Wreckyard':
+                if opt_id.startswith('buy_scrap'):
+                    amount = int(opt_id.split('_')[-1])
+                    if not self.state.world.wreckyard.can_buy_scrap(amount,
+                                                                    self.state.hero,
+                                                                    self.state.truck):
+                        disabled = True
+
             self.command_panel.add_option(Option(opt.get('text'), opt_id, disabled=disabled))
 
         if options:
@@ -454,6 +463,27 @@ class SpaceSaga(App):
                     'The restaurant is open daily:\n'
                     'from 9:00 until the last guest after 23:59.\"'
                 )
+
+        # Dynamic quest text depending on the quantity and price of scrap.
+        if option_name == 'go_wreckyard':
+            return (
+                'The vehicle skillfully entered the scrapyard. You were about to '
+                'delve deeper into the trash maze, but a three-meter-tall robot blocked '
+                'your way. Rusty as it was, it looked impressive…\n\n'
+                '– You’re in the Varnock brothers’ territory, gringo! – said the man '
+                'inside the robot. – If you’re here on business, know this: we '
+                f'currently have {self.state.world.wreckyard.offer} tons of scrap metal. '
+                f'{self.state.world.wreckyard.price} credits per ton. '
+                'The scrap is pressed and neatly packed—top quality stuff.'
+            )
+
+        if option_name.startswith('buy_scrap'):
+            return (
+                '– If you’re here on business, know this: we '
+                f'currently have {self.state.world.wreckyard.offer} tons of scrap metal. '
+                f'{self.state.world.wreckyard.price} credits per ton. '
+                'The scrap is pressed and neatly packed—top quality stuff.'
+            )
 
         return ''
 

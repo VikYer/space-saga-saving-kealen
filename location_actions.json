@@ -879,30 +879,46 @@
       },
       "go_wreckyard": {
         "text": "Drive to the wreckyard",
-        "description": "The vehicle skillfully entered the scrapyard. You were about to delve deeper into the trash maze, but a three-meter-tall robot blocked your way. Rusty as it was, it looked impressive…\n\n- You’re in the Varnock brothers’ territory, gringo! – said the man inside the robot. – If you’re here on business, know this: we currently have 50 tons of scrap metal. 10 creditss per ton. The scrap is pressed and neatly packed—top quality stuff.",
+        "description": "dynamic",
         "options": {
-          "buy_one_t": {
+          "buy_scrap_1": {
             "text": "I’ll take one ton of scrap metal",
-            "description": "?"
+            "description": "dynamic",
+            "effects": {
+              "scrap": 1,
+              "time": 1
+            }
           },
-          "buy_three_t": {
+          "buy_scrap_2": {
+            "text": "I’ll take two tons of scrap metal",
+            "description": "dynamic",
+            "effects": {
+              "scrap": 2,
+              "time": 2
+            }
+          },
+          "buy_scrap_3": {
             "text": "I’ll take three tons of scrap metal",
-            "description": ""
+            "description": "dynamic",
+            "effects": {
+              "scrap": 3,
+              "time": 3
+            }
           },
-          "buy_all": {
-            "text": "I’ll take all the remaining scrap metal",
-            "description": "?"
-          },
-          "take_full_trunk": {
-            "text": "I’ll load up with scrap metal to the brim",
-            "description": "?"
+          "buy_scrap_5": {
+            "text": "I’ll take five tons of scrap metal",
+            "description": "dynamic",
+            "effects": {
+              "scrap": 5,
+              "time": 5
+            }
           },
           "ask_question": {
             "text": "I’ve got a couple of questions",
             "description": "— And what do you want to ask about, gringo?",
             "options": {
               "about_wreckyard": {
-                "text": "Why do some signs say “military base” instead of “wreckyard”?",
+                "text": "Why do some signs say \"military base\" instead of \"wreckyard\"?",
                 "description": "– Long ago, there was a big military base here, built before the Galactic Commonwealth. After many years the tech got old, so the army took useful parts, packed them up, and left. What was left turned into this junkyard.\n\nLater, me and my brothers took the place. Now it’s our small family business, and no Stingrays or Hyenas can boss us around.\n\nThe man lifted a robot’s steel arm – with a scary blaster on it."
               },
               "about_kealen": {
@@ -911,11 +927,11 @@
               },
               "about_weapon": {
                 "text": "Do you have weapons?",
-                "description": "– What weapons, buddy! Me and my brothers found a few guns in the junkyard, but they’re all ours. You get it — around here, you need weapons for yourself."
+                "description": "– What weapons, buddy! Me and my brothers found a few guns in the wreckyard, but they’re all ours. You get it — around here, you need weapons for yourself."
               },
               "about_metal": {
                 "text": "Where can I sell metal?",
-                "description": "– In Brackenbridge, our town, they’ll gladly buy it from you"
+                "description": "– In Brackenbridge, our town, they’ll gladly buy it from you.s"
               },
               "back": {
                 "text": "I’d like to trade with you some more"
