@@ -136,6 +136,12 @@ class GameState:
             'back_nothing_interesting',
             'meet_beggar',
             'back_conflict_with_hooligans',
+            'order_root',
+            'order_wine',
+            'order_tail',
+            'order_beaver',
+            'order_cactus',
+            'wait_restaurant_opening',
         }
         # Randomly selected event for the hero's walk around the city
         self.discover_city_event = None

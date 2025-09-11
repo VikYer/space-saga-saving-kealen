@@ -43,6 +43,8 @@ class Engine:
             'back_meet_beggar': self.meet_beggar,
             'back_conflict_with_hooligans': self.back_conflict_with_hooligans,
             'back_stolen_money': self.back_stolen_money,
+            'wait_restaurant_opening': self.wait_restaurant_opening,
+            'back_to_square': self.back_to_square,
         }
 
     def run_action(self, action_name: str, args: dict | None) -> None:
@@ -342,3 +344,29 @@ class Engine:
         """Hides this dynamic method."""
         self.state.invisible_options.add('back_conflict_with_hooligans')
         self.state.discover_city_event = None
+
+    def wait_restaurant_opening(self, args) -> None:
+        """Simulate the hero is waiting for the restaurant opening."""
+        self.state.invisible_options.add('wait_restaurant_opening')
+
+        self.state.invisible_options.discard('order_root')
+        self.state.invisible_options.discard('order_wine')
+        self.state.invisible_options.discard('order_tail')
+        self.state.invisible_options.discard('order_beaver')
+        self.state.invisible_options.discard('order_cactus')
+
+        opening_time = datetime.strptime('09:01', '%H:%M')
+        curr_time = datetime.strptime(self.state.world.show_time(), '%H:%M')
+        self.state.world.current_time += int((opening_time - curr_time).total_seconds() / 60)
+
+    def back_to_square(self, args) -> None:
+        """
+        The hero leaves the restaurant - all its options become invisible
+        so its can be dynamically reformed during the next visit.
+        """
+        self.state.invisible_options.add('order_root')
+        self.state.invisible_options.add('order_wine')
+        self.state.invisible_options.add('order_tail')
+        self.state.invisible_options.add('order_beaver')
+        self.state.invisible_options.add('order_cactus')
+        self.state.invisible_options.add('wait_restaurant_opening')

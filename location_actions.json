@@ -718,30 +718,59 @@
           },
           "go_to_restaurant": {
             "text": "Go to the restaurant",
-            "description": "Grabbing the restaurant door handle, you noticed a sign on the glass:\n\"Open.\nThe restaurant operates daily:\nfrom 9:00 until the last visitor after 23:59.\"\n\nNoting this, you went inside. There weren’t many people, so you easily found a table.\nShall we order something? — asked the Chaldean waiter, dressed in a neat suit, handing you the menu.\nYou quickly looked through the options, noting what you could afford and what was too expensive.",
+            "description": "dynamic",
             "options": {
               "order_root": {
                 "text": "Golden Root Fries – 7 credits",
-                "description": "You quickly finished the roots. Not quite like the ones you’ve had at Earth diners, but still decent. Too bad the portion was a bit small…"
+                "description": "You quickly finished the roots. Not quite like the ones you’ve had at Earth diners, but still decent. Too bad the portion was a bit small…",
+                "effects": {
+                  "hanger": 20,
+                  "time": 5,
+                  "cash": -7
+                }
               },
               "order_wine": {
                 "text": "Brackenbridge Vineyard Red Wine – 9 credits",
-                "description": "?"
+                "description": "They served you only one glass of wine, though you hoped for a whole bottle. Still, you tried it. The taste was not bad, even better than you thought. Only the wine had little alcohol, but there was nothing you could do.",
+                "effects": {
+                  "fatigue": -7,
+                  "cash": -9
+                }
               },
               "order_tail": {
                 "text": "Lizard Tail with Herbs – 10 credits",
-                "description": "?"
+                "description": "The food tasted pretty good. The back legs were especially delicious!",
+                "effects": {
+                  "hanger": 31,
+                  "time": 5,
+                  "cash": -10
+                }
               },
               "order_beaver": {
                 "text": "Pear-Stuffed Beaver – 20 credits",
-                "description": "?"
+                "description": "The beaver didn’t taste very good and had a strange gasoline flavor. But there was one big plus – there was a lot of it! You ate until you were full.",
+                "effects": {
+                  "hanger": 80,
+                  "time": 5,
+                  "cash": -20
+                }
               },
               "order_cactus": {
                 "text": "Signature Dish: Spiky Cactus in Coriander Glaze – 23 credits",
-                "description": "?"
+                "description": "You kept chewing the dish but couldn’t understand what was so good about it. Seemed like only locals could enjoy this stuff. Leaving the cactus half-eaten, you drank all the coriander sauce (forgetting manners) and asked to take the plate away. Not much for hunger, but the sauce gave you a nice boost.",
+                "effects": {
+                  "hanger": 35,
+                  "time": 10,
+                  "fatigue": 50,
+                  "cash": -23
+                }
               },
-              "back": {
-                "text": "Thanks for the warm welcome. I think I’ll be going."
+              "wait_restaurant_opening": {
+                "text": "Wait for the opening",
+                "description": "You waited for the restaurant to open. Finally, around 9:00, it did. You stepped inside and took a seat. Looks like you are the first guest today!\n\n– Shall we order something? – asked the waiter, dressed in a neat suit, handing you the menu.\nYou quickly looked through the options, noting what you could afford and what was too expensive."
+              },
+              "back_to_square": {
+                "text": "Back to the city square"
               }
             }
           },

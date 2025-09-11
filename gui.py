@@ -1,5 +1,3 @@
-import random
-
 from textual.app import App, ComposeResult
 from textual.containers import Horizontal, Container, ScrollableContainer
 from textual.widgets import Static, Footer, OptionList
@@ -161,6 +159,16 @@ class SpaceSaga(App):
                         disabled = True
                 if opt_id == 'coins_for_beggar' and self.state.hero.cash < 4:
                     disabled = True
+                if opt_id == 'order_root' and self.state.hero.cash < 7:
+                    disabled = True
+                if opt_id == 'order_wine' and self.state.hero.cash < 9:
+                    disabled = True
+                if opt_id == 'order_tail' and self.state.hero.cash < 10:
+                    disabled = True
+                if opt_id == 'order_beaver' and self.state.hero.cash < 20:
+                    disabled = True
+                if opt_id == 'order_cactus' and self.state.hero.cash < 23:
+                    disabled = True
 
             self.command_panel.add_option(Option(opt.get('text'), opt_id, disabled=disabled))
 
@@ -179,6 +187,16 @@ class SpaceSaga(App):
         # City exploration has a few options
         if event.option_id == 'discover_city':
             self.engine.randomize_city_exploration_event()
+
+        if event.option_id == 'go_to_restaurant':
+            if self.engine._is_time_in_range('09:00', '23:59'):
+                self.state.invisible_options.discard('order_root')
+                self.state.invisible_options.discard('order_wine')
+                self.state.invisible_options.discard('order_tail')
+                self.state.invisible_options.discard('order_beaver')
+                self.state.invisible_options.discard('order_cactus')
+            else:
+                self.state.invisible_options.discard('wait_restaurant_opening')
 
         location = self.state.locations.get(self.state.world.current_location)
         if not location:
@@ -416,6 +434,27 @@ class SpaceSaga(App):
                     'at twilight – it’s their time.'
                 )
 
+        # Restaurant is open from 9:00 until the last visitor after 23:59
+        if self.state.world.current_location == 'Brackenbridge' and option_name == 'go_to_restaurant':
+            if self.engine._is_time_in_range('09:00', '23:59'):
+                return (
+                    'Grabbing the restaurant door handle, you noticed a sign on the glass:\n'
+                    '\"Open. The restaurant operates daily: '
+                    'from 9:00 until the last visitor after 23:59.\"\n\n'
+                    'Noting this, you went inside.There weren’t many people, so you easily '
+                    'found a table.\n'
+                    '– Shall we order something? – asked the waiter, dressed in a neat suit, '
+                    'handing you the menu. \nYou quickly looked through the options, '
+                    'noting what you could afford and what was too expensive.'
+                )
+            else:
+                return (
+                    'A sign hangs on the door:\n'
+                    '\"Closed.\n'
+                    'The restaurant is open daily:\n'
+                    'from 9:00 until the last guest after 23:59.\"'
+                )
+
         return ''
 
 
@@ -460,7 +499,7 @@ class StatePanel:
         fuel_color = 'red' if truck.fuel <= 25 else 'white'
 
         world_state = (
-            f'Days passed: {world.days}\n'
+            f'Days passed: {world.show_days()}\n'
             f'Time: {world.show_time()}\n'
             f'Current location: {world.current_location}\n\n'
         )
