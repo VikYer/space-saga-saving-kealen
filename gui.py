@@ -197,6 +197,7 @@ class SpaceSaga(App):
         if event.option_id == 'discover_city':
             self.engine.randomize_city_exploration_event()
 
+        # Restaurant is open from 9:00 until the last visitor after 23:59
         if event.option_id == 'go_to_restaurant':
             if self.engine._is_time_in_range('09:00', '23:59'):
                 self.state.invisible_options.discard('order_root')
@@ -552,7 +553,7 @@ class StatePanel:
         if hero.is_stingrays_member():
             hero_state += f'{hero.is_stingrays_member()}'
         if hero.is_ammo():
-            hero_state += f'{hero.is_ammo()}'
+            hero_state += f'{hero.is_ammo()}\n'
 
         truck_state = (
             f'\nTRUCK:\n'

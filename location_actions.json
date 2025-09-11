@@ -1059,7 +1059,7 @@
     "description": "Your truck is parked in a very scenic place. To the north, you see a huge sinkhole in the ground, cacti are growing all around, and not far away stands a white two-story building with a torn flag on the roof. Looks like this is where the sheriff lives.\n\nNearby, you notice a surprisingly clean road sign:\n\"North – Endless Rift – 19 km,\nSouth – Dex's fuel station – 40 km,\nEast – Bolt's garage – 28 km\"",
     "options": {
       "go_rift": {
-        "text": "Go to the Endles Rift",
+        "text": "Go to the Endless Rift",
         "goto": "The Endless Rift",
         "effects": {
           "distance": 19
@@ -1081,51 +1081,93 @@
       },
       "go_marshal": {
         "text": "Drive up to the house",
-        "description": "You drove on a dirt road and soon reached the building. After a minute, you were at the door. It opened, and a man with a marshal’s star on his chest and two pistols on his belt came out. Two more men followed him.\n\nThe man with the star said:\n\n– I’m the Marshal. Who are you?\n\n– Ranger. I come in peace.\n\n– You must be new… Listen: if you make serious trouble here — especially in Brackenbridge — you’ll answer to me and my men.\n\n- Do you have business here? – the Marshal asked, keeping his hand near his holster.",
+        "description": "You drove on a dirt road and soon reached the building. After a minute, you were at the door. It opened, and a man with a marshal’s star on his chest and two pistols on his belt came out. Two more men followed him.\n\nThe man with the star said:\n– I’m the Marshal. Who are you?\n– Ranger. I come in peace.\n– You must be new… Listen: if you make serious trouble here — especially in Brackenbridge — you’ll answer to me and my men.\n– Do you have business here? – the Marshal asked, keeping his hand near his holster.",
         "options": {
           "about_kealen": {
             "text": "The Hyenas kidnapped Kealen. Please help me rescue him…",
-            "description": "The Hyenas? You think I’d risk trouble with them over some Kealen? I don’t even know who that is. Anyway, the Hyenas are serious people. If you want to talk to them, look for them in the north-east — past the Corn Farm."
+            "description": "– The Hyenas? You think I’d risk trouble with them over some Kealen? I don’t even know who that is. Anyway, the Hyenas are serious people. If you want to talk to them, look for them in the north-east — past the corn farm."
           },
           "about_bandits": {
-            "text": "On the roads, some thugs attack honest people. I think, as Sheriff, you should stop this…",
+            "text": "On the roads, some thugs attack honest people. I think, as Marshal, you should stop this…",
             "description": "– Really? — laughed the marshal with his men. — You’re not from here. Stingrays and Hyenas have charged tolls for decades. If I fight them, the bandits might stop me before I stop them.\n\nMy advice: pay the tolls if stopped, or fight if you’re tough. Carrying cargo? Expect higher fees. My guys? They just fine lawbreakers. Doubts? Come to the impound lot, we’ll sort it out."
           },
-          "about_weapon": {
+          "ask_marshal_about_weapon": {
             "text": "I need weapons. Do you have anything?",
-            "description": "You think I’d give a rogue like you a weapon? Bold! But… if you help us, I might give you a pack of shotgun ammo. You good with chemistry?",
+            "description": "– You think I’d give a rogue like you a weapon? Bold! But… if you help us, I might give you a pack of shotgun ammo. Are you good with chemistry?",
             "options": {
               "accept": {
                 "text": "Well… just a little",
-                "description": "– Great! – shouted the marshal and waved for you to follow.\n\nYou walked past cells and old rooms, keeping the marshal in sight. Finally, he led you to a small room. A thin guy with a book sat on a metal box.\n\nHere. He will help you. He knows some chemistry. Explain what to do…\n\n - I won’t make drugs! – you said immediately.\n\n- Oh? Can you? – the chemist asked.\nYou shook your head.\n\nToo bad. Anyway, we need help for something else. We want to open a safe with cyclobeasing acid. I almost made it – just need to add x-gluconate. Here’s the problem: instructions say 3 grams of Viron (it has the right amount of x-gluconate). But I only have Kreman. Kreman also has x-gluconate. But how much per gram? I don’t know. So how many grams of Kreman should replace 3 grams of Viron?\n\n- Any other info? – you asked.\n\n– Some. I found it in a textbook:\n1 gram Sorben + 2 grams Ilium = x-gluconate in 4 grams Kreman\n3 grams Ilium = x-gluconate in 1 gram Viron\n1 gram Ilium + 3 grams Kreman = x-gluconate in 2 grams Sorben\n\n– That’s all? – you asked.\n\n– Yes. So… how many grams of Kreman do we need? Be careful – wrong amount = boom.",
+                "description": "– Great! – shouted the marshal and waved for you to follow.\nYou walked past cells and old rooms, keeping the marshal in sight. Finally, he led you to a small room. A thin guy with a book sat on a metal box.\n– He will help you. He knows some chemistry. Explain what to do…\n– I won’t make drugs! – you said immediately.\n– Oh? Can you? – the chemist asked.\nYou shook your head.\n– Too bad. Anyway, we want to open a safe with cyclobeasing acid. I almost made it – just need to add x-gluconate. Here’s the problem: instructions say 3 grams of Viron (it has the right amount of x-gluconate). But I only have Kreman. Kreman also has x-gluconate. But how much per gram? I don’t know. So how many grams of Kreman should replace 3 grams of Viron? I found it in a textbook:\n1 g Sorben + 2 g Ilium = x-gluconate as in 4 grams Kreman\n1 g Ilium = x-gluconate as in 3 g Viron\n2 g Ilium + 2 g Kreman = x-gluconate as in 5 g Sorben\n– That’s all? – you asked.\n– Yes. So… how many grams of Kreman do we need? Be careful – wrong amount = boom.",
                 "options": {
                   "dosage_0-33": {
                     "text": "0.33 g",
-                    "description": "?"
+                    "description": "The chemist added the Kreman you asked for, mixed it, and poured it around the safe' door. The metal started to smoke, then suddenly it exploded! You flew back and felt something cut your side.\nWhen the smoke cleared, the safe was gone—just a black spot and burned pieces of metal.\n– Damn! the sheriff shouted. Why say things if you don’t even know?\nHe grabbed you by the collar and pulled you out to the street.",
+                    "options": {
+                      "leave_marshal": {
+                        "text": "Next",
+                        "goto": "Marshal"
+                      }
+                    }
                   },
                   "dosage_0_66": {
                     "text": "0.66 g",
-                    "description": "?"
+                    "description": "The chemist added the Kreman you asked for, mixed it, and poured it around the safe' door. The metal started to smoke, then suddenly it exploded! You flew back and felt something cut your side.\nWhen the smoke cleared, the safe was gone—just a black spot and burned pieces of metal.\n– Damn! the sheriff shouted. Why say things if you don’t even know?\nHe grabbed you by the collar and pulled you out to the street.",
+                    "options": {
+                      "leave_marshal": {
+                        "text": "Next",
+                        "goto": "Marshal"
+                      }
+                    }
                   },
                   "dosage_1": {
                     "text": "1 g",
-                    "description": "?"
+                    "description": "The chemist added the Kreman you asked for, mixed it, and poured it around the safe' door. The metal started to smoke, then suddenly it exploded! You flew back and felt something cut your side.\nWhen the smoke cleared, the safe was gone—just a black spot and burned pieces of metal.\n– Damn! the sheriff shouted. Why say things if you don’t even know?\nHe grabbed you by the collar and pulled you out to the street.",
+                    "options": {
+                      "leave_marshal": {
+                        "text": "Next",
+                        "goto": "Marshal"
+                      }
+                    }
                   },
                   "dosage_1_5": {
                     "text": "1.5 g",
-                    "description": "?"
+                    "description": "The chemist added the Kreman you asked for, stirred the mix, and poured it around the safe’s door. The metal started to burn fast. After a minute, he pulled the handle, and the door opened easily. The safe was unlocked! The sheriff quickly looked inside.\n– Ha! A fine plasma gun, model 2971. Old Jack knew why he kept this hidden. Well, you did your part, now I’ll do mine. No, I won’t give you this plasma gun. You’ll have to be happy with these.\nHe tossed you a red box labeled \"Shotgun shells. 15 pcs.\"\n– Alright. Let’s go, I’ll show you the way out.",
+                    "options": {
+                      "leave_marshal": {
+                        "text": "Follow the marshal",
+                        "goto": "Marshal"
+                      }
+                    }
                   },
                   "dosage_2": {
                     "text": "2 g",
-                    "description": "?"
+                    "description": "The chemist added the Kreman you asked for, mixed it, and poured it around the safe' door. The metal started to smoke, then suddenly it exploded! You flew back and felt something cut your side.\nWhen the smoke cleared, the safe was gone—just a black spot and burned pieces of metal.\n– Damn! the sheriff shouted. Why say things if you don’t even know?\nHe grabbed you by the collar and pulled you out to the street.",
+                    "options": {
+                      "leave_marshal": {
+                        "text": "Next",
+                        "goto": "Marshal"
+                      }
+                    }
                   },
                   "dosage_3_5": {
                     "text": "3.5 g",
-                    "description": "?"
+                    "description": "The chemist added the Kreman you asked for, mixed it, and poured it around the safe' door. The metal started to smoke, then suddenly it exploded! You flew back and felt something cut your side.\nWhen the smoke cleared, the safe was gone—just a black spot and burned pieces of metal.\n– Damn! the sheriff shouted. Why say things if you don’t even know?\nHe grabbed you by the collar and pulled you out to the street.",
+                    "options": {
+                      "leave_marshal": {
+                        "text": "Next",
+                        "goto": "Marshal"
+                      }
+                    }
                   },
                   "dosage_9": {
                     "text": "9 g",
-                    "description": "?"
+                    "description": "The chemist added the Kreman you asked for, mixed it, and poured it around the safe' door. The metal started to smoke, then suddenly it exploded! You flew back and felt something cut your side.\nWhen the smoke cleared, the safe was gone—just a black spot and burned pieces of metal.\n– Damn! the sheriff shouted. Why say things if you don’t even know?\nHe grabbed you by the collar and pulled you out to the street.",
+                    "options": {
+                      "leave_marshal": {
+                        "text": "Next",
+                        "goto": "Marshal"
+                      }
+                    }
                   },
                   "back": {
                     "text": "To be honest, I don’t really understand this stuff, so I can’t help you."

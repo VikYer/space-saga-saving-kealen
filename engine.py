@@ -49,6 +49,8 @@ class Engine:
             'buy_scrap_2': self.buy_scrap,
             'buy_scrap_3': self.buy_scrap,
             'buy_scrap_5': self.buy_scrap,
+            'dosage_1_5':self.dosage_1_5,
+            'leave_marshal': self.leave_marshal
         }
 
     def run_action(self, action_name: str, args: dict | None) -> None:
@@ -179,6 +181,7 @@ class Engine:
 
     def drox_delivered(self) -> None:
         """The reward for delivering drox to the city is a shotgun with 6 shells."""
+        self.state.hero.has_shotgun = True
         self.state.hero.ammo += 6
         del self.state.truck.passenger['drox']
 
@@ -379,3 +382,11 @@ class Engine:
         """Scrap purchase on the farm."""
         amount = args.get('scrap')
         self.state.world.wreckyard.buy(amount, self.state.hero, self.state.truck)
+
+    def dosage_1_5(self, args) -> None:
+        """"""
+        self.state.hero.ammo += 15
+
+    def leave_marshal(self, args) -> None:
+        """"""
+        self.state.invisible_options.add('ask_marshal_about_weapon')

@@ -109,14 +109,18 @@ class Hero:
         self.fatigue = 100
         self.hanger = 100
         self.cash = 20
+        self.has_shotgun = False
         self.ammo = 0
         self.stingrays_member = False
 
     def is_ammo(self) -> str:
-        """Checks if the character has ammo for shotgun."""
+        """Checks if the character has weapon and ammo."""
+        text = ''
+        if self.has_shotgun:
+            text += 'Shotgun: '
         if self.ammo != 0:
-            return f'Shotgun: {self.ammo} shells\n'
-        return ''
+            text += f'{self.ammo} shells'
+        return text
 
     def is_stingrays_member(self) -> str:
         """
