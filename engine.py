@@ -49,7 +49,7 @@ class Engine:
             'buy_scrap_2': self.buy_scrap,
             'buy_scrap_3': self.buy_scrap,
             'buy_scrap_5': self.buy_scrap,
-            'dosage_1_5':self.dosage_1_5,
+            'dosage_1_5': self.dosage_1_5,
             'leave_marshal': self.leave_marshal,
             'swim': self.swim,
             'swim_more': self.swim,
@@ -433,3 +433,9 @@ class Engine:
         """Hero sells all corn in the mining settlement."""
         self.state.hero.cash += 45 * self.state.truck.cargo.get('corn')
         self.state.truck.cargo['corn'] = 0
+
+    def work_in_mine(self) -> int:
+        """"""
+        earned_money = random.choice([2, 3])
+        self.state.hero.cash += earned_money
+        return earned_money

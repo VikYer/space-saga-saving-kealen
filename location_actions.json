@@ -1384,9 +1384,13 @@
             "text": "Go into the mine",
             "description": "It was very dark inside the mine, but soon your eyes adjusted. The weak light of several lamps let you see what was going on. Dozens of people in helmets were busy digging coal.\n\nYou kept going deeper, when suddenly a huge miner stepped in front of you.\n\n— Hey! Why aren’t you working?! Take this pickaxe and get to it!!! — he roared, staring at you.",
             "options": {
-              "work": {
+              "work_in_mine": {
                 "text": "Take the pickaxe and start working",
-                "description": "– That’s it! One hour is over, – the huge miner shouted behind you.\nHe wrote your name on the bag, put it on the lift, and said:\n– Go upstairs for your pay.\n\nAt the mine exit, a dirty man with a notebook was already waiting.\n– I weighed the bag. About one and a half tons. Good! You earned three credits.",
+                "description": "dynamic",
+                "effects": {
+                  "time": 60,
+                  "fatigue": -14
+                },
                 "options": {
                   "back": {
                     "text": "Next"

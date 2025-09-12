@@ -184,8 +184,8 @@ class SpaceSaga(App):
                 if opt_id.startswith('buy_coal'):
                     amount = int(opt_id.split('_')[-1])
                     if not self.state.world.mine.can_buy_coal(amount,
-                                                                    self.state.hero,
-                                                                    self.state.truck):
+                                                              self.state.hero,
+                                                              self.state.truck):
                         disabled = True
                 if opt_id == 'sell_all_corn' and self.state.truck.cargo.get('corn') == 0:
                     disabled = True
@@ -542,6 +542,21 @@ class SpaceSaga(App):
                 'Also, we buy food. Especially corn. We pay 45 credits per ton. '
                 'Miners eat corn with great appetite!'
             )
+
+        # Dynamic quest text depending on the quantity of mined coal
+        if option_name == 'work_in_mine':
+            text = (
+                '– That’s it! One hour is over, – the huge miner shouted behind you. '
+                'He wrote your name on the bag, put it on the lift, and said:\n'
+                '– Go upstairs for your pay. '
+                'At the mine exit, a dirty man with a notebook was already waiting.\n'
+            )
+            if self.engine.work_in_mine() == 3:
+                text += '– I weighed the bag. About one and a half tons. Good! You earned three credits.'
+            elif self.engine.work_in_mine() == 2:
+                text += '– I weighed the bag. About one ton. Good! You earned two credits.'
+
+            return text
 
         return ''
 
