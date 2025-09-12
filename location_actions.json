@@ -1290,28 +1290,43 @@
         "description": "You are on sandy ground. Around you, there are only barracks and miners all covered in black coal. Close by, you see a small stall where a thin man gives miners some green stuff. Not far is a clean building with a sign “Trading House.” You can also see the entrance to the mine.",
         "options": {
           "go_to_trading_house": {
-            "text": "Go to the Trading House",
+            "text": "Go to the trading house",
             "description": "You are in a room full of coal bags. A man in a helmet sits on a small chair near the door.\n\n– Here’s the deal. We sell coal for 5 credits per ton. The coal is clean and ready to use, so no problems. Right now, we have 75 tons of coal in stock.\n\nAlso, we buy food. Especially corn. We pay 45 credits per ton. Miners eat corn with great appetite!",
             "options": {
-              "buy_1t_coal": {
+              "buy_coal_1": {
                 "text": "Buy one ton of coal",
-                "description": "?"
+                "description": "dynamic",
+                "effects": {
+                  "coal": 1,
+                  "time": 1
+                }
               },
-              "buy_3t_coal": {
+              "buy_coal_2": {
+                "text": "Buy two tons of coal",
+                "description": "dynamic",
+                "effects": {
+                  "coal": 2,
+                  "time": 2
+                }
+              },
+              "buy_coal_3": {
                 "text": "Buy three tons of coal",
-                "description": "?"
+                "description": "dynamic",
+                "effects": {
+                  "coal": 3,
+                  "time": 3
+                }
               },
-              "buy_all_coal": {
-                "text": "Take all the remaining coal",
-                "description": "?"
+              "buy_coal_5": {
+                "text": "Buy five tons of coal",
+                "description": "dynamic",
+                "effects": {
+                  "coal": 5,
+                  "time": 5
+                }
               },
-              "fill_trunk_coal": {
-                "text": "Fill up with coal completely",
-                "description": "?"
-              },
-              "sell_corn": {
-                "text": "Sell all the corn",
-                "description": "?"
+              "sell_all_corn": {
+                "text": "Sell all the corn"
               },
               "ask_question": {
                 "text": "Ask a few questions",

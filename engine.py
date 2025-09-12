@@ -55,6 +55,11 @@ class Engine:
             'swim_more': self.swim,
             'leave_lake': self.leave_lake,
             'three_swims': self.three_swims,
+            'buy_coal_1': self.buy_coal,
+            'buy_coal_2': self.buy_coal,
+            'buy_coal_3': self.buy_coal,
+            'buy_coal_5': self.buy_coal,
+            'sell_all_corn': self.sell_all_corn,
         }
 
     def run_action(self, action_name: str, args: dict | None) -> None:
@@ -418,3 +423,13 @@ class Engine:
         self.state.invisible_options.discard('swim_more')
         self.state.invisible_options.discard('leave_lake')
         self.state.invisible_options.add('three_swims')
+
+    def buy_coal(self, args: dict) -> None:
+        """Coal purchase in the mine."""
+        amount = args.get('coal')
+        self.state.world.mine.buy(amount, self.state.hero, self.state.truck)
+
+    def sell_all_corn(self, args) -> None:
+        """Hero sells all corn in the mining settlement."""
+        self.state.hero.cash += 45 * self.state.truck.cargo.get('corn')
+        self.state.truck.cargo['corn'] = 0

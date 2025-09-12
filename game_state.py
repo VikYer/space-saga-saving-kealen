@@ -10,6 +10,7 @@ class World:
         self.gruber_gas_station = self.GruberGasStation()
         self.biker_mood = None  # ('Biker looks determined', 'Biker is confident', 'Biker is careful', 'Biker is afraid', 'Biker is afraid')
         self.wreckyard = self.Wreckyard()
+        self.mine = self.Mine()
 
     def show_days(self) -> int:
         """Show how many days have passed since the start of game."""
@@ -73,15 +74,15 @@ class World:
             truck.fuel += amount
 
     class Wreckyard:
-        """Represents corn farm and its state."""
+        """Represents wreckyard and its state."""
 
         def __init__(self):
-            """Initialize parameters of corn farm."""
+            """Initialize parameters of wreckyard."""
             self.offer = 51
             self.price = 10
 
         def can_buy_scrap(self, amount, hero, truck) -> bool:
-            """Checks hero available to buy a given amount of corn."""
+            """Checks hero available to buy a given amount of scrap."""
             if amount > self.offer:
                 return False
             if hero.cash < self.price * amount:
@@ -98,6 +99,33 @@ class World:
             hero.cash -= amount * self.price
             truck.truck_space -= amount
             truck.cargo['scrap'] += amount
+
+    class Mine:
+        """Represents mine and its state."""
+
+        def __init__(self):
+            """Initialize parameters of mine."""
+            self.offer = 76
+            self.price = 5
+
+        def can_buy_coal(self, amount, hero, truck) -> bool:
+            """Checks hero available to buy a given amount of coal."""
+            if amount > self.offer:
+                return False
+            if hero.cash < self.price * amount:
+                return False
+            if amount > truck.truck_space:
+                return False
+            return True
+
+        def buy(self, amount: int, hero, truck) -> None:
+            """Make the purchase if it's possible."""
+            if not self.can_buy_coal(amount, hero, truck):
+                return
+            self.offer -= amount
+            hero.cash -= amount * self.price
+            truck.truck_space -= amount
+            truck.cargo['coal'] += amount
 
 
 class Hero:

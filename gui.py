@@ -179,6 +179,17 @@ class SpaceSaga(App):
                                                                     self.state.truck):
                         disabled = True
 
+            # Show option for trading house in the mining settlement
+            if self.state.world.current_location == 'Mining Settlement':
+                if opt_id.startswith('buy_coal'):
+                    amount = int(opt_id.split('_')[-1])
+                    if not self.state.world.mine.can_buy_coal(amount,
+                                                                    self.state.hero,
+                                                                    self.state.truck):
+                        disabled = True
+                if opt_id == 'sell_all_corn' and self.state.truck.cargo.get('corn') == 0:
+                    disabled = True
+
             self.command_panel.add_option(Option(opt.get('text'), opt_id, disabled=disabled))
 
         if options:
@@ -519,6 +530,18 @@ class SpaceSaga(App):
                     'You swam in the water for five minutes. In such water, '
                     'it didn’t give you much pleasure. Only made you feel more tired.'
                 )
+
+        # Dynamic quest text depending on the quantity and price of scrap
+        if option_name == 'go_to_trading_house' or option_name.startswith('buy_coal'):
+            return (
+                'You are in a room full of coal bags. A man in a helmet sits on '
+                'a small chair near the door.\n'
+                f'– Here\'s the deal. We sell coal for {self.state.world.mine.price} '
+                'credits per ton. The coal is clean and ready to use, so no problems. '
+                f'Right now, we have {self.state.world.mine.offer} tons of coal in stock.'
+                'Also, we buy food. Especially corn. We pay 45 credits per ton. '
+                'Miners eat corn with great appetite!'
+            )
 
         return ''
 
