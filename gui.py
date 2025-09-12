@@ -474,7 +474,7 @@ class SpaceSaga(App):
                     'from 9:00 until the last guest after 23:59.\"'
                 )
 
-        # Dynamic quest text depending on the quantity and price of scrap.
+        # Dynamic quest text depending on the quantity and price of scrap
         if option_name == 'go_wreckyard':
             return (
                 'The vehicle skillfully entered the scrapyard. You were about to '
@@ -494,6 +494,31 @@ class SpaceSaga(App):
                 f'{self.state.world.wreckyard.price} credits per ton. '
                 'The scrap is pressed and neatly packed—top quality stuff.'
             )
+
+        # Hero swims in forrest lake
+        if option_name == 'swim_more':
+            if self.state.hero.swims_qty == 3 and self.state.hero.health <= 40:
+                return (
+                    'You kept swimming in the lake when suddenly you felt energy '
+                    'filling your body and your wounds healing. Looks like '
+                    'this pond has healing powers!\n'
+                    'After a few minutes, the effect faded. In your current state, '
+                    'the pond couldn’t help you any further. Realizing this, '
+                    'you climbed out, dried off, got into your truck, and headed '
+                    'back to the road.'
+                )
+            elif self.state.hero.swims_qty == 3 and self.state.hero.health > 40:
+                return (
+                    'You went swimming again. Mosquitoes buzzed over your head, '
+                    'weeds got into your mouth — enough was enough! Tired of it all, '
+                    'you climbed out, dried off, got into your truck, and drove '
+                    'back to the road.'
+                )
+            else:
+                return (
+                    'You swam in the water for five minutes. In such water, '
+                    'it didn’t give you much pleasure. Only made you feel more tired.'
+                )
 
         return ''
 

@@ -50,7 +50,11 @@ class Engine:
             'buy_scrap_3': self.buy_scrap,
             'buy_scrap_5': self.buy_scrap,
             'dosage_1_5':self.dosage_1_5,
-            'leave_marshal': self.leave_marshal
+            'leave_marshal': self.leave_marshal,
+            'swim': self.swim,
+            'swim_more': self.swim,
+            'leave_lake': self.leave_lake,
+            'three_swims': self.three_swims,
         }
 
     def run_action(self, action_name: str, args: dict | None) -> None:
@@ -384,9 +388,33 @@ class Engine:
         self.state.world.wreckyard.buy(amount, self.state.hero, self.state.truck)
 
     def dosage_1_5(self, args) -> None:
-        """"""
+        """Hero obtains ammunition by suggesting the correct dose of the substance to the marshal's chemist."""
         self.state.hero.ammo += 15
 
     def leave_marshal(self, args) -> None:
-        """"""
+        """Hide dialogue options with the marshal leading to getting ammo for shotgun."""
         self.state.invisible_options.add('ask_marshal_about_weapon')
+
+    def swim(self, args) -> None:
+        """Count swims quantity in one cycle."""
+        self.state.hero.swims_qty += 1
+
+        if self.state.hero.swims_qty == 3 and self.state.hero.health < 40:
+            self.state.hero.health = 40
+
+        if self.state.hero.swims_qty == 3:
+            self.state.invisible_options.add('swim_more')
+            self.state.invisible_options.add('leave_lake')
+            self.state.invisible_options.discard('three_swims')
+
+    def leave_lake(self, args) -> None:
+        """Resets the swimming counter after leaving the lake."""
+        self.state.hero.swims_qty = 0
+
+    def three_swims(self, args) -> None:
+        """Restore the default options for the lake location after leaving it."""
+        self.state.hero.swims_qty = 0
+
+        self.state.invisible_options.discard('swim_more')
+        self.state.invisible_options.discard('leave_lake')
+        self.state.invisible_options.add('three_swims')

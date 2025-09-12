@@ -1131,7 +1131,7 @@
                   },
                   "dosage_1_5": {
                     "text": "1.5 g",
-                    "description": "The chemist added the Kreman you asked for, stirred the mix, and poured it around the safe’s door. The metal started to burn fast. After a minute, he pulled the handle, and the door opened easily. The safe was unlocked! The sheriff quickly looked inside.\n– Ha! A fine plasma gun, model 2971. Old Jack knew why he kept this hidden. Well, you did your part, now I’ll do mine. No, I won’t give you this plasma gun. You’ll have to be happy with these.\nHe tossed you a red box labeled \"Shotgun shells. 15 pcs.\"\n– Alright. Let’s go, I’ll show you the way out.",
+                    "description": "The chemist added the Kreman you asked for, stirred the mix, and poured it around the safe’s door. The metal started to burn fast. After a minute, he pulled the handle, and the door opened easily. The safe was unlocked! The marshal quickly looked inside.\n– Ha! A fine plasma gun, model 2971. Old Jack knew why he kept this hidden. Well, you did your part, now I’ll do mine. No, I won’t give you this plasma gun. You’ll have to be happy with these.\nHe tossed you a red box labeled \"Shotgun shells. 15 pcs.\"\n– Alright. Let’s go, I’ll show you the way out.",
                     "options": {
                       "leave_marshal": {
                         "text": "Follow the marshal",
@@ -1213,21 +1213,52 @@
           "swim": {
             "text": "Swim in the water for five minutes",
             "description": "You swam in the water for five minutes. In such water, it didn’t give you much pleasure. Only made you feel more tired.",
+            "effects": {
+              "time": 5,
+              "fatigue": -9
+            },
             "options": {
-              "more_swim": {
+              "swim_more": {
                 "text": "Swim for another five minutes",
-                "description": "You swam in the water for five minutes. In such water, it didn’t give you much pleasure. Only made you feel more tired."
+                "description": "dynamic",
+                "effects": {
+                  "time": 5,
+                  "fatigue": -9
+                }
               },
-              "back": {
-                "text": "Get out of the water, dry off, and head back to the road"
+              "leave_lake": {
+                "text": "Get out of the water, dry off, and head back to the road",
+                "effects": {
+                  "distance": 15
+                },
+                "goto": "Forest Lake"
+              },
+              "three_swims": {
+                "text": "Next",
+                "goto": "Forest Lake",
+                "effects": {
+                  "distance": 15
+                }
               }
             }
           },
           "rinse_off": {
             "text": "Rinse off in the lake and go back",
-            "description": ""
+            "description": "A short dip in the water made you feel a bit better. Now you can head back to the road.",
+            "effects": {
+              "fatigue": 14
+            },
+            "options": {
+              "leave_lake": {
+                "text": "Next",
+                "effects": {
+                  "distance": 15
+                },
+                "goto": "Forest Lake"
+              }
+            }
           },
-          "back": {
+          "leave_lake": {
             "text": "Go back",
             "effects": {
               "distance": 15

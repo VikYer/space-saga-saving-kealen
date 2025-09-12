@@ -112,6 +112,7 @@ class Hero:
         self.has_shotgun = False
         self.ammo = 0
         self.stingrays_member = False
+        self.swims_qty = 0
 
     def is_ammo(self) -> str:
         """Checks if the character has weapon and ammo."""
@@ -174,6 +175,8 @@ class GameState:
             'order_beaver',
             'order_cactus',
             'wait_restaurant_opening',
+            'three_swims',
         }
+
         # Randomly selected event for the hero's walk around the city
         self.discover_city_event = None
