@@ -1447,7 +1447,15 @@
           },
           "about_fixing": {
             "text": "I need to fix my vehicle. Can I do it here?",
-            "description": "– Go to the garage. Dex will check your car, – said the woman.\n\nThe gates started to lift, and you drove in. Inside, the garage was full of all kinds of metal junk: mufflers, engines, gas tanks, springs. Among it all, a person in a work suit was moving around. This must be Lou.\n\nI’ll take a look, – said the mechanic, checking the car. After 15 minutes, he finished. – Your car is almost completely fine. I don’t see any reason to fix it!\n\nNothing to do, you had to leave the garage empty-handed."
+            "description": "dynamic",
+            "options": {
+              "back_dex_fix_truck": {
+                "text": "No problem - take money"
+              },
+              "back": {
+                "text": "Not yet."
+              }
+            }
           },
           "about_trading": {
             "text": "Let's trade!",

@@ -60,6 +60,7 @@ class Engine:
             'buy_coal_3': self.buy_coal,
             'buy_coal_5': self.buy_coal,
             'sell_all_corn': self.sell_all_corn,
+            'back_dex_fix_truck': self.back_dex_fix_truck,
         }
 
     def run_action(self, action_name: str, args: dict | None) -> None:
@@ -274,7 +275,7 @@ class Engine:
         return cost
 
     def repair_truck(self, args) -> None:
-        """Simulate truck repair."""
+        """Simulate truck repair at Bolt's garage."""
         self.state.hero.cash -= self.bolt_repair_cost()
         self.state.truck.truck_condition = 100
 
@@ -435,7 +436,23 @@ class Engine:
         self.state.truck.cargo['corn'] = 0
 
     def work_in_mine(self) -> int:
-        """"""
+        """Working in a coal mine, the hero can earn 2 or 3 cr per hour."""
         earned_money = random.choice([2, 3])
         self.state.hero.cash += earned_money
         return earned_money
+
+    def dex_repair_cost(self) -> int:
+        """Dex's estimates the repairing cost of the truck."""
+        # Dex uses non-original spare parts to repair cars,
+        # that's why it can only repair trucks up to 75%,
+        # but cost is lower
+        cost = round((75 - self.state.truck.truck_condition) * 0.5)
+        return cost
+
+    def back_dex_fix_truck(self, args) -> None:
+        """Simulate truck repair at the Dex's gas station."""
+        # Dex uses non-original spare parts to repair cars,
+        # that's why it can only repair trucks up to 75%,
+        # but cost is lower
+        self.state.hero.cash -= self.dex_repair_cost()
+        self.state.truck.truck_condition = 75

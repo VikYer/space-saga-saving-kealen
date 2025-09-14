@@ -190,6 +190,14 @@ class SpaceSaga(App):
                 if opt_id == 'sell_all_corn' and self.state.truck.cargo.get('corn') == 0:
                     disabled = True
 
+            # Show options for Dex's gas station
+            if self.state.world.current_location == 'Dex\'s Fuel Station':
+                if opt_id == 'about_fixing' and self.state.truck.truck_condition >= 75:
+                    disabled = True
+                if opt_id == 'back_dex_fix_truck':
+                    if self.engine.dex_repair_cost() > self.state.hero.cash:
+                        disabled = True
+
             self.command_panel.add_option(Option(opt.get('text'), opt_id, disabled=disabled))
 
         if options:
@@ -557,6 +565,18 @@ class SpaceSaga(App):
                 text += '– I weighed the bag. About one ton. Good! You earned two credits.'
 
             return text
+
+        # Dynamic quest text depending on the quantity of mined coal
+        if option_name == 'about_fixing':
+            return (
+                'Go to the garage. Dex will check your wreck, – the woman said.\n'
+                'In a moment, the garage doors lifted, and you drove inside. '
+                'The place was full of metal junk—mufflers, engines, tanks, springs. '
+                'Among it all worked a man in coveralls. That must be Dex.\n'
+                '– Let’s see, – the mechanic said, checking your vehicle.\n'
+                f'– Well, – he concluded, – that’s {self.engine.dex_repair_cost()} '
+                'credits of work. Are you paying?'
+            )
 
         return ''
 
