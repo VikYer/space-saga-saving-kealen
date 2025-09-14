@@ -1360,7 +1360,11 @@
             "options": {
               "sleep": {
                 "text": "Lie down to sleep",
-                "description": "Surprisingly, as soon as you lay down, you fell asleep right away…\n\n— Hey, get up! — you heard someone’s voice. — You’ve been sleeping for three hours. Your time is up...\n— What, were you timing me? — you mumbled angrily.\n— Are you stupid? The bunks have timers.\n\nYou opened your eyes and saw a timer, a big red hand holding it, and finally its owner — a huge, angry, dirty miner. Not wanting to argue, you got off the bunk. Well… you didn’t get to sleep as much as you wanted, but it was better than nothing."
+                "description": "Surprisingly, as soon as you lay down, you fell asleep right away…\n— Hey, get up! — you heard someone’s voice. — You’ve been sleeping for three hours. Your time is up...\n— What, were you timing me? — you mumbled angrily.\n— Are you stupid? The bunks have timers.\nYou opened your eyes and saw a timer, a big red hand holding it, and finally its owner — a huge, angry, dirty miner. Not wanting to argue, you got off the bunk. Well… you didn’t get to sleep as much as you wanted, but it was better than nothing.",
+                "effects": {
+                  "time": 180,
+                  "fatigue": 17
+                }
               },
               "back": {
                 "text": "Leave the barrack"

@@ -191,6 +191,8 @@ class SpaceSaga(App):
                     disabled = True
                 if opt_id == 'buy_porridge' and self.state.hero.cash == 0:
                     disabled = True
+                if opt_id == 'sleep' and self.state.hero.fatigue == 100:
+                    disabled = True
 
             # Show options for Dex's gas station
             if self.state.world.current_location == 'Dex\'s Fuel Station':
