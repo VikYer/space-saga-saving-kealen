@@ -197,6 +197,12 @@ class SpaceSaga(App):
                 if opt_id == 'back_dex_fix_truck':
                     if self.engine.dex_repair_cost() > self.state.hero.cash:
                         disabled = True
+                if opt_id.startswith('dex_fill_up'):
+                    amount = int(opt_id.split('_')[-1])
+                    if not self.state.world.gruber_gas_station.can_fill_up(amount,
+                                                                           self.state.hero,
+                                                                           self.state.truck):
+                        disabled = True
 
             self.command_panel.add_option(Option(opt.get('text'), opt_id, disabled=disabled))
 

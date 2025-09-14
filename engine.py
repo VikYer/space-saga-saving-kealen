@@ -61,6 +61,8 @@ class Engine:
             'buy_coal_5': self.buy_coal,
             'sell_all_corn': self.sell_all_corn,
             'back_dex_fix_truck': self.back_dex_fix_truck,
+            'dex_fill_up_5': self.dex_fill_up,
+            'dex_fill_up_15': self.dex_fill_up,
         }
 
     def run_action(self, action_name: str, args: dict | None) -> None:
@@ -456,3 +458,8 @@ class Engine:
         # but cost is lower
         self.state.hero.cash -= self.dex_repair_cost()
         self.state.truck.truck_condition = 75
+
+    def dex_fill_up(self, args: dict) -> None:
+        """Hero fills up the truck on the Dex's gas station."""
+        amount = args.get('fuel')
+        self.state.world.dex_gas_station.fill_up(amount, self.state.hero, self.state.truck)

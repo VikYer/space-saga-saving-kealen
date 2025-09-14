@@ -1437,13 +1437,21 @@
         "text": "Go to the fuel station",
         "description": "A steel building with cannons everywhere looked very serious.\n\n– 1 liter of fuel costs 1 credits, – said a metallic voice. – Give money to the robot, and it will do everything.\n\nLooking around, you noticed a fat woman sitting inside a spherical defense gun attached to the ceiling.",
         "options": {
-          "fill_five_liters": {
+          "dex_fill_up_5": {
             "text": "Fill 5 liters for me",
-            "description": "You bought 5 liters of fuel.\n\n– 1 liter of fuel costs 1 chervonets, – the metallic voice said. – Give money to the robot, and it will do everything.\n\nMaybe buy more?"
+            "description": "You bought 5 liters of fuel.\n\n– 1 liter of fuel costs 1 chervonets, – the metallic voice said. – Give money to the robot, and it will do everything.\n\nMaybe buy more?",
+            "effects": {
+              "fuel": 5,
+              "time": 1
+            }
           },
-          "fill_fifteen_liters": {
+          "dex_fill_up_15": {
             "text": "Fill 15 liters for me",
-            "description": "You bought 15 liters of fuel.\n\n– 1 liter of fuel costs 1 chervonets, – the metallic voice said. – Give money to the robot, and it will do everything.\n\nMaybe buy more?"
+            "description": "You bought 15 liters of fuel.\n\n– 1 liter of fuel costs 1 chervonets, – the metallic voice said. – Give money to the robot, and it will do everything.\n\nMaybe buy more?",
+            "effects": {
+              "fuel": 15,
+              "time": 3
+            }
           },
           "about_fixing": {
             "text": "I need to fix my vehicle. Can I do it here?",

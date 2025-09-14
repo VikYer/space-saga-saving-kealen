@@ -11,6 +11,7 @@ class World:
         self.biker_mood = None  # ('Biker looks determined', 'Biker is confident', 'Biker is careful', 'Biker is afraid', 'Biker is afraid')
         self.wreckyard = self.Wreckyard()
         self.mine = self.Mine()
+        self.dex_gas_station = self.DexGasStation()
 
     def show_days(self) -> int:
         """Show how many days have passed since the start of game."""
@@ -54,10 +55,8 @@ class World:
         """Represents Gruber's gas station."""
 
         def __init__(self) -> None:
-            """
-            Initialize Gruber's gas station with fuel's price.
-            Price is for 5 liters of fuel.
-            """
+            """Initialize Gruber's gas station with fuel's price."""
+            # Price is for 5 liters of fuel.
             self.price = 7
 
         def can_fill_up(self, amount: int, hero, truck) -> bool:
@@ -126,6 +125,27 @@ class World:
             hero.cash -= amount * self.price
             truck.truck_space -= amount
             truck.cargo['coal'] += amount
+
+    class DexGasStation:
+        """Represents Dex's gas station."""
+
+        def __init__(self) -> None:
+            """Initialize Dex's gas station with fuel's price."""
+            # Price is for 1 liter of fuel.
+            self.price = 1
+
+        def can_fill_up(self, amount: int, hero, truck) -> bool:
+            """Checks if hero can fill up the truck."""
+            if hero.cash < amount * self.price or truck.fuel + amount > 100:
+                return False
+            return True
+
+        def fill_up(self, amount: int, hero, truck) -> None:
+            """Fill ip the truck if it's possible."""
+            if not self.can_fill_up(amount, hero, truck):
+                return
+            hero.cash -= int(amount * self.price)
+            truck.fuel += amount
 
 
 class Hero:
