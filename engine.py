@@ -133,15 +133,15 @@ class Engine:
         self.state.locations[self.state.world.current_location][
             'description'] = (
             f'You stop at a big T-shaped canyon. A small river shines at the bottom. '
-            f'Two bridges — on the western and northern sides of the ravine — are destroyed. '
-            f'At the bottom of the canyon, you notice a wrecked lorry. '
-            f'It looks like it\'s yours...'
+            f'[green]Two bridges — on the western and northern sides of the ravine — are destroyed.[/green] '
+            f'At the bottom of the canyon, [green]you notice a wrecked lorry[/green]. '
+            f'It looks like [green]it\'s yours[/green]...'
         )
         self.state.locations['Forsaken Iridium Mines - West'][
             'description'] = (
             'You stop at a big T-shaped canyon. A small river shines at the bottom and, '
-            'it seems, a broken car, looking like your old truck. Two bridges – '
-            'to the east and to the north – are broken. '
+            'it seems, a broken car, looking like your old truck. [green]Two bridges – '
+            'to the east and to the north – are broken[/green]. '
             'It looks like one of them went to the iridium mines.'
         )
 
@@ -162,24 +162,24 @@ class Engine:
         second_reels = random.randint(1, 7)
         third_reels = random.randint(1, 7)
 
-        result = f'{first_reels} <---> {second_reels} <---> {third_reels}\n\n'
+        result = f'[green]{first_reels}[/green] <---> [green]{second_reels}[/green] <---> [green]{third_reels}[/green]\n\n'
 
         if first_reels == second_reels == third_reels:
             self.state.hero.cash += 25
             return (
                 f'{result}'
-                f'A triple match! 25 credits dropped into the tray.'
+                f'[green]A triple match! 25 credits[/green] dropped into the tray.'
             )
         elif first_reels == second_reels or second_reels == third_reels or first_reels == third_reels:
             self.state.hero.cash += 2
             return (
                 f'{result}'
-                f'A double match! 2 credits dropped into the tray.'
+                f'[green]A double match! 2 credits[/green] dropped into the tray.'
             )
         else:
             return (
                 f'{result}'
-                f'You have lost.'
+                f'[green]You have lost[/green].'
             )
 
     def take_drox(self, args) -> None:

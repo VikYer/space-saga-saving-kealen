@@ -1,6 +1,6 @@
 {
   "Forsaken Iridium Mines - West": {
-    "description": "You stop at a big T-shaped canyon. A small river shines at the bottom. Two bridges – to the east and to the north – are broken. It looks like one of them went to the iridium mines. On the east side, you see a large truck. It is dented and its windows are broken.",
+    "description": "You stop at a big T-shaped canyon. A small river shines at the bottom. [green]Two bridges – to the east and to the north – are broken[/green]. It looks like one of them went to the iridium mines. [green]On the east side, you see a large truck[/green]. It is dented and its windows are broken.",
     "options": {
       "leave": {
         "text": "Go back",
@@ -12,7 +12,7 @@
     }
   },
   "Forsaken Iridium Mines - East": {
-    "description": "You stop at a big T-shaped canyon. A small river shines at the bottom. Two bridges — on the western and northern sides of the ravine — are destroyed. A badly damaged truck stands nearby. It looks more spacious than yours.",
+    "description": "You stop at a big T-shaped canyon. A small river shines at the bottom. [green]Two bridges — on the western and northern sides of the ravine — are destroyed[/green]. A badly damaged truck stands nearby. It looks more spacious than yours.",
     "options": {
       "go_farm": {
         "text": "Go to the farm",
@@ -23,7 +23,7 @@
       },
       "inspect_lorry": {
         "text": "Inspect the lorry",
-        "description": "You started checking the car. You looked at the wheel, checked under the hood, and examined the tires. The car is in bad shape, almost falling apart, but maybe it can still be made to run... The problem is, you will need to strip your own truck for parts. That means you will lose your old truck forever, together with all the upgrades. So you must think carefully.\n\nAbout the broken lorry: it has a fuel tank of 100 liters, a body that can carry 16 tons, but its top speed is lower than your truck’s. Because of this, fuel use will be higher.",
+        "description": "You started checking the car. You looked at the wheel, checked under the hood, and examined the tires. The car is in bad shape, almost falling apart, but maybe it can still be made to run... The problem is, you will need to strip your own truck for parts. That means [green]you will lose your old truck forever, together with all the upgrades[/green]. So you must think carefully.\nAbout the broken lorry: it has a fuel tank of [green]100 liters[/green], a body that can carry [green]16 tons[/green], but its top [green]speed is lower[/green] than your truck’s. Because of this, fuel use will be higher.",
         "effects": {
           "time": 5
         },
@@ -52,7 +52,7 @@
     }
   },
   "Corn Farm": {
-    "description": "You stopped the car on the road to look around. Nearby is a large field with corn growing in it. At the edge of the field is a well-kept little house — obviously where the farmer lives.\n\nRight by the road is a sign:\n\"East direction – Hyenas hideout – 28 km,\nsouth direction – Bolt's garage – 31 km,\nwest direction – Iridium mines – 60 km\"",
+    "description": "You stopped the car on the road to look around. Nearby is a large field with corn growing in it. At the edge of the field is a [green]well-kept little house[/green] — obviously where the [green]farmer[/green] lives.\n\nRight by the road is a sign:\n\"East direction – [green]Hyenas hideout – 28 km[/green],\nsouth direction – [green]Bolt's garage – 31 km[/green],\nwest direction – [green]Iridium mines – 60 km[/green]\"",
     "options": {
       "go_hyenas": {
         "text": "Go to the Hyenas",
@@ -148,7 +148,7 @@
     "options": {
       "let_Kealen_go": {
         "text": "Let Kealen go immediately!",
-        "description": "Who are you to threaten us, fool?! Kealen owes us, and we set the debt at 900 credits. About 10 days left. Yes, exactly 10. And if the money isn’t here by then, Kealen won’t live."
+        "description": "– Who are you to threaten us, fool?! Kealen owes us, and we set the debt at [green]900 credits[/green]. About [green]10 days[/green] left. Yes, exactly [green]10[/green]. And if the money isn’t here by then, Kealen won’t live."
       },
       "leave": {
         "text": "Return to the farm",
@@ -160,7 +160,7 @@
     }
   },
   "The Stingray Bar": {
-    "description": "You stopped on the road. The engine of your car kept beating a jazz rhythm under the hood. Everywhere on the side of the road were bottles, cans, and other trash. Nearby, you could see a wooden building, with drunken shouts and laughter coming from its windows. Looks like a cheap bar. Several jeeps and about ten motorcycles were parked next to it.\n\nLooking around again, you noticed a road sign:\n\"East road – Gruber's fuel station – 35 km,\nSouth road – Wreckyard – 36 km\"",
+    "description": "You stopped on the road. The engine of your car kept beating a jazz rhythm under the hood. Everywhere on the side of the road were bottles, cans, and other trash. Nearby, you could see a wooden building, with drunken shouts and laughter coming from its windows. Looks like a [green]cheap bar[/green]. Several jeeps and about ten motorcycles were parked next to it.\n\nLooking around again, you noticed a road sign:\n\"East road – [green]Gruber's fuel station – 35 km[/green],\nSouth road – [green]Wreckyard – 36 km[/green]\"",
     "options": {
       "go_gruber": {
         "text": "Go to the Gruber's fuel station",
@@ -219,7 +219,7 @@
               },
               "drinks": {
                 "text": "What drinks do you have?",
-                "description": "– For drinks we have:\na glass of port wine – 3 credits\na glass of Moonberry Drink (non-alcoholic) – 4 credits.",
+                "description": "– For drinks we have:\na glass of port [green]wine – 3 credits[/green]\na glass of [green]Moonberry Drink (non-alcoholic) – 4 credits[/green].",
                 "options": {
                   "drink_port_wine": {
                     "text": "Drink a glass of port wine (3 Credits)",
@@ -231,7 +231,7 @@
                   },
                   "drink_cocktail": {
                     "text": "Take a Moonberry Drink (4 credits)",
-                    "description": "The bartender filled the glass with a dark red drink. It tasted nice and even a little refreshing. After you finished it, you put the glass back on the counter.",
+                    "description": "The bartender filled the glass with a dark red drink. It tasted nice and even a [green]little refreshing[/green]. After you finished it, you put the glass back on the counter.",
                     "effects": {
                       "fatigue": -5,
                       "cash": -4
@@ -239,7 +239,7 @@
                   },
                   "buy_drinks_everyone": {
                     "text": "I want to buy drinks for everyone!",
-                    "description": "– So, does our road king want to celebrate some lucky trip, or is it just a kind gesture? Anyway, this will cost you 50 credits, my friend. Well, what do you say? – the bartender said.",
+                    "description": "– So, does our road king want to celebrate some lucky trip, or is it just a kind gesture? Anyway, [green]this will cost you 50 credits[/green], my friend. Well, what do you say? – the bartender said.",
                     "options": {
                       "treat_everyone": {
                         "text": "Okay. I’ll pay for everyone!",
@@ -295,7 +295,7 @@
                       },
                       "treat_everyone_is_stingray": {
                         "text": "Okay. I'll pay for everyone!",
-                        "description": "– Our newbie is throwing a party! — shouted one of the Stingrays. The others joined in, and it all began: port wine, laughter, more port wine, more laughing, port wine, a fistfight, port wine, \"chase the rabbit on a jeep\", port wine… blackout.\n\nYou woke up outside next the bar. Thank God, nothing was broken. Your head hurt, but it should pass soon…",
+                        "description": "– Our newbie is throwing a party! — shouted one of the Stingrays. The others joined in, and it all began: port wine, laughter, more port wine, more laughing, port wine, a fistfight, port wine, \"chase the rabbit on a jeep\", port wine… blackout.\n\nYou woke up outside next the bar. Thank God, [green]nothing was broken[/green]. Your head hurt, but it should pass soon…",
                         "effects": {
                           "time": 210,
                           "cash": -50
@@ -313,7 +313,7 @@
                       },
                       "treat_everyone_is_coward": {
                         "text": "Okay. I'll pay for everyone!",
-                        "description": "We don’t drink port wine ordered by cowards! — shouted the Stingrays at the bar.\n– But I do! — mumbled a toothless old man, who appeared out of nowhere. He packed all the bottles into a net bag and disappeared just as suddenly.\n\nAh… money wasted for nothing…",
+                        "description": "We don’t drink port wine ordered by cowards! — shouted the Stingrays at the bar.\n– But I do! — mumbled a toothless old man, who appeared out of nowhere. He packed all the bottles into a net bag and disappeared just as suddenly.\n\nAh… [green]money wasted for nothing…[/green]",
                         "effects": {
                           "cash": -50
                         },
@@ -336,7 +336,7 @@
               },
               "eat_mushrooms_with_meat": {
                 "text": "I would like to eat. Give me fried meat with mushrooms…",
-                "description": "– Here you go, – said the bartender and put in front of you a round metal plate with a piece of fried meat, covered with pieces of mushrooms. There were no utensils, so you had to eat with your hands. The taste was quite okay. At least it stopped your hunger well.",
+                "description": "– Here you go, – said the bartender and put in front of you a round metal plate with a piece of fried meat, covered with pieces of mushrooms. There were no utensils, so you had to eat with your hands. The taste was quite okay. At least it stopped your [green]hunger well[/green].",
                 "effects": {
                   "hanger": 80,
                   "time": 5,
@@ -350,7 +350,7 @@
               },
               "sleep_in_bar": {
                 "text": "I need to sleep. Give me one bed…",
-                "description": "– Of course. Follow me, – said the bartender, signaling a boy.\nThe boy took you to the second floor, to a room where a couple of people were already sleeping on separate beds, and showed you your bed. After giving the money, you collapsed on the bed and fell asleep…\n\nYou woke up on your own. You feel much better now. Looking at the clock above the door, you see that your sleep time is almost over. It’s time to go downstairs.",
+                "description": "– Of course. Follow me, – said the bartender, signaling a boy.\nThe boy took you to the second floor, to a room where a couple of people were already sleeping on separate beds, and showed you your bed. After giving the money, you collapsed on the bed and fell asleep…\n\nYou woke up on your own. You [green]feel much better[/green] now. Looking at the clock above the door, you see that your sleep time is almost over. It’s time to go downstairs.",
                 "effects": {
                   "time": 360
                 },
@@ -423,7 +423,7 @@
           },
           "go_to_slot_machine": {
             "text": "Walk to the slot machine",
-            "description": "On the slot machine, there is a metal sign:\nInsert 1 credit and pull the handle.\nDouble number match – win 2 credits,\nTriple number match – win 25 credits.",
+            "description": "On the slot machine, there is a metal sign:\nInsert [green]1 credit[/green] and pull the handle.\nDouble number match – win 2 credits,\nTriple number match – win 25 credits.",
             "options": {
               "play_slot_machine": {
                 "text": "Play",
@@ -445,7 +445,7 @@
     }
   },
   "Gruber's Fuel Station": {
-    "description": "Your truck stopped at the crossing of two roads. The asphalt here was very cracked, but you didn’t care. Nearby, you saw an old gas station fenced with barbed wire. At least, that’s what the sign said. A dirt road led to the building.\n\nNear the crossroads, you saw a road sign:\n\"North – Iridium mines – 34 km,\nSouth – Endless Rift – 57 km,\nWest – Bar – 35 km,\nEast – Bolt's Garage – 42 km\"",
+    "description": "Your truck stopped at the crossing of two roads. The asphalt here was very cracked, but you didn’t care. Nearby, you saw an old gas station fenced with barbed wire. At least, that’s what the sign said. A dirt road led to the building.\n\nNear the crossroads, you saw a road sign:\n\"North – [green]Iridium mines – 34 km[/green],\nSouth –[green] Endless Rift – 57 km[/green],\nWest – [green]Bar – 35 km[/green],\nEast – [green]Bolt's Garage – 42 km[/green]\"",
     "options": {
       "go_iridium_mines": {
         "text": "Go to the forsaken iridium mines",
@@ -477,18 +477,18 @@
       },
       "go_gas_station": {
         "text": "Turn towards the fuel station",
-        "description": "You drove along a country road and stopped right in front of a building. A boy with a rifle on his shoulder quickly came out. Coming to your truck window, he said:\n\n– You are at Gruber's Fuel Station. 5 liters of fuel cost 7 credits. Will you buy some?",
+        "description": "You drove along a country road and stopped right in front of a building. A boy with a rifle on his shoulder quickly came out. Coming to your truck window, he said:\n\n– You are at Gruber's Fuel Station. [green]5 liters of fuel cost 7 credits[/green]. Will you buy some?",
         "options": {
           "gruber_fill_up_5": {
             "text": "Fill up 5 liters for me",
-            "description": "You bought 5 liters of fuel.\n\n– You are at Gruber's Gas Station. Five liters of fuel cost 7 credits. Do you want more?",
+            "description": "You bought [green]5 liters of fuel[/green].\n\n– You are at Gruber's Gas Station. Five liters of fuel cost 7 credits. Do you want more?",
             "effects": {
               "fuel": 5
             }
           },
           "gruber_fill_up_15": {
             "text": "Fill up 15 liters for me",
-            "description": "You bought 15 liters of fuel.\n\n– You are at Gruber's Gas Station. Five liters of fuel cost 7 credits. Do you want more?",
+            "description": "You bought [green]15 liters of fuel[.green].\n\n– You are at Gruber's Gas Station. Five liters of fuel cost 7 credits. Do you want more?",
             "effects": {
               "fuel": 15,
               "time": 2
@@ -518,7 +518,7 @@
     }
   },
   "Bolt's Garage": {
-    "description": "A strange area. All around were scattered pieces of metal and car parts. Nearby stood a wooden shack with a garage. Looks like this is the mechanic’s workshop.\n\nRight in front of you was a road sign made entirely from car parts:\n\"North – Corn farm – 31 km,\nSouth – Marshal – 28 km,\nWest – Fuel station – 42 km,\nEest – Brackenbridge – 22 km\"",
+    "description": "A strange area. All around were scattered pieces of metal and car parts. Nearby stood a wooden shack with a garage. Looks like this is the mechanic’s workshop.\n\nRight in front of you was a road sign made entirely from car parts:\n\"North – [green]Corn farm – 31 km[/green],\nSouth – [green]Marshal – 28 km[/green],\nWest – [green]Fuel station – 42 km[/green],\nEast – [green]Brackenbridge – 22 km[/green]\"",
     "options": {
       "go_farm": {
         "text": "Go to the corn farm",
@@ -576,11 +576,11 @@
           },
           "improve_truck": {
             "text": "I see you really love your work. Can you also upgrade my truck?",
-            "description": "Bolt walked around the truck, looked at everything carefully, and said:\n\n– Here’s the deal. I can make two steel trunks and weld them on your truck. Then you can carry 2 tons more. I won’t charge much. Let’s say 50 credits.\n\nI could also put spikes instead of wheels on your truck. For that, I need long iron rods. I don’t have many left. But if you bring me 5 tons of scrap metal, I could definitely find everything I need there. And the rest would be mine as payment.\n\nOf course, I don’t like carrying scrap myself, but I promise you – the result is worth it. Tested in practice. Enemy vehicles get smashed! Especially the Stingrays gang’s jeeps.",
+            "description": "Bolt walked around the truck, looked at everything carefully, and said:\n– Here’s the deal. I can make two steel trunks and weld them on your truck. Then you can [green]carry 2 tons more[/green]. I won’t charge much. Let’s say [green]50 credits[/green].\nI could also put [green]spikes[/green] instead of wheels on your truck. For that, I need long iron rods. I don’t have many left. But if you bring me [green]5 tons of scrap metal[/green], I could definitely find everything I need there. And the rest would be mine as payment.\nOf course, I don’t like carrying scrap myself, but I promise you – the result is worth it. Tested in practice. Enemy vehicles get smashed! Especially the Stingrays gang’s jeeps.",
             "options": {
               "extend_trunk": {
                 "text": "Deal. I’ll pay, and you make my truck carry more.",
-                "description": "Taking your money, Bolt went into his garage. You heard bangs, scraping, and hissing. What was he doing in there? While you wondered, the mechanic came out driving a strange loader with a big box in its claws. He welded the box to the side of your truck. Then he did the same on the other side.\n\n— Done! Now your cargo bed can hold 2 more tons, — Bolt said.\n\nYou looked out the truck window. Indeed, each box could fit at least a ton of goods.",
+                "description": "Taking your money, Bolt went into his garage. You heard bangs, scraping, and hissing. What was he doing in there? While you wondered, the mechanic came out driving a strange loader with a big box in its claws. He welded the box to the side of your truck. Then he did the same on the other side.\n— Done! Now your cargo bed can hold [green]2 more tons[/green], — Bolt said.\nYou looked out the truck window. Indeed, each box could fit at least a ton of goods.",
                 "effects": {
                   "cash": -50,
                   "time": 150
@@ -594,7 +594,7 @@
               },
               "upgrade_truck": {
                 "text": "I have 5 tons of scrap metal. Take it and start working!",
-                "description": "With a magnetic loader, Bolt quickly took 5 tons of scrap from you and piled it nearby. Then the work began. The master picked rods and sheets of metal, shaped them, and made cones. To each cone he attached sharp blades. Finally, Bolt fixed these creations onto your wheels.\n\nAnd done! Now your steel beast looked really scary.",
+                "description": "With a magnetic loader, Bolt quickly took [green]5 tons of scrap[/green] from you and piled it nearby. Then the work began. The master picked rods and sheets of metal, shaped them, and made cones. To each cone he attached [green]sharp blades[/green]. Finally, Bolt fixed these creations onto your wheels.\n\nAnd done! Now your steel beast looked really scary.",
                 "effects": {
                   "time": 90
                 },
@@ -626,7 +626,7 @@
     }
   },
   "Brackenbridge": {
-    "description": "You are standing on the edge of a big city (big for these lands), surrounded by a fence. From the highway, a good asphalt road leads into the city, with a sign that says: “Welcome to Brackenbridge.”\n\nRight nearby you noticed a road sign:\n“West – Bolt's garage – 22 km,\nSouth – Dex's Fuel Station – 97 km”",
+    "description": "You are standing on the edge of a big city (big for these lands), surrounded by a fence. From the highway, a good asphalt road leads into the city, with a sign that says: “Welcome to Brackenbridge.”\n\nRight nearby you noticed a road sign:\n“West – [green]Bolt's garage – 22 km[/green],\nSouth – [green]Dex's Fuel Station – 97 km[/green]\"",
     "options": {
       "go_garage": {
         "text": "Go to the Bolt's garage",
@@ -644,11 +644,11 @@
       },
       "go_town": {
         "text": "Go to the town",
-        "description": "You stand in a big, but dirty, square. Almost all houses in the town are old and dirty. Only four look worth noticing:\n\n- a one-story building with a bright sign \"Crimson Plate Restaurant\";\n\n- a three-story brick building with the words \"Velvet Nights Hotel\";\n\n- a plastic building with a red cross on the door and windows (looks like a small clinic);\n\n- a white two-story house with a four-color flag on the roof.\n\nA wide road goes away from the square. It leads to a small factory with two chimneys, sending out black smoke. You might be able to reach the checkpoint using this road.",
+        "description": "You stand in a big, but dirty, square. Almost all houses in the town are old and dirty. Only four look worth noticing:\n– a one-story building with a bright sign \"[green]Crimson Plate Restaurant[/green]\";\n– a three-story brick building with the words \"[green]Velvet Nights Hotel[/green]\"\n;– a plastic building with a red cross on the door and windows (looks like a [green]small clinic[/green])\n;– a [green]white two-story house[/green] with a four-color flag on the roof.\nA wide road goes away from the square. It leads to a small factory with two chimneys, sending out black smoke. You might be able to reach the [green]checkpoint[/green] using this road.",
         "options": {
           "go_to_factory": {
             "text": "Drive to the factory checkpoint",
-            "description": "A dirty man leans out of the booth at the factory entrance and looks at you closely:\n\n- As usual, we don’t sell anything, only buy. Prices haven’t changed since last week.\n1 ton of scrap metal – 23 credits\n1 ton of coal – 12 credits",
+            "description": "A dirty man leans out of the booth at the factory entrance and looks at you closely:\n\n- As usual, we don’t sell anything, only buy. Prices haven’t changed since last week.\n[green]1 ton of scrap metal – 23 credits\n1 ton of coal – 12 credits[/green]",
             "options": {
               "about_factory": {
                 "text": "Ask what the factory makes",
@@ -667,11 +667,11 @@
           },
           "go_to_clinic": {
             "text": "Go to the clinic",
-            "description": "The little house was full of all kinds of equipment. On the right, there were several medical-looking devices in strange shapes. There was even a rusty machine with a big sign saying “Drill.” It looked like some kind of ancient torture tool.\n\nOpposite the door, on a shabby little couch, a small man in a spotless white coat was snoring. On his chest lay a little mirror with a hole and a strap. It seemed the medical expert didn’t want to work today, but you would have to wake him. Knocking loudly on the door made the doctor stir.\n\n– Huh? What? Only here! Energy treatment using a new revolutionary method. Complete wound healing. All for 50 credits.",
+            "description": "The little house was full of all kinds of equipment. On the right, there were several medical-looking devices in strange shapes. There was even a rusty machine with a big sign saying \"Drill\" It looked like some kind of ancient torture tool.\nOpposite the door, on a shabby little couch, a small man in a spotless white coat was snoring. On his chest lay a little mirror with a hole and a strap. It seemed the medical expert didn’t want to work today, but you would have to wake him. Knocking loudly on the door made the doctor stir.\n– Huh? What? Only here! Energy treatment using a new revolutionary method. [green]Complete wound healing. All for 50 credits[/green].",
             "options": {
               "energy_treatment": {
                 "text": "My health isn’t great. Some energy treatment could help…",
-                "description": "– Energy treatment? Sure, – the doctor took your money, sat you in a hard chair, put on a helmet and electrodes, strapped your arms, and pulled a big lever with a laugh.\n\nA strong shock ran through your body. You thought it was the end, but soon the current grew weaker and you felt energy filling you. You closed your eyes and fell asleep.\n\nYou woke up to the doctor patting your cheeks.\n\n– Wake up, it’s done, – he said, removing the wires.\n\nStanding up, you really felt better. Not much fresher, but healthier.",
+                "description": "– Energy treatment? Sure, – the doctor took your money, sat you in a hard chair, put on a helmet and electrodes, strapped your arms, and pulled a big lever with a laugh.\nA strong shock ran through your body. You thought it was the end, but soon the current grew weaker and you felt energy filling you. You closed your eyes and fell asleep.\nYou woke up to the doctor patting your cheeks.\n– Wake up, it’s done, – he said, removing the wires.\nStanding up, you really felt better. [green]Not much fresher, but healthier[/green].",
                 "effects": {
                   "time": 30,
                   "fatigue": 15,
@@ -690,11 +690,11 @@
           },
           "go_to_hotel": {
             "text": "Go to the hotel",
-            "description": "Inside, the hotel turned out to be fairly clean.\n\n- Want to rest, cowboy? – asked a made-up lady sitting at the reception. – Eight hours in a single room – 20 credits. If you want it with a girl, th-e-e-n… 40 credits.",
+            "description": "Inside, the hotel turned out to be fairly clean.\n– Want to rest, cowboy? – asked a made-up lady sitting at the reception. – [green]Eight hours in a single room – 20 credits[/green]. If you want it [green]with a girl, th-e-e-n… 40 credits[/green].",
             "options": {
               "rest": {
                 "text": "Just give me a room. No girls needed.",
-                "description": "The room was very good, and with no neighbors around, you rested well. You came back to the reception desk.",
+                "description": "The room was very good, and with no neighbors around, you [green]rested well[/green]. You came back to the reception desk.",
                 "effects": {
                   "time": 480,
                   "fatigue": 100,
@@ -703,7 +703,7 @@
               },
               "take_girl": {
                 "text": "Girls are beautiful. So I’ll take the full package.",
-                "description": "The lady from reception found you a girl to your taste and sent you to the room.\n\nEverything went great — even some plaster fell off the walls. You had a good rest! When you woke up, the girl was already gone. A pity, you wanted more. After fixing your hair and clothes, you returned to the reception desk.",
+                "description": "The lady from reception found you a girl to your taste and sent you to the room.\n\nEverything went great — even some plaster fell off the walls. You had a [green]good rest[/green]! When you woke up, the girl was already gone. A pity, you wanted more. After fixing your hair and clothes, you returned to the reception desk.",
                 "effects": {
                   "time": 480,
                   "fatigue": 100,
@@ -722,7 +722,7 @@
             "options": {
               "order_root": {
                 "text": "Golden Root Fries – 7 credits",
-                "description": "You quickly finished the roots. Not quite like the ones you’ve had at Earth diners, but still decent. Too bad the portion was a bit small…",
+                "description": "You quickly finished the roots. Not quite like the ones you’ve had at Earth diners, but [green]still decent[/green]. Too bad the [green]portion was a bit small[/green]…",
                 "effects": {
                   "hanger": 20,
                   "time": 5,
@@ -748,7 +748,7 @@
               },
               "order_beaver": {
                 "text": "Pear-Stuffed Beaver – 20 credits",
-                "description": "The beaver didn’t taste very good and had a strange gasoline flavor. But there was one big plus – there was a lot of it! You ate until you were full.",
+                "description": "The beaver didn’t taste very good and had a strange gasoline flavor. But there was one big plus – there was a lot of it! You ate until you [green]were full[/green].",
                 "effects": {
                   "hanger": 80,
                   "time": 5,
@@ -757,7 +757,7 @@
               },
               "order_cactus": {
                 "text": "Signature Dish: Spiky Cactus in Coriander Glaze – 23 credits",
-                "description": "You kept chewing the dish but couldn’t understand what was so good about it. Seemed like only locals could enjoy this stuff. Leaving the cactus half-eaten, you drank all the coriander sauce (forgetting manners) and asked to take the plate away. Not much for hunger, but the sauce gave you a nice boost.",
+                "description": "You kept chewing the dish but couldn’t understand what was so good about it. Seemed like only locals could enjoy this stuff. Leaving the cactus half-eaten, you drank all the coriander sauce (forgetting manners) and asked to take the plate away. [green]Not much for hunger[/green], but the sauce gave you a [green]nice boost[/green].",
                 "effects": {
                   "hanger": 35,
                   "time": 10,
@@ -767,7 +767,7 @@
               },
               "wait_restaurant_opening": {
                 "text": "Wait for the opening",
-                "description": "You waited for the restaurant to open. Finally, around 9:00, it did. You stepped inside and took a seat. Looks like you are the first guest today!\n\n– Shall we order something? – asked the waiter, dressed in a neat suit, handing you the menu.\nYou quickly looked through the options, noting what you could afford and what was too expensive."
+                "description": "You waited for the restaurant to open. Finally, around 9:00, it did. You stepped inside and took a seat. Looks like you are the first guest today!\n– Shall we order something? – asked the waiter, dressed in a neat suit, handing you the menu.\nYou quickly looked through the options, noting what you could afford and what was too expensive."
               },
               "back_to_square": {
                 "text": "Back to the city square"
@@ -801,7 +801,7 @@
                 "options": {
                   "coins_for_beggar": {
                     "text": "Throw a couple of coins to the old man",
-                    "description": "– Thank you, son, – the old man said. I see you’re a traveler. Let me give you some advice. On the road from city to Dex's fuel station, there’s a turn to a lake. It looks dirty and small, but if you swim there for fifteen minutes, your wounds will heal as if by magic. Now go in peace.\n\nRemembering his words, you left the city.",
+                    "description": "– Thank you, son, – the old man said. I see you’re a traveler. Let me give you some advice. On the road from city to Dex's fuel station, there’s a [green]turn to a lake[/green]. It looks dirty and small, but if you [green]swim there for fifteen minutes[/green], your wounds [green]will heal[/green] as if by magic. Now go in peace.\n\nRemembering his words, you left the city.",
                     "effects": {
                       "cash": -4
                     },
@@ -854,7 +854,7 @@
     }
   },
   "Wreckyard": {
-    "description": "Your car stopped at a fork in the road. To the northwest, a huge wreckyard rose up.\n\nA road sign with a skull on top said:\n\"North – Bar – 36 km,\nSouth – Erratic Rocks – 49 km,\nEast – The Endless Rift – 40 km\"",
+    "description": "Your car stopped at a fork in the road. To the northwest, a huge wreckyard rose up.\n\nA road sign with a skull on top said:\n\"North – [green]Bar – 36 km[/green],\nSouth – [green]Erratic Rocks – 49 km[/green],\nEast – [green]The Endless Rift – 40 km[/green]\"",
     "options": {
       "go_bar": {
         "text": "Go to the Stingray Bar",
@@ -946,7 +946,7 @@
     }
   },
   "The Endless Rift": {
-    "description": "You are standing in the middle of a huge rift, more like a giant crack in the Earth left after the explosion of a massive bomb. The road splits into two directions. Nearby stands a crooked sign with words painted in red.\n\n\"North – Fuel station – 57 km,\nSouth – Marshal – 19 km, \nEast – Wreckyard – 40\"",
+    "description": "You are standing in the middle of a huge rift, more like a giant crack in the Earth left after the explosion of a massive bomb. The road splits into two directions. Nearby stands a crooked sign with words painted in red.\n\n\"North – [green]Fuel station – 57 km[/green],\nSouth – [green]Marshal – 19 km[/green], \nEast – [green]Wreckyard – 40 km[/green]\"",
     "options": {
       "go_gruber": {
         "text": "Go to the Gruber's fuel station",
@@ -995,15 +995,15 @@
               },
               "about_hyenas": {
                 "text": "Where can I find the Hyenas?",
-                "description": "- Usually they find everyone themselves… But if you want to know about their base, it’s to the north-east, past the Corn Farm."
+                "description": "- Usually they find everyone themselves… But if you want to know about their base, it’s to [green]the north-east, past the Corn Farm[/green]."
               },
               "about_dangers": {
                 "text": "What dangers might I face here?",
-                "description": "- Dangers? This whole area is full of danger! On the roads, Stingrays and Hyenas charge tolls. Plus, all sorts of thugs wander around. You must always stay alert here. And don’t sleep in your car or outside — there are lots of poisonous creatures. Only in Breakenbridge can you feel safe."
+                "description": "- Dangers? This whole area is full of danger! On the roads, Stingrays and Hyenas charge tolls. Plus, all sorts of thugs wander around. You must always stay alert here. And don’t sleep in your car or outside — there are lots of poisonous creatures. Only in [green]Breakenbridge[/green] can you feel safe."
               },
               "about_earning": {
                 "text": "Where can I get some money?",
-                "description": "- My husband earned money by trading. But how can you trade if you have no money…? I heard you can work in the mining settlement, digging coal, to get some starting money. Also, my husband told me that in Brackenbrigde, our biggest city, they need coal and scrap metal. You can buy coal from the miners."
+                "description": "- My husband earned money by trading. But how can you trade if you have no money…? I heard you can work in the mining settlement, digging coal, to get some starting money. Also, my husband told me that in [green]Brackenbrigde[/green], our biggest city, they need coal and scrap metal. You can buy coal from the miners."
               },
               "about_climate": {
                 "text": "What’s the climate like here?",
@@ -1011,7 +1011,7 @@
               },
               "about_rest": {
                 "text": "Can I spend the night here?",
-                "description": "- Unfortunately, no. At night my boys, – the woman pointed to the furry creatures – get aggressive. Especially to strangers. They could even attack. I can’t risk your life. Too much depends on you… By the way! You can sleep for free in the miners’ barracks. Drive to the Erratic Rocks, then south to the mining settlement."
+                "description": "- Unfortunately, no. At night my boys, – the woman pointed to the furry creatures – get aggressive. Especially to strangers. They could even attack. I can’t risk your life. Too much depends on you… By the way! You can sleep for free in the [green]miners’ barracks[/green]. Drive [green]to the Erratic Rocks[/green], then [green]south to the mining settlement[/green]."
               },
               "back": {
                 "text": "I think I’ll be going"
@@ -1030,7 +1030,7 @@
     }
   },
   "Erratic Rocks": {
-    "description": "Your car is driving along the highway. The Erratic Rocks are already clearly visible.\n\nYou notice a rusty sign on the right. It seems to have been standing here for a thousand years!\n\"Northern direction - Military base (crossed out, \"Wreckyard\" written above) - 49 km,\nSouthern direction - Mining Settlement - 32 km,\nWestern direction - Spaceport - 28 km\"",
+    "description": "Your car is driving along the highway. The Erratic Rocks are already clearly visible.\n\nYou notice a rusty sign on the right. It seems to have been standing here for a thousand years!\n\"Northern direction - [green]Military base (crossed out, \"Wreckyard\" written above) - 49 km[/green],\nSouthern direction - [green]Mining Settlement - 32 km[/green],\nWestern direction - [green]Spaceport - 28 km[/green]\"",
     "options": {
       "go_wreckyard": {
         "text": "Go to the military base (or wreckyard?)",
@@ -1089,7 +1089,7 @@
           },
           "about_bandits": {
             "text": "On the roads, some thugs attack honest people. I think, as Marshal, you should stop this…",
-            "description": "– Really? — laughed the marshal with his men. — You’re not from here. Stingrays and Hyenas have charged tolls for decades. If I fight them, the bandits might stop me before I stop them.\n\nMy advice: pay the tolls if stopped, or fight if you’re tough. Carrying cargo? Expect higher fees. My guys? They just fine lawbreakers. Doubts? Come to the impound lot, we’ll sort it out."
+            "description": "– Really? — laughed the marshal with his men. — You’re not from here. Stingrays and Hyenas have charged tolls for decades. If I fight them, the bandits might stop me before I stop them.\n\nMy advice: pay the tolls if stopped, or fight if you’re tough. [green]Carrying cargo? Expect higher fees[/green]. My guys? They just fine lawbreakers. Doubts? Come to the impound lot, we’ll sort it out."
           },
           "ask_marshal_about_weapon": {
             "text": "I need weapons. Do you have anything?",
@@ -1097,11 +1097,11 @@
             "options": {
               "accept": {
                 "text": "Well… just a little",
-                "description": "– Great! – shouted the marshal and waved for you to follow.\nYou walked past cells and old rooms, keeping the marshal in sight. Finally, he led you to a small room. A thin guy with a book sat on a metal box.\n– He will help you. He knows some chemistry. Explain what to do…\n– I won’t make drugs! – you said immediately.\n– Oh? Can you? – the chemist asked.\nYou shook your head.\n– Too bad. Anyway, we want to open a safe with cyclobeasing acid. I almost made it – just need to add x-gluconate. Here’s the problem: instructions say 3 grams of Viron (it has the right amount of x-gluconate). But I only have Kreman. Kreman also has x-gluconate. But how much per gram? I don’t know. So how many grams of Kreman should replace 3 grams of Viron? I found it in a textbook:\n1 g Sorben + 2 g Ilium = x-gluconate as in 4 grams Kreman\n1 g Ilium = x-gluconate as in 3 g Viron\n2 g Ilium + 2 g Kreman = x-gluconate as in 5 g Sorben\n– That’s all? – you asked.\n– Yes. So… how many grams of Kreman do we need? Be careful – wrong amount = boom.",
+                "description": "– Great! – shouted the marshal and waved for you to follow.\nYou walked past cells and old rooms, keeping the marshal in sight. Finally, he led you to a small room. A thin guy with a book sat on a metal box.\n– He will help you. He knows some chemistry. Explain what to do…\n– I won’t make drugs! – you said immediately.\n– Oh? Can you? – the chemist asked.\nYou shook your head.\n– Too bad. Anyway, we want to open a safe with cyclobeasing acid. I almost made it – just need to add x-gluconate. Here’s the problem: instructions say [green]3 grams of Viron[/green] (it has the right amount of x-gluconate). But I only have Kreman. Kreman also has x-gluconate. But how much per gram? I don’t know. So [green]how many grams of Kreman[/green] should replace 3 grams of Viron? I found it in a textbook:\n[green]1 g Sorben + 2 g Ilium = x-gluconate as in 4 grams Kreman[/green]\n[green]1 g Ilium = x-gluconate as in 3 g Viron[/green]\n[green]2 g Ilium + 2 g Kreman = x-gluconate as in 5 g Sorben[/green]\n– That’s all? – you asked.\n– Yes. So… how many grams of Kreman do we need? Be careful – wrong amount = boom.",
                 "options": {
                   "dosage_0-33": {
                     "text": "0.33 g",
-                    "description": "The chemist added the Kreman you asked for, mixed it, and poured it around the safe' door. The metal started to smoke, then suddenly it exploded! You flew back and felt something cut your side.\nWhen the smoke cleared, the safe was gone—just a black spot and burned pieces of metal.\n– Damn! the sheriff shouted. Why say things if you don’t even know?\nHe grabbed you by the collar and pulled you out to the street.",
+                    "description": "The chemist added the Kreman you asked for, mixed it, and poured it around the safe' door. The metal started to smoke, then suddenly it exploded! You flew back and felt something cut your side.\nWhen the smoke cleared, the safe was gone—just a [green]black spot and burned pieces of metal[/green].\n– Damn! the sheriff shouted. Why say things if you don’t even know?\nHe grabbed you by the collar and pulled you out to the street.",
                     "options": {
                       "leave_marshal": {
                         "text": "Next",
@@ -1111,7 +1111,7 @@
                   },
                   "dosage_0_66": {
                     "text": "0.66 g",
-                    "description": "The chemist added the Kreman you asked for, mixed it, and poured it around the safe' door. The metal started to smoke, then suddenly it exploded! You flew back and felt something cut your side.\nWhen the smoke cleared, the safe was gone—just a black spot and burned pieces of metal.\n– Damn! the sheriff shouted. Why say things if you don’t even know?\nHe grabbed you by the collar and pulled you out to the street.",
+                    "description": "The chemist added the Kreman you asked for, mixed it, and poured it around the safe' door. The metal started to smoke, then suddenly it exploded! You flew back and felt something cut your side.\nWhen the smoke cleared, the safe was gone—just a [green]black spot and burned pieces of metal[/green].\n– Damn! the sheriff shouted. Why say things if you don’t even know?\nHe grabbed you by the collar and pulled you out to the street.",
                     "options": {
                       "leave_marshal": {
                         "text": "Next",
@@ -1121,7 +1121,7 @@
                   },
                   "dosage_1": {
                     "text": "1 g",
-                    "description": "The chemist added the Kreman you asked for, mixed it, and poured it around the safe' door. The metal started to smoke, then suddenly it exploded! You flew back and felt something cut your side.\nWhen the smoke cleared, the safe was gone—just a black spot and burned pieces of metal.\n– Damn! the sheriff shouted. Why say things if you don’t even know?\nHe grabbed you by the collar and pulled you out to the street.",
+                    "description": "The chemist added the Kreman you asked for, mixed it, and poured it around the safe' door. The metal started to smoke, then suddenly it exploded! You flew back and felt something cut your side.\nWhen the smoke cleared, the safe was gone—just a [green]black spot and burned pieces of metal[/green].\n– Damn! the sheriff shouted. Why say things if you don’t even know?\nHe grabbed you by the collar and pulled you out to the street.",
                     "options": {
                       "leave_marshal": {
                         "text": "Next",
@@ -1131,7 +1131,7 @@
                   },
                   "dosage_1_5": {
                     "text": "1.5 g",
-                    "description": "The chemist added the Kreman you asked for, stirred the mix, and poured it around the safe’s door. The metal started to burn fast. After a minute, he pulled the handle, and the door opened easily. The safe was unlocked! The marshal quickly looked inside.\n– Ha! A fine plasma gun, model 2971. Old Jack knew why he kept this hidden. Well, you did your part, now I’ll do mine. No, I won’t give you this plasma gun. You’ll have to be happy with these.\nHe tossed you a red box labeled \"Shotgun shells. 15 pcs.\"\n– Alright. Let’s go, I’ll show you the way out.",
+                    "description": "The chemist added the Kreman you asked for, stirred the mix, and poured it around the safe’s door. The metal started to burn fast. After a minute, he pulled the handle, and the door opened easily. The safe was unlocked! The marshal quickly looked inside.\n– Ha! A fine plasma gun, model 2971. Old Jack knew why he kept this hidden. Well, you did your part, now I’ll do mine. No, I won’t give you this plasma gun. You’ll have to be happy with these.\nHe tossed you a red box labeled \"[green]Shotgun shells. 15 pcs[/green].\"\n– Alright. Let’s go, I’ll show you the way out.",
                     "options": {
                       "leave_marshal": {
                         "text": "Follow the marshal",
@@ -1141,7 +1141,7 @@
                   },
                   "dosage_2": {
                     "text": "2 g",
-                    "description": "The chemist added the Kreman you asked for, mixed it, and poured it around the safe' door. The metal started to smoke, then suddenly it exploded! You flew back and felt something cut your side.\nWhen the smoke cleared, the safe was gone—just a black spot and burned pieces of metal.\n– Damn! the sheriff shouted. Why say things if you don’t even know?\nHe grabbed you by the collar and pulled you out to the street.",
+                    "description": "The chemist added the Kreman you asked for, mixed it, and poured it around the safe' door. The metal started to smoke, then suddenly it exploded! You flew back and felt something cut your side.\nWhen the smoke cleared, the safe was gone—just a [green]black spot and burned pieces of metal[/green].\n– Damn! the sheriff shouted. Why say things if you don’t even know?\nHe grabbed you by the collar and pulled you out to the street.",
                     "options": {
                       "leave_marshal": {
                         "text": "Next",
@@ -1151,7 +1151,7 @@
                   },
                   "dosage_3_5": {
                     "text": "3.5 g",
-                    "description": "The chemist added the Kreman you asked for, mixed it, and poured it around the safe' door. The metal started to smoke, then suddenly it exploded! You flew back and felt something cut your side.\nWhen the smoke cleared, the safe was gone—just a black spot and burned pieces of metal.\n– Damn! the sheriff shouted. Why say things if you don’t even know?\nHe grabbed you by the collar and pulled you out to the street.",
+                    "description": "The chemist added the Kreman you asked for, mixed it, and poured it around the safe' door. The metal started to smoke, then suddenly it exploded! You flew back and felt something cut your side.\nWhen the smoke cleared, the safe was gone—just a [green]black spot and burned pieces of metal[/green].\n– Damn! the sheriff shouted. Why say things if you don’t even know?\nHe grabbed you by the collar and pulled you out to the street.",
                     "options": {
                       "leave_marshal": {
                         "text": "Next",
@@ -1161,7 +1161,7 @@
                   },
                   "dosage_9": {
                     "text": "9 g",
-                    "description": "The chemist added the Kreman you asked for, mixed it, and poured it around the safe' door. The metal started to smoke, then suddenly it exploded! You flew back and felt something cut your side.\nWhen the smoke cleared, the safe was gone—just a black spot and burned pieces of metal.\n– Damn! the sheriff shouted. Why say things if you don’t even know?\nHe grabbed you by the collar and pulled you out to the street.",
+                    "description": "The chemist added the Kreman you asked for, mixed it, and poured it around the safe' door. The metal started to smoke, then suddenly it exploded! You flew back and felt something cut your side.\nWhen the smoke cleared, the safe was gone—just a [green]black spot and burned pieces of metal[/green].\n– Damn! the sheriff shouted. Why say things if you don’t even know?\nHe grabbed you by the collar and pulled you out to the street.",
                     "options": {
                       "leave_marshal": {
                         "text": "Next",
@@ -1205,14 +1205,14 @@
       },
       "go_lake": {
         "text": "Turn onto the dirt road",
-        "description": "You followed the road and soon reached a small lake covered with green moss. The trip here was about fifteen kilometers.",
+        "description": "You followed the road and soon reached a small lake covered with green moss. The trip here was about [green]fifteen kilometers[/green].",
         "effects": {
           "distance": 15
         },
         "options": {
           "swim": {
             "text": "Swim in the water for five minutes",
-            "description": "You swam in the water for five minutes. In such water, it didn’t give you much pleasure. Only made you feel more tired.",
+            "description": "You swam in the water for [green]five minutes[/green]. In such water, it didn’t give you much pleasure. Only made you [green]feel more tired[/green].",
             "effects": {
               "time": 5,
               "fatigue": -9
@@ -1244,7 +1244,7 @@
           },
           "rinse_off": {
             "text": "Rinse off in the lake and go back",
-            "description": "A short dip in the water made you feel a bit better. Now you can head back to the road.",
+            "description": "A short dip in the water made [green]you feel a bit better[/green]. Now you can head back to the road.",
             "effects": {
               "fatigue": 14
             },
@@ -1269,7 +1269,7 @@
     }
   },
   "Mining Settlement": {
-    "description": "Your car is standing on a wide asphalt road. Right nearby rises a giant mountain, and at its foot lies a small miners’ settlement.\n\nAnd by the road, as always, stands a sign:\n“North – Erratic Rocks – 32 km,\nEast – Dex’s Fuel Station – 46 km”",
+    "description": "Your car is standing on a wide asphalt road. Right nearby rises a giant mountain, and at its foot lies a small miners’ settlement.\n\nAnd by the road, as always, stands a sign:\n\"North – [green]Erratic Rocks – 32 km[/green],\nEast – [green]Dex’s Fuel Station – 46 km[/green]\"",
     "options": {
       "go_rocks": {
         "text": "Go to the Erratic Rocks",
@@ -1287,11 +1287,11 @@
       },
       "go_mines": {
         "text": "Turn into the miners’ settlement",
-        "description": "You are on sandy ground. Around you, there are only barracks and miners all covered in black coal. Close by, you see a small stall where a thin man gives miners some green stuff. Not far is a clean building with a sign “Trading House.” You can also see the entrance to the mine.",
+        "description": "You are on sandy ground. Around you, there are only [green]barracks[/green] and miners all covered in black coal. Close by, you see a [green]small stall[/green] where a thin man gives miners some green stuff. Not far is a clean building with a sign \"[green]Trading House[/green].\" You can also see the entrance to the [green]mine[/green].",
         "options": {
           "go_to_trading_house": {
             "text": "Go to the trading house",
-            "description": "You are in a room full of coal bags. A man in a helmet sits on a small chair near the door.\n\n– Here’s the deal. We sell coal for 5 credits per ton. The coal is clean and ready to use, so no problems. Right now, we have 75 tons of coal in stock.\n\nAlso, we buy food. Especially corn. We pay 45 credits per ton. Miners eat corn with great appetite!",
+            "description": "dynamic",
             "options": {
               "buy_coal_1": {
                 "text": "Buy one ton of coal",
@@ -1356,11 +1356,11 @@
           },
           "enter_barracks": {
             "text": "Enter one of the barracks",
-            "description": "You enter one of the barracks and see many two-level bunks. Almost all of them are taken by sleeping miners. But you notice one free bunk.",
+            "description": "You enter one of the barracks and see many two-level bunks. Almost all of them are taken by sleeping miners. But you notice one [green]free bunk[/green].",
             "options": {
               "sleep": {
                 "text": "Lie down to sleep",
-                "description": "Surprisingly, as soon as you lay down, you fell asleep right away…\n— Hey, get up! — you heard someone’s voice. — You’ve been sleeping for three hours. Your time is up...\n— What, were you timing me? — you mumbled angrily.\n— Are you stupid? The bunks have timers.\nYou opened your eyes and saw a timer, a big red hand holding it, and finally its owner — a huge, angry, dirty miner. Not wanting to argue, you got off the bunk. Well… you didn’t get to sleep as much as you wanted, but it was better than nothing.",
+                "description": "Surprisingly, as soon as you lay down, you fell asleep right away…\n— Hey, get up! — you heard someone’s voice. — You’ve been sleeping for [green]three hours[/green]. Your time is up...\n— What, were you timing me? — you mumbled angrily.\n— Are you stupid? The bunks have timers.\nYou opened your eyes and saw a timer, a big red hand holding it, and finally its owner — a huge, angry, dirty miner. Not wanting to argue, you got off the bunk. Well… you didn’t get to sleep as much as you wanted, but it was better than nothing.",
                 "effects": {
                   "time": 180,
                   "fatigue": 17
@@ -1373,7 +1373,7 @@
           },
           "go_to_stall": {
             "text": "Go to the stall",
-            "description": "The drox silently hands out food to the miners, working with all four of his hands.\nOn the counter below, a sign reads: Portion of Nutritious Porridge – 1 credit.",
+            "description": "The drox silently hands out food to the miners, working with all four of his hands.\nOn the counter below, a sign reads: [green]Portion of Nutritious Porridge – 1 credit[/green].",
             "options": {
               "buy_porridge": {
                 "text": "Buy a portion",
@@ -1418,7 +1418,7 @@
     }
   },
   "Dex's Fuel Station": {
-    "description": "You stopped at a crossroads, thinking about where to go next. Looking around, you noticed a rather impressive building with the sign “Dex’s Fuel Station.” To be honest, the building looked more like a watchtower.\n\nOn a dry tree you saw a board with inscriptions:\n“West – Mines – 46 km,\nNorth – Marshal – 40 km,\nEast – the fine city of Brackenbridge – 97 km”",
+    "description": "You stopped at a crossroads, thinking about where to go next. Looking around, you noticed a rather impressive building with the sign \"Dex’s Fuel Station.\" To be honest, the building looked more like a watchtower.\n\nOn a dry tree you saw a board with inscriptions:\n\"West – [green]Mines – 46 km[/green],\nNorth – [green]Marshal – 40 km[/green],\nEast – [green]the fine city of Brackenbridge – 97 km[/green]\"",
     "options": {
       "go_mines": {
         "text": "Go to the mining settlement",
@@ -1443,11 +1443,11 @@
       },
       "go_dex": {
         "text": "Go to the fuel station",
-        "description": "A steel building with cannons everywhere looked very serious.\n\n– 1 liter of fuel costs 1 credits, – said a metallic voice. – Give money to the robot, and it will do everything.\n\nLooking around, you noticed a fat woman sitting inside a spherical defense gun attached to the ceiling.",
+        "description": "A steel building with cannons everywhere looked very serious.\n\n– [green]1 liter of fuel costs 1 credits[/green], – said a metallic voice. – Give money to the robot, and it will do everything.\n\nLooking around, you noticed a fat woman sitting inside a spherical defense gun attached to the ceiling.",
         "options": {
           "dex_fill_up_5": {
             "text": "Fill 5 liters for me",
-            "description": "You bought 5 liters of fuel.\n\n– 1 liter of fuel costs 1 chervonets, – the metallic voice said. – Give money to the robot, and it will do everything.\n\nMaybe buy more?",
+            "description": "You [green]bought 5 liters of fuel[/green].\n\n– [green]1 liter of fuel costs 1 credits[/green], – the metallic voice said. – Give money to the robot, and it will do everything.\n\nMaybe buy more?",
             "effects": {
               "fuel": 5,
               "time": 1
@@ -1455,7 +1455,7 @@
           },
           "dex_fill_up_15": {
             "text": "Fill 15 liters for me",
-            "description": "You bought 15 liters of fuel.\n\n– 1 liter of fuel costs 1 chervonets, – the metallic voice said. – Give money to the robot, and it will do everything.\n\nMaybe buy more?",
+            "description": "You [green]bought 15 liters of fuel[/green].\n\n– [green]1 liter of fuel costs 1 credits[/green], – the metallic voice said. – Give money to the robot, and it will do everything.\n\nMaybe buy more?",
             "effects": {
               "fuel": 15,
               "time": 3
@@ -1478,7 +1478,7 @@
           },
           "about_trading": {
             "text": "Let's trade!",
-            "description": "Another trader on my head! How many times do I have to say – we have everything. We don’t need ANYTHING!!!"
+            "description": "Another trader on my head! How many times do I have to say – we have everything. We don't need ANYTHING!!!"
           },
           "about_gas": {
             "text": "Where do you get your fuel from?",

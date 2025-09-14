@@ -334,18 +334,18 @@ class SpaceSaga(App):
             return (
                 'Your car was parked right in front of the gate of the farmhouse. '
                 'A young man in a hat with a cane in his teeth was looking at you from the window:\n\n'
-                f'– We currently have {self.state.world.corn_farm.offer} tonnes '
+                f'– We currently have [green]{self.state.world.corn_farm.offer} tonnes[/green] '
                 'of corn, packed in barrels, one tonne each. '
-                f'We sell them for {self.state.world.corn_farm.price} credits per barrel. '
+                f'We sell them for [green]{self.state.world.corn_farm.price} credits per barrel[/green]. '
                 'And if you want to sell something yourself, sorry, '
                 'we\'re not buying anything. We have everything we need.'
             )
 
         if option_name.startswith('buy_corn'):
             return (
-                f'– We currently have {self.state.world.corn_farm.offer} tonnes '
+                f'– We currently have [green]{self.state.world.corn_farm.offer} tonnes[/green] '
                 'of corn, packed in barrels, one tonne each. '
-                f'We sell them for {self.state.world.corn_farm.price} credits per barrel. '
+                f'We sell them for [green]{self.state.world.corn_farm.price} credits per barrel[/green]. '
                 'And if you want to sell something yourself, sorry, '
                 'we\'re not buying anything. We have everything we need.'
             )
@@ -359,8 +359,8 @@ class SpaceSaga(App):
             return (
                 f'{text}\n\n'
                 'Behind him you notice a sign:\n'
-                '\"Fried meat with mushrooms – 6 credits. '
-                'A bed for 6 hours – 10 credits (for Stingrays: 5 credits)\"'
+                '\"[green]Fried meat with mushrooms – 6 credits[/green]. '
+                '[green]A bed for 6 hours – 10 credits (for Stingrays: 5 credits)[/green]\"'
             )
 
         # Hero play slot machine in the bar
@@ -444,7 +444,7 @@ class SpaceSaga(App):
         # Dynamic car repair pricing
         if option_name == 'fix_truck' and self.state.world.current_location == 'Bolt\'s Garage':
             return ('Bolt quickly looked over the car and said: '
-                    f'– So, here the repair will cost {self.engine.bolt_repair_cost()} credits. '
+                    f'– So, here the repair will cost [green]{self.engine.bolt_repair_cost()}[/green] credits. '
                     'You understand, I don’t use cheap parts like Dex, '
                     'so my prices are real. But your car will be like new! Well, do we fix it?'
                     )
@@ -456,7 +456,7 @@ class SpaceSaga(App):
                     'You walked around for a long time but found nothing except old houses. '
                     'It seemed that all the interesting places were near the main square. '
                     'With that thought, you went back. When you put your hand in your pocket, '
-                    'you saw that someone had stolen a few credits '
+                    'you saw that someone [green]had stolen a few credits[/green] '
                     'This did not make your mood any better.'
                 )
             if self.state.discover_city_event == 'back_nothing_interesting':
@@ -477,9 +477,9 @@ class SpaceSaga(App):
                     'You walked around but found only old houses. '
                     'On the way back, someone hit you from behind and you fell.\n'
                     'Three teenage punks stood over you. They looked tough together.\n'
-                    'You got up, kicked one in the legs, broke another’s nose, '
-                    'and the gang ran off. You were hurt too. Better not to walk here '
-                    'at twilight – it’s their time.'
+                    'You got up, kicked one in the legs, broke another\'s nose, '
+                    'and the gang ran off. You [green]were hurt[/green] too. '
+                    'Better not to walk here at twilight – it’s their time.'
                 )
 
         # Restaurant is open from 9:00 until the last visitor after 23:59
@@ -492,15 +492,15 @@ class SpaceSaga(App):
                     'Noting this, you went inside.There weren’t many people, so you easily '
                     'found a table.\n'
                     '– Shall we order something? – asked the waiter, dressed in a neat suit, '
-                    'handing you the menu. \nYou quickly looked through the options, '
+                    'handing you the menu.\nYou quickly looked through the options, '
                     'noting what you could afford and what was too expensive.'
                 )
             else:
                 return (
                     'A sign hangs on the door:\n'
-                    '\"Closed.\n'
+                    '\"[green]Closed[/green].\n'
                     'The restaurant is open daily:\n'
-                    'from 9:00 until the last guest after 23:59.\"'
+                    '[green]from 9:00 until the last guest after 23:59[/green].\"'
                 )
 
         # Dynamic quest text depending on the quantity and price of scrap
@@ -511,16 +511,17 @@ class SpaceSaga(App):
                 'your way. Rusty as it was, it looked impressive…\n\n'
                 '– You’re in the Varnock brothers’ territory, gringo! – said the man '
                 'inside the robot. – If you’re here on business, know this: we '
-                f'currently have {self.state.world.wreckyard.offer} tons of scrap metal. '
-                f'{self.state.world.wreckyard.price} credits per ton. '
+                f'currently have [green]{self.state.world.wreckyard.offer} tons[/green] '
+                f'of scrap metal. '
+                f'[green]{self.state.world.wreckyard.price} credits per ton[/green]. '
                 'The scrap is pressed and neatly packed—top quality stuff.'
             )
 
         if option_name.startswith('buy_scrap'):
             return (
                 '– If you’re here on business, know this: we '
-                f'currently have {self.state.world.wreckyard.offer} tons of scrap metal. '
-                f'{self.state.world.wreckyard.price} credits per ton. '
+                f'currently have [green]{self.state.world.wreckyard.offer} tons[/green] of scrap metal. '
+                f'[green]{self.state.world.wreckyard.price} credits per ton[/green]. '
                 'The scrap is pressed and neatly packed—top quality stuff.'
             )
 
@@ -528,8 +529,8 @@ class SpaceSaga(App):
         if option_name == 'swim_more':
             if self.state.hero.swims_qty == 3 and self.state.hero.health <= 40:
                 return (
-                    'You kept swimming in the lake when suddenly you felt energy '
-                    'filling your body and your wounds healing. Looks like '
+                    'You kept swimming in the lake when suddenly you [green]felt energy[/green] '
+                    'filling your body and your [green]wounds healing[/green]. Looks like '
                     'this pond has healing powers!\n'
                     'After a few minutes, the effect faded. In your current state, '
                     'the pond couldn’t help you any further. Realizing this, '
@@ -545,8 +546,8 @@ class SpaceSaga(App):
                 )
             else:
                 return (
-                    'You swam in the water for five minutes. In such water, '
-                    'it didn’t give you much pleasure. Only made you feel more tired.'
+                    'You swam in the water for [green]five minutes.[/green] In such water, '
+                    'it didn’t give you much pleasure. Only made you [green]feel more tired[/green].'
                 )
 
         # Dynamic quest text depending on the quantity and price of scrap
@@ -554,10 +555,10 @@ class SpaceSaga(App):
             return (
                 'You are in a room full of coal bags. A man in a helmet sits on '
                 'a small chair near the door.\n'
-                f'– Here\'s the deal. We sell coal for {self.state.world.mine.price} '
-                'credits per ton. The coal is clean and ready to use, so no problems. '
-                f'Right now, we have {self.state.world.mine.offer} tons of coal in stock.'
-                'Also, we buy food. Especially corn. We pay 45 credits per ton. '
+                f'– Here\'s the deal. We sell coal for [green]{self.state.world.mine.price} '
+                'credits per ton[/green]. The coal is clean and ready to use, so no problems. '
+                f'Right now, we have [green]{self.state.world.mine.offer} tons[/green] of coal in stock.'
+                'Also, we buy food. Especially [green]corn. We pay 45 credits per ton[/green]. '
                 'Miners eat corn with great appetite!'
             )
 
@@ -570,9 +571,9 @@ class SpaceSaga(App):
                 'At the mine exit, a dirty man with a notebook was already waiting.\n'
             )
             if self.engine.work_in_mine() == 3:
-                text += '– I weighed the bag. About one and a half tons. Good! You earned three credits.'
+                text += '– I weighed the bag. About one and a half tons. Good! You [green]earned 3 credits[/green].'
             elif self.engine.work_in_mine() == 2:
-                text += '– I weighed the bag. About one ton. Good! You earned two credits.'
+                text += '– I weighed the bag. About one ton. Good! You e[green]arned 2 credits[/green].'
 
             return text
 
@@ -584,8 +585,8 @@ class SpaceSaga(App):
                 'The place was full of metal junk—mufflers, engines, tanks, springs. '
                 'Among it all worked a man in coveralls. That must be Dex.\n'
                 '– Let’s see, – the mechanic said, checking your vehicle.\n'
-                f'– Well, – he concluded, – that’s {self.engine.dex_repair_cost()} '
-                'credits of work. Are you paying?'
+                f'– Well, – he concluded, – that’s [green]{self.engine.dex_repair_cost()} '
+                'credits[/green] of work. Are you paying?'
             )
 
         # Dynamic quest text for buying porridge in mining settlement
@@ -601,7 +602,7 @@ class SpaceSaga(App):
                 'The taste was even worse than the look. You managed a couple of spoons, '
                 'but with each one it was harder to fight the urge to vomit. '
                 'Finally, your stomach rebelled, and you threw up. '
-                'Seems you weren’t hungry enough to finish that yellow substance.'
+                'Seems you weren’t [green]hungry enough[/green] to finish that yellow substance.'
             )
         else:
             return (
