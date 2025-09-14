@@ -63,6 +63,7 @@ class Engine:
             'back_dex_fix_truck': self.back_dex_fix_truck,
             'dex_fill_up_5': self.dex_fill_up,
             'dex_fill_up_15': self.dex_fill_up,
+            'buy_porridge': self.buy_porridge,
         }
 
     def run_action(self, action_name: str, args: dict | None) -> None:
@@ -463,3 +464,9 @@ class Engine:
         """Hero fills up the truck on the Dex's gas station."""
         amount = args.get('fuel')
         self.state.world.dex_gas_station.fill_up(amount, self.state.hero, self.state.truck)
+
+    def buy_porridge(self, args) -> None:
+        """Simulates buying food in a mining settlement."""
+        # The food is so bad that the hero eats it only when he is really hungry.
+        if self.state.hero.hanger < 40:
+            self.state.hero.hanger = min(self.state.hero.hanger + 10, 39)

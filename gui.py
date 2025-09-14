@@ -189,6 +189,8 @@ class SpaceSaga(App):
                         disabled = True
                 if opt_id == 'sell_all_corn' and self.state.truck.cargo.get('corn') == 0:
                     disabled = True
+                if opt_id == 'buy_porridge' and self.state.hero.cash == 0:
+                    disabled = True
 
             # Show options for Dex's gas station
             if self.state.world.current_location == 'Dex\'s Fuel Station':
@@ -582,6 +584,28 @@ class SpaceSaga(App):
                 '– Let’s see, – the mechanic said, checking your vehicle.\n'
                 f'– Well, – he concluded, – that’s {self.engine.dex_repair_cost()} '
                 'credits of work. Are you paying?'
+            )
+
+        # Dynamic quest text for buying porridge in mining settlement
+        # depending on the hanger level
+        if option_name == 'buy_porridge' and self.state.hero.hanger >= 39:
+            return (
+                'The drox took the money, pressed a lever on some machine, '
+                'and half a minute later the device spat out a portion of brown mush. '
+                'Dropping THIS onto a plate, the drox stuck a metal spoon in and handed '
+                'it to you.\n'
+                '– Bring the dish back, – he muttered.\n'
+                'You nodded.\n'
+                'The taste was even worse than the look. You managed a couple of spoons, '
+                'but with each one it was harder to fight the urge to vomit. '
+                'Finally, your stomach rebelled, and you threw up. '
+                'Seems you weren’t hungry enough to finish that yellow substance.'
+            )
+        else:
+            return (
+                'The drox took your money, pulled a lever on the machine, '
+                'and soon it gave out some green mush. It tasted worse than it looked. '
+                'But you were too hungry, so you ate it all, trying not to throw up.'
             )
 
         return ''

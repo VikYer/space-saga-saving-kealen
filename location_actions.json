@@ -1373,7 +1373,11 @@
             "options": {
               "buy_porridge": {
                 "text": "Buy a portion",
-                "description": "The drox took the coin, pressed a lever on some machine, and half a minute later the device spat out a portion of yellow mush. Dropping THIS onto a plate, the drox stuck a metal spoon in and handed it to you.\n\n— Bring the dish back, — he muttered.\n\nYou nodded.\n\nThe taste was even worse than the look. You managed a couple of spoons, but with each one it was harder to fight the urge to vomit. Finally, your stomach rebelled, and you threw up. Seems you weren’t hungry enough to finish that yellow substance."
+                "description": "dynamic",
+                "effects": {
+                  "cash": -1,
+                  "time": 3
+                }
               },
               "back": {
                 "text": "Step away from the stall"
@@ -1458,7 +1462,10 @@
             "description": "dynamic",
             "options": {
               "back_dex_fix_truck": {
-                "text": "No problem - take money"
+                "text": "No problem - take money",
+                "effects": {
+                  "time": 60
+                }
               },
               "back": {
                 "text": "Not yet."
