@@ -64,6 +64,8 @@ class Engine:
             'dex_fill_up_5': self.dex_fill_up,
             'dex_fill_up_15': self.dex_fill_up,
             'buy_porridge': self.buy_porridge,
+            'take_policeman': self.take_policeman,
+            'delivered_policeman': self.policeman_delivered,
         }
 
     def run_action(self, action_name: str, args: dict | None) -> None:
@@ -470,3 +472,12 @@ class Engine:
         # The food is so bad that the hero eats it only when he is really hungry.
         if self.state.hero.hanger < 40:
             self.state.hero.hanger = min(self.state.hero.hanger + 10, 39)
+
+    def take_policeman(self, args) -> None:
+        """Start of the quest with the delivery policeman to the city."""
+        self.state.truck.passenger['policeman'] = 'Brackenbridge'
+
+    def policeman_delivered(self) -> None:
+        """The reward for delivering policeman to the city is 8 shells."""
+        self.state.hero.ammo += 8
+        del self.state.truck.passenger['policeman']

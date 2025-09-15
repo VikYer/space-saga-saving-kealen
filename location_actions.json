@@ -178,7 +178,7 @@
       },
       "go_bar": {
         "text": "Go to the bar",
-        "description": "The bar was hot. Very hot. Almost unbearable. And full of cigarette smoke… But the mood was very cheerful. At the counter stood about ten guys, many of them tattooed from head to toe. In the far corner, on a table, a drox in a leather jacket was sleeping. Behind the counter, the bartender was cleaning glasses.\n\nLooking around once more, you noticed some kind of arcade machine in the dark corner.",
+        "description": "The bar was hot. Very hot. Almost unbearable. And full of cigarette smoke… But the mood was very cheerful. At the counter stood [green]about ten guys[/green], many of them tattooed from head to toe. In the far corner, on a table, a [green]drox in a leather jacket was sleeping[/green]. Behind the counter, the [green]bartender[/green] was cleaning glasses.\n\nLooking around once more, you noticed some kind of [green]slot machine[/green] in the dark corner.",
         "options": {
           "go_to_barman": {
             "text": "Go to the bartender",
@@ -404,7 +404,7 @@
           },
           "go_to_drox": {
             "text": "Go to the sleeping drox",
-            "description": "– Huh? What? – the drox got worried. – Listen. You look like a driver. Can you take me to Brakenbridge? I’ll be grateful! Don’t worry. I’m in my sleep period now. I’ll sleep in the seat – you won’t even notice me. And when we arrive, shake me well. I’ll wake up. So? Will you give me a ride?",
+            "description": "– Huh? What? – the drox got worried. – Listen. You look like a driver. Can you [green]take me to Brakenbridge[/green]? I’ll be grateful! Don’t worry. I’m in my sleep period now. I’ll sleep in the seat – you won’t even notice me. And when we arrive, shake me well. I’ll wake up. So? Will you give me a ride?",
             "options": {
               "take_drox": {
                 "text": "Of course, no problem!",
@@ -644,7 +644,7 @@
       },
       "go_town": {
         "text": "Go to the town",
-        "description": "You stand in a big, but dirty, square. Almost all houses in the town are old and dirty. Only four look worth noticing:\n– a one-story building with a bright sign \"[green]Crimson Plate Restaurant[/green]\";\n– a three-story brick building with the words \"[green]Velvet Nights Hotel[/green]\"\n;– a plastic building with a red cross on the door and windows (looks like a [green]small clinic[/green])\n;– a [green]white two-story house[/green] with a four-color flag on the roof.\nA wide road goes away from the square. It leads to a small factory with two chimneys, sending out black smoke. You might be able to reach the [green]checkpoint[/green] using this road.",
+        "description": "You stand in a big, but dirty, square. Almost all houses in the town are old and dirty. Only four look worth noticing:\n– a one-story building with a bright sign \"[green]Crimson Plate Restaurant[/green]\";\n– a three-story brick building with the words \"[green]Velvet Nights Hotel[/green]\";\n– a plastic building with a red cross on the door and windows (looks like a [green]small clinic[/green]);\n– a [green]white two-story house[/green] with a four-color flag on the roof.\nA wide road goes away from the square. It leads to a small factory with two chimneys, sending out black smoke. You might be able to reach the [green]checkpoint[/green] using this road.",
         "options": {
           "go_to_factory": {
             "text": "Drive to the factory checkpoint",
@@ -1179,7 +1179,7 @@
               }
             }
           },
-          "back": {
+          "back_crossroads": {
             "text": "Go back the crossroads"
           }
         }
@@ -1262,7 +1262,8 @@
             "text": "Go back",
             "effects": {
               "distance": 15
-            }
+            },
+            "goto": "Forest Lake"
           }
         }
       }

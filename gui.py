@@ -1,3 +1,5 @@
+import random
+
 from textual.app import App, ComposeResult
 from textual.containers import Horizontal, Container, ScrollableContainer
 from textual.widgets import Static, Footer, OptionList
@@ -217,9 +219,20 @@ class SpaceSaga(App):
     def on_option_list_option_selected(self, event: OptionList.OptionSelected) -> None:
         """Handle option selection from command-panel."""
 
-        # Finish the quest to deliver drox to the city
-        if event.option_id == 'drox_delivered':
+        # Finish the quest to deliver drox or policeman to the city
+        if event.option_id == 'drox_delivered' or event.option_id == 'policeman_delivered':
             self.show_location('Brackenbridge')
+            return
+
+        # Refuse to give the policeman a ride to town
+        if event.option_id == 'refuse_passenger':
+            self.show_location('Marshal')
+            return
+
+        # Start policeman delivering quest
+        if event.option_id == 'take_policeman':
+            self.engine.take_policeman({})
+            self.show_location('Marshal')
             return
 
         # City exploration has a few options
@@ -265,6 +278,43 @@ class SpaceSaga(App):
         self.sp.update_state_panel()
         self._show_options(options)
 
+        # Take a policeman to the city (there should be no other passengers)
+        # The likelihood that a policeman will ask for a ride is 10%
+        if self.state.world.current_location == "Marshal" and event.option_id == 'back_crossroads':
+            if not self.state.truck.passenger:
+                if random.random() < 0.1:
+                    self.quest_text.update(
+                        'Your truck was slowly moving onto the road when you heard a knock on '
+                        'the cab window. It was one of the marshal’s men.'
+                        '– I [green]need to get to Brackenbridge[/green] on business. '
+                        'Can you give me a ride? – he asked. “I don’t have money, '
+                        'but I can pay with something else… '
+                        'If you take me, you’ll get [green]8 shells[/green].'
+                    )
+                    self.command_panel.clear_options()
+                    self.command_panel.add_option(Option('Sure', 'take_policeman'))
+                    self.command_panel.add_option(Option('I have more important things to do', 'refuse_passenger'))
+                    self.set_focus(self.command_panel)
+                    self.command_panel.highlighted = 0
+                    return
+
+        # Policeman delivery quest completion
+        if self.state.world.current_location == 'Brackenbridge':
+            if 'policeman' in self.state.truck.passenger:
+                self.quest_text.update(
+                    'When you stopped at the city square, the marshal’s man jumped out of the cab.\n'
+                    '– Thanks for the ride, brother. You really helped me out, – he said, '
+                    'handing you a small box.\n'
+                    'Inside were [green]8 shotgun shells[/green].\n'
+                    '– Use them well!'
+                )
+                self.engine.policeman_delivered()
+                self.command_panel.clear_options()
+                self.command_panel.add_option(Option('Next', 'policeman_delivered'))
+                self.set_focus(self.command_panel)
+                self.command_panel.highlighted = 0
+                return
+
         # Drox delivery quest completion
         if self.state.world.current_location == 'Brackenbridge':
             if 'drox' in self.state.truck.passenger:
@@ -274,7 +324,8 @@ class SpaceSaga(App):
                     f'– What? What is it? – he asked sleepily.\n'
                     f'– We\'re here!'
                     f'– Really? Thanks, brother. I came to work at the factory now, '
-                    f'no more wild life for me. So take my trophy shotgun and six shells — it may help you.\n'
+                    f'no more wild life for me. So take my trophy [green]shotgun and 6 shells[/green] '
+                    f'— it may help you.\n'
                     f'He handed you a small shotgun with ammo, said goodbye, '
                     f'and walked toward the factory until he disappeared.'
                 )
