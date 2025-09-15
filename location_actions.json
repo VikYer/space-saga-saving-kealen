@@ -1056,7 +1056,7 @@
     }
   },
   "Marshal": {
-    "description": "Your truck is parked in a very scenic place. To the north, you see a huge sinkhole in the ground, cacti are growing all around, and not far away stands a white two-story building with a torn flag on the roof. Looks like this is where the sheriff lives.\n\nNearby, you notice a surprisingly clean road sign:\n\"North – Endless Rift – 19 km,\nSouth – Dex's fuel station – 40 km,\nEast – Bolt's garage – 28 km\"",
+    "description": "Your truck is parked in a very scenic place. To the north, you see a huge sinkhole in the ground, cacti are growing all around, and not far away stands a white two-story building with a torn flag on the roof. Looks like this is where the sheriff lives.\n\nNearby, you notice a surprisingly clean road sign:\n\"North – [green]Endless Rift – 19 km[/green],\nSouth – [green]Dex's fuel station – 40 km[/green],\nEast – [green]Bolt's garage – 28 km[/green]\"",
     "options": {
       "go_rift": {
         "text": "Go to the Endless Rift",

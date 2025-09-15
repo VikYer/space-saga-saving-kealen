@@ -615,16 +615,25 @@ class SpaceSaga(App):
 
         # Dynamic quest text depending on the quantity of mined coal
         if option_name == 'work_in_mine':
+            earedn_money = self.engine.work_in_mine()
             text = (
                 '– That’s it! One hour is over, – the huge miner shouted behind you. '
                 'He wrote your name on the bag, put it on the lift, and said:\n'
                 '– Go upstairs for your pay. '
                 'At the mine exit, a dirty man with a notebook was already waiting.\n'
             )
-            if self.engine.work_in_mine() == 3:
+            if earedn_money == 3:
                 text += '– I weighed the bag. About one and a half tons. Good! You [green]earned 3 credits[/green].'
-            elif self.engine.work_in_mine() == 2:
-                text += '– I weighed the bag. About one ton. Good! You e[green]arned 2 credits[/green].'
+            elif earedn_money == 2:
+                text += '– I weighed the bag. About one ton. Good! You [green]earned 2 credits[/green].'
+            elif earedn_money == 0:
+                text = (
+                    'You were calmly mining coal when suddenly a pile of rocks fell '
+                    'from above. The miners rushed to dig you out…\n'
+                    'You woke up outside. Your body hurt — the rockfall [green]hit you hard[/green].\n'
+                    'But hooray! You managed to stand up. Even better, nothing was '
+                    'broken. Looks like you got away quite lightly…'
+                )
 
             return text
 

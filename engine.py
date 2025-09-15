@@ -442,8 +442,13 @@ class Engine:
 
     def work_in_mine(self) -> int:
         """Working in a coal mine, the hero can earn 2 or 3 cr per hour."""
-        earned_money = random.choice([2, 3])
-        self.state.hero.cash += earned_money
+        if random.random() < 0.25:
+            earned_money = 0
+            self.state.hero.health -= 30
+            self.state.world.current_time += 17
+        else:
+            earned_money = random.choice([2, 3])
+            self.state.hero.cash += earned_money
         return earned_money
 
     def dex_repair_cost(self) -> int:
