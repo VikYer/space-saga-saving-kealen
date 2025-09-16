@@ -66,6 +66,14 @@ class Engine:
             'buy_porridge': self.buy_porridge,
             'take_policeman': self.take_policeman,
             'delivered_policeman': self.policeman_delivered,
+            'take_passenger_from_mine_to_city': self.take_passenger_from_mine_to_city,
+            'passenger_from_mine_to_city_delivered': self.passenger_from_mine_to_city_delivered,
+            'take_passenger_from_city_to_mine': self.take_passenger_from_city_to_mine,
+            'passenger_from_city_to_mine_delivered': self.passenger_from_city_to_mine_delivered,
+            'take_passenger_from_bar_to_city': self.take_passenger_from_bar_to_city,
+            'passenger_from_bar_to_city_delivered': self.passenger_from_bar_to_city_delivered,
+            'take_passenger_from_mine_to_bar': self.take_passenger_from_mine_to_bar,
+            'passenger_from_mine_to_bar_delivered': self.passenger_from_mine_to_bar_delivered,
         }
 
     def run_action(self, action_name: str, args: dict | None) -> None:
@@ -486,3 +494,39 @@ class Engine:
         """The reward for delivering policeman to the city is 8 shells."""
         self.state.hero.ammo += 8
         del self.state.truck.passenger['policeman']
+
+    def take_passenger_from_mine_to_city(self, args) -> None:
+        """Start of the quest with the delivery passenger from mine to the city."""
+        self.state.truck.passenger['passenger'] = ('Mining Settlement', 'Brackenbridge')
+
+    def passenger_from_mine_to_city_delivered(self) -> None:
+        """The reward for delivering passenger from mine to the city is 40 cr."""
+        self.state.hero.cash += 40
+        del self.state.truck.passenger['passenger']
+
+    def take_passenger_from_city_to_mine(self, args) -> None:
+        """Start of the quest with the delivery passenger from city to mine."""
+        self.state.truck.passenger['passenger'] = ('Brackenbridge', 'Mining Settlement')
+
+    def passenger_from_city_to_mine_delivered(self) -> None:
+        """The reward for delivering passenger from city to mine is 30 cr."""
+        self.state.hero.cash += 30
+        del self.state.truck.passenger['passenger']
+
+    def take_passenger_from_bar_to_city(self, args) -> None:
+        """Start of the quest with the delivery passenger from bar to city."""
+        self.state.truck.passenger['passenger'] = ('The Stingray Bar', 'Brackenbridge')
+
+    def passenger_from_bar_to_city_delivered(self) -> None:
+        """The reward for delivering passenger from bar to city is 100 cr."""
+        self.state.hero.cash += 100
+        del self.state.truck.passenger['passenger']
+
+    def take_passenger_from_mine_to_bar(self, args) -> None:
+        """Start of the quest with the delivery passenger from mine to bar."""
+        self.state.truck.passenger['passenger'] = ('Mining Settlement', 'The Stingray Bar')
+
+    def passenger_from_mine_to_bar_delivered(self) -> None:
+        """The reward for delivering passenger from mine to bar is 60 cr."""
+        self.state.hero.cash += 60
+        del self.state.truck.passenger['passenger']

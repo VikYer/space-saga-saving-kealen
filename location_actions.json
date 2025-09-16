@@ -437,7 +437,7 @@
               }
             }
           },
-          "back": {
+          "back_to_road": {
             "text": "Return to the road"
           }
         }
@@ -846,7 +846,7 @@
               }
             }
           },
-          "back": {
+          "back_to_road": {
             "text": "Leave the city"
           }
         }
@@ -1411,7 +1411,7 @@
               }
             }
           },
-          "back": {
+          "back_to_road": {
             "text": "Leave the settlement"
           }
         }

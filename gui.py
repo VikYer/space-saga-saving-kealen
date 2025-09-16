@@ -224,15 +224,79 @@ class SpaceSaga(App):
             self.show_location('Brackenbridge')
             return
 
+        # Finish the quest to deliver passenger from mine to the city
+        if event.option_id == 'passenger_from_mine_to_city_delivered':
+            self.show_location('Brackenbridge')
+            return
+
+        # Finish the quest to deliver passenger from city to mine
+        if event.option_id == 'passenger_from_city_to_mine_delivered':
+            self.show_location('Mining Settlement')
+            return
+
+        # Finish the quest to deliver passenger from bar to city
+        if event.option_id == 'passenger_from_bar_to_city_delivered':
+            self.show_location('Brackenbridge')
+            return
+
+        # Finish the quest to deliver passenger from mine to bar
+        if event.option_id == 'passenger_from_mine_to_bar_delivered':
+            self.show_location('The Stingray Bar')
+            return
+
         # Refuse to give the policeman a ride to town
         if event.option_id == 'refuse_passenger':
             self.show_location('Marshal')
+            return
+
+        # Refuse to give the passenger a ride from mine to city
+        if event.option_id == 'refuse_passenger_from_mine_to_city':
+            self.show_location('Mining Settlement')
+            return
+
+        # Refuse to give the passenger a ride from city to mine
+        if event.option_id == 'refuse_passenger_from_city_to_mine':
+            self.show_location('Brackenbridge')
+            return
+
+        # Refuse to give the passenger a ride from bar to city
+        if event.option_id == 'refuse_passenger_from_bar_to_city':
+            self.show_location('The Stingray Bar')
+            return
+
+        # Refuse to give the passenger a ride from mine to bar
+        if event.option_id == 'refuse_passenger_from_mine_to_bar':
+            self.show_location('Mining Settlement')
             return
 
         # Start policeman delivering quest
         if event.option_id == 'take_policeman':
             self.engine.take_policeman({})
             self.show_location('Marshal')
+            return
+
+        # Start passenger delivering from the mine to the city
+        if event.option_id == 'take_passenger_from_mine_to_city':
+            self.engine.take_passenger_from_mine_to_city({})
+            self.show_location('Mining Settlement')
+            return
+
+        # Start passenger delivering from the city to mine
+        if event.option_id == 'take_passenger_from_city_to_mine':
+            self.engine.take_passenger_from_city_to_mine({})
+            self.show_location('Brackenbridge')
+            return
+
+        # Start passenger delivering from bar to city
+        if event.option_id == 'take_passenger_from_bar_to_city':
+            self.engine.take_passenger_from_bar_to_city({})
+            self.show_location('The Stingray Bar')
+            return
+
+        # Start passenger delivering from mine to bar
+        if event.option_id == 'take_passenger_from_mine_to_bar':
+            self.engine.take_passenger_from_mine_to_bar({})
+            self.show_location('Mining Settlement')
             return
 
         # City exploration has a few options
@@ -313,6 +377,157 @@ class SpaceSaga(App):
                 self.command_panel.add_option(Option('Next', 'policeman_delivered'))
                 self.set_focus(self.command_panel)
                 self.command_panel.highlighted = 0
+                return
+
+        # Take randomly passenger from mine to the city (there should be no other passengers)
+        # The likelihood that randomly passenger will ask for a ride is 15%
+        if self.state.world.current_location == "Mining Settlement" and event.option_id == 'back_to_road':
+            if not self.state.truck.passenger:
+                if random.random() < 0.15:
+                    self.quest_text.update(
+                        'You were about to leave when a dirty miner ran up to your window.\n'
+                        '– Hey, boss! Can you give me a [green]lift to Brackenbridge?[/green] '
+                        'I’ll pay 40 credits!'
+                    )
+                    self.command_panel.clear_options()
+                    self.command_panel.add_option(Option('Sure',
+                                                         'take_passenger_from_mine_to_city'))
+                    self.command_panel.add_option(
+                        Option('I have more important things to do',
+                               'refuse_passenger_from_mine_to_city'))
+                    self.set_focus(self.command_panel)
+                    self.command_panel.highlighted = 0
+                    return
+
+        # Passenger from mine to the city delivery quest completion
+        if self.state.world.current_location == 'Brackenbridge':
+            if 'passenger' in self.state.truck.passenger:
+                if self.state.truck.passenger['passenger'] == ('Mining Settlement', 'Brackenbridge'):
+                    self.quest_text.update(
+                        '– Finally home! – your passenger said when you arrived. '
+                        'He handed you [green]40 credits[/green] and disappeared into an alley.'
+                    )
+                    self.engine.passenger_from_mine_to_city_delivered()
+                    self.command_panel.clear_options()
+                    self.command_panel.add_option(Option('Next',
+                                                         'passenger_from_mine_to_city_delivered'))
+                    self.set_focus(self.command_panel)
+                    self.command_panel.highlighted = 0
+                    return
+
+        # Take randomly passenger from city to mine (there should be no other passengers)
+        # The likelihood that randomly passenger will ask for a ride is 15%
+        if self.state.world.current_location == "Brackenbridge" and event.option_id == 'back_to_road':
+            if not self.state.truck.passenger:
+                if random.random() < 0.15:
+                    self.quest_text.update(
+                        'Just as you were about to leave, a young boy ran up to your truck.\n'
+                        '– Hey, friend! Are you [green]heading to the mines[/green]? I heard I can make '
+                        'lots of money there. Where there’s money, I must be! '
+                        'I’ll pay [green]30 credits[/green] for the ride!'
+                    )
+                    self.command_panel.clear_options()
+                    self.command_panel.add_option(Option('Sure',
+                                                         'take_passenger_from_city_to_mine'))
+                    self.command_panel.add_option(
+                        Option('I have more important things to do',
+                               'refuse_passenger_from_city_to_mine'))
+                    self.set_focus(self.command_panel)
+                    self.command_panel.highlighted = 0
+                    return
+
+        # Passenger from city to mine delivery quest completion
+        if self.state.world.current_location == 'Mining Settlement':
+            if 'passenger' in self.state.truck.passenger:
+                if self.state.truck.passenger['passenger'] == ('Brackenbridge', 'Mining Settlement'):
+                    self.quest_text.update(
+                        '– Yeah, baby! Soon I’ll be rich! – the boy shouted, '
+                        'jumping out when you arrived.\n'
+                        '– Here, take your [green]30 credits[/green]. And don’t forget to drink a '
+                        'cup of wine or two to my success!'
+                    )
+                    self.engine.passenger_from_city_to_mine_delivered()
+                    self.command_panel.clear_options()
+                    self.command_panel.add_option(Option('Next',
+                                                         'passenger_from_city_to_mine_delivered'))
+                    self.set_focus(self.command_panel)
+                    self.command_panel.highlighted = 0
+                    return
+
+        # Take randomly passenger from bar to city (there should be no other passengers)
+        # The likelihood that randomly passenger will ask for a ride is 15%
+        if self.state.world.current_location == "The Stingray Bar" and event.option_id == 'back_to_road':
+            if not self.state.truck.passenger:
+                if random.random() < 0.15:
+                    self.quest_text.update(
+                        'Just as you started the engine, a very drunk man climbed into your truck.\n'
+                        '– Drive on, driver. [green]Next stop – Brackenbridge[/green]. I’ll pay you '
+                        '[green]100 credits[/green], no problem!'
+                    )
+                    self.command_panel.clear_options()
+                    self.command_panel.add_option(Option('Sure',
+                                                         'take_passenger_from_bar_to_city'))
+                    self.command_panel.add_option(
+                        Option('I have more important things to do',
+                               'refuse_passenger_from_bar_to_city'))
+                    self.set_focus(self.command_panel)
+                    self.command_panel.highlighted = 0
+                    return
+
+        # Passenger from bar to city delivery quest completion
+        if self.state.world.current_location == 'Brackenbridge':
+            if 'passenger' in self.state.truck.passenger:
+                if self.state.truck.passenger['passenger'] == ('The Stingray Bar', 'Brackenbridge'):
+                    self.quest_text.update(
+                        'Ah, travelers… the fun goes on. Time to spend my money in Brackenbridge.\n'
+                        '– Here, [green]take your 100 credits[/green], – he said, handing you the money.\n'
+                        'Then he slammed the door and staggered away.'
+                    )
+                    self.engine.passenger_from_bar_to_city_delivered()
+                    self.command_panel.clear_options()
+                    self.command_panel.add_option(Option('Next',
+                                                         'passenger_from_bar_to_city_delivered'))
+                    self.set_focus(self.command_panel)
+                    self.command_panel.highlighted = 0
+                    return
+
+        # Take randomly passenger from mine to bar (there should be no other passengers)
+        # The likelihood that randomly passenger will ask for a ride is 15%
+        if self.state.world.current_location == "Mining Settlement" and event.option_id == 'back_to_road':
+            if not self.state.truck.passenger:
+                if random.random() < 0.15:
+                    self.quest_text.update(
+                        'You started the engine and headed for the exit, but near '
+                        'the gate you saw someone waving and slowed down. '
+                        'A strong miner ran up to your window.\n'
+                        '– Hey, driver! I’m off to spend my hard-earned money. '
+                        'Give me a [green]ride to the Stingray bar[/green]. '
+                        'I’ll pay [green]60 credits[/green].'
+                    )
+                    self.command_panel.clear_options()
+                    self.command_panel.add_option(Option('Sure',
+                                                         'take_passenger_from_mine_to_bar'))
+                    self.command_panel.add_option(
+                        Option('I have more important things to do',
+                               'refuse_passenger_from_mine_to_bar'))
+                    self.set_focus(self.command_panel)
+                    self.command_panel.highlighted = 0
+                    return
+
+        # Passenger from mine to bar delivery quest completion
+        if self.state.world.current_location == 'The Stingray Bar':
+            if 'passenger' in self.state.truck.passenger:
+                if self.state.truck.passenger['passenger'] == ('Mining Settlement', 'The Stingray Bar'):
+                    self.quest_text.update(
+                        '– Thanks, brother! You saved me, – the miner said, handing you '
+                        '[green]60 credits[/green] before walking toward the bar with a dancing step.'
+                    )
+                    self.engine.passenger_from_mine_to_bar_delivered()
+                    self.command_panel.clear_options()
+                    self.command_panel.add_option(Option('Next',
+                                                         'passenger_from_mine_to_bar_delivered'))
+                    self.set_focus(self.command_panel)
+                    self.command_panel.highlighted = 0
                 return
 
         # Drox delivery quest completion
@@ -748,8 +963,8 @@ class StatePanel:
                 truck_state += f'{goods.capitalize()}: {amount} t\n'
 
         if truck.passenger:
-            for passang, destination in truck.passenger.items():
-                truck_state += f'{passang} to {destination}'
+            for passang, info in truck.passenger.items():
+                truck_state += f'{passang} to {info[1]}'
 
         if world.biker_mood != None and world.biker_mood <= 4:
             biker_mood = world.biker_mood
