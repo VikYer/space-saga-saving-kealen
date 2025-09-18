@@ -74,6 +74,9 @@ class Engine:
             'passenger_from_bar_to_city_delivered': self.passenger_from_bar_to_city_delivered,
             'take_passenger_from_mine_to_bar': self.take_passenger_from_mine_to_bar,
             'passenger_from_mine_to_bar_delivered': self.passenger_from_mine_to_bar_delivered,
+            'back_after_buy_shell': self.back_after_buy_shell,
+            'back_after_buy_fuel': self.back_after_buy_fuel,
+            'back_after_sell_fuel': self.back_after_sell_fuel
         }
 
     def run_action(self, action_name: str, args: dict | None) -> None:
@@ -108,6 +111,8 @@ class Engine:
             self.state.hero.fatigue = min(self.state.hero.fatigue + effects['fatigue'], 100)
         if 'hanger' in effects:
             self.state.hero.hanger = min(self.state.hero.hanger + effects['hanger'], 100)
+        if 'fuel' in effects:
+            self.state.truck.fuel = min(self.state.truck.fuel + effects['fuel'], 100)
 
     def drive(self, distance: int) -> None:
         """
@@ -530,3 +535,31 @@ class Engine:
         """The reward for delivering passenger from mine to bar is 60 cr."""
         self.state.hero.cash += 60
         del self.state.truck.passenger['passenger']
+
+    def back_after_buy_shell(self, args) -> None:
+        """Simulate ammo buying from stranger on the road."""
+        self.state.hero.ammo += 1
+        self.state.hero.cash -= 1
+
+        self.state.invisible_options.add('ask_about_news')
+
+    def back_after_buy_fuel(self, args) -> None:
+        """Hides fuel purchase options (one-time action)."""
+        self.state.invisible_options.add('ask_about_fuel')
+
+    def back_after_sell_fuel(self, args) -> None:
+        """Hides fuel selling options (one-time action)."""
+        self.state.invisible_options.add('ask_about_news')
+
+    def randomize_encounter_on_road(self) -> str | None:
+        """"""
+        if random.random() < 0.1:
+            return random.choice([
+                'Road - empty mustang',
+                'Road - pickup',
+                'Road - mustang',
+                'Road - damage truck',
+                'Road - fuel truck',
+                'Road - healer'
+            ])
+        return None

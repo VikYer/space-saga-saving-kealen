@@ -1491,5 +1491,284 @@
         }
       }
     }
+  },
+  "Road - empty mustang": {
+    "description": "On the opposite lane, a huge truck with a flat front and a big shining windshield was coming your way. The driver of this “mustang” leaned out of the cab and waved, inviting you to stop.",
+    "options": {
+      "stop": {
+        "text": "Stop",
+        "description": "– Greetings, wheelman! – shouted the truck driver, leaning out of the window.",
+        "options": {
+          "ask_about_news": {
+            "text": "What's the news?",
+            "description": "– Great you asked! I just found some ammo — looks like [green]shotgun shell[/green]. Want to buy it for [green]1 credit[/green]?",
+            "options": {
+              "back_after_buy_shell": {
+                "text": "Heh! Come on!",
+                "description": "After the deal, you happily put the shell in your pocket."
+              },
+              "back": {
+                "text": "No, thank you!"
+              }
+            }
+          },
+          "ask_about_carrying": {
+            "text": "What are you carrying?",
+            "description": "– What am I transporting? Nothing. I'm driving empty, – replied the driver."
+          },
+          "ask_about_fuel": {
+            "text": "Hey, buddy. Can you sell me about 15 liters of fuel? I'm running low.",
+            "description": "– Why not help out a good guy? For [green]18 credits[/green], I'd gladly sell you [green]15 liters[/green].",
+            "options": {
+              "back_after_buy_fuel": {
+                "text": "All right. Keep your 18 credits.",
+                "description": "You were quite quick to pour fuel into your truck's tank.",
+                "effects": {
+                  "fuel": 15,
+                  "cash": -18
+                }
+              },
+              "back": {
+                "text": "A bit pricey",
+                "description": "– As you know, – replied your interlocutor."
+              }
+            }
+          },
+          "keep_going": {
+            "text": "Say goodbye to the driver and continue on your way",
+            "goto": "next"
+          }
+        }
+      },
+      "keep_going": {
+        "text": "Don't stop. Keep going",
+        "goto": "next"
+      }
+    }
+  },
+  "Road - pickup": {
+    "description": "– Greetings, wheelman! – shouted the truck driver, leaning out of the window.",
+    "options": {
+      "stop": {
+        "text": "Stop",
+        "description": "– Greetings, wheelman! – shouted the truck driver, leaning out of the window.",
+        "options": {
+          "ask_about_news": {
+            "text": "What's the news?",
+            "description": "– Not much news, damn it, – the trucker waved his hand. – I’m almost out of fuel. I don’t know how I’ll go on. Listen – will you sell me [green]20 liters[/green]? I’ll pay [green]30 credits[/green]. Deal?",
+            "options": {
+              "back_after_sell_fuel": {
+                "text": "Deal",
+                "description": "Taking the money, you pumped some fuel from your truck and poured it into the trucker’s vehicle.",
+                "effects": {
+                  "fuel": -20,
+                  "cash": 30
+                }
+              },
+              "back": {
+                "text": "Sorry, can’t do it. I barely have enough fuel myself",
+                "description": "The truck driver smiles and waits for you to continue."
+              }
+            }
+          },
+          "ask_about_carrying": {
+            "text": "What are you carrying?",
+            "description": "– What am I transporting? Nothing. I'm driving empty, – replied the driver."
+          },
+          "ask_about_fuel": {
+            "text": "Hey, buddy. Can you sell me about 15 liters of fuel? I'm running low.",
+            "description": "I barely have enough gas to reach my own destination. Sorry, buddy."
+          },
+          "keep_going": {
+            "text": "Say goodbye to the driver and continue on your way",
+            "goto": "next"
+          }
+        }
+      },
+      "keep_going": {
+        "text": "Don't stop. Keep going",
+        "goto": "next"
+      }
+    }
+  },
+  "Road - mustang": {
+    "description": "On the opposite lane, a huge truck with a flat front and a big shining windshield was coming your way. The driver of this “mustang” leaned out of the cab and waved, inviting you to stop.",
+    "options": {
+      "stop": {
+        "text": "Stop",
+        "description": "– Greetings, wheelman! – shouted the truck driver, leaning out of the window.",
+        "options": {
+          "ask_about_news": {
+            "text": "What's the news?",
+            "description": "– Hm. News? Nothing much has happened lately. But I’ll tell you this. Once I spent all my money on fixing and fueling my truck. Hardly had any credits left. So I went to the miners’ village, made a deal with the foreman right in the mine, and earned enough for a coal run to Brackenbridge. Now I’m back on my feet again. That’s how it goes."
+          },
+          "ask_about_carrying": {
+            "text": "What are you carrying?",
+            "description": "– I’m transporting wine, – the driver answered. – I see your smile, but I can’t sell you any. It’s an order, you understand."
+          },
+          "ask_about_fuel": {
+            "text": "Hey, buddy. Can you sell me about 15 liters of fuel? I'm running low.",
+            "description": "– Why not help out a good guy? For [green]22 credits[/green], I'd gladly sell you [green]15 liters[/green].",
+            "options": {
+              "back_after_buy_fuel": {
+                "text": "All right. Keep your 22 credits.",
+                "description": "You were quite quick to pour fuel into your truck's tank.",
+                "effects": {
+                  "fuel": 15,
+                  "cash": -22
+                }
+              },
+              "back": {
+                "text": "A bit pricey",
+                "description": "– As you know, – replied your interlocutor."
+              }
+            }
+          },
+          "keep_going": {
+            "text": "Say goodbye to the driver and continue on your way",
+            "goto": "next"
+          }
+        }
+      },
+      "keep_going": {
+        "text": "Don't stop. Keep going",
+        "goto": "next"
+      }
+    }
+  },
+  "Road - damage truck": {
+    "description": "A badly battered truck rolls down the opposite lane. Looks like it’s taken a lot of damage on these roads. As you keep watching, you notice one of its headlights blinking, and the driver waves at you. Seems like he wants you to stop.",
+    "options": {
+      "stop": {
+        "text": "Stop",
+        "description": "– Greetings, wheelman! – shouted the truck driver, leaning out of the window.",
+        "options": {
+          "ask_about_news": {
+            "text": "What's the news?",
+            "description": "– I’ve got great news. At city hotel right now, the girls working there are amazing. Don’t believe me? Go check it out yourself. I promise — you won’t regret it."
+          },
+          "ask_about_carrying": {
+            "text": "What are you carrying?",
+            "description": "– What am I transporting? Nothing. I'm driving empty, – replied the driver."
+          },
+          "ask_about_fuel": {
+            "text": "Hey, buddy. Can you sell me about 15 liters of fuel? I'm running low.",
+            "description": "– Why not help out a good guy? For [green]25 credits[/green], I'd gladly sell you [green]15 liters[/green].",
+            "options": {
+              "back_after_buy_fuel": {
+                "text": "All right. Keep your 25 credits.",
+                "description": "You were quite quick to pour fuel into your truck's tank.",
+                "effects": {
+                  "fuel": 15,
+                  "cash": -25
+                }
+              },
+              "back": {
+                "text": "A bit pricey",
+                "description": "– As you know, – replied your interlocutor."
+              }
+            }
+          },
+          "keep_going": {
+            "text": "Say goodbye to the driver and continue on your way",
+            "goto": "next"
+          }
+        }
+      },
+      "keep_going": {
+        "text": "Don't stop. Keep going",
+        "goto": "next"
+      }
+    }
+  },
+  "Road - fuel truck": {
+    "description": "An orange fuel truck is coming toward you, rusty in some places. Its lights are blinking, like it’s asking you to stop.",
+    "options": {
+      "stop": {
+        "text": "Stop",
+        "description": "A scruffy driver looked out of the fuel truck window:\n– Hey, boss, I’ve got some extra fuel — [green]12 liters[/green]. I’ll give it for [green]8 credits[/green]. That’s just enough for me for two tanks. Deal?”",
+        "options": {
+          "buy_fuel": {
+            "text": "Sure. Give me the fuel!",
+            "description": "Skillfully pouring the fuel into your fuel tank, the fuel truck driver took his payment and waved goodbye. You started your truck and drove on. The fuel seems decent since the engine didn’t stall — at least for now…",
+            "effects": {
+              "fuel": 12,
+              "cash": -8,
+              "options": {
+                "keep_going": {
+                  "text": "Next",
+                  "goto": "next"
+                }
+              }
+            }
+          },
+          "refuse": {
+            "text": "Your offer doesn’t interest me. That’s final!",
+            "description": "Suit yourself. It was a good offer, though, – with that, the fuel truck drove off, and you continued on your way.",
+            "options": {
+              "keep_going": {
+                "text": "Next",
+                "goto": "next"
+              }
+            }
+          }
+        }
+      },
+      "keep_going": {
+        "text": "Don't stop. Keep going",
+        "goto": "next"
+      }
+    }
+  },
+  "Road - healer": {
+    "description": "On the opposite lane, a strange-shaped car bounced along like an accordion. It looked like a medium-sized baobab on wheels, with a chimney on the right side. The driver of this \"crazy car\" was wildly waving at you—maybe he wants you to stop?",
+    "options": {
+      "stop": {
+        "text": "Stop",
+        "description": "dynamic",
+        "options": {
+          "buy_legs": {
+            "text": "Hmm. I think I'll take the legs of critter",
+            "description": "dynamic",
+            "effects": {
+              "health": 90,
+              "cash": -30
+            }
+          },
+          "buy_eye": {
+            "text": "Well, bring that eye over here",
+            "description": "dynamic",
+            "effects": {
+              "fatigue": 90,
+              "cash": -15
+            }
+          },
+          "buy_broth": {
+            "text": "I'll take the broth. So be it",
+            "description": "dynamic",
+            "effects": {
+              "hanger": 90,
+              "fatigue": 50,
+              "cash": -20
+            }
+          },
+          "buy_fly": {
+            "text": "Bring me the fly!",
+            "description": "dynamic",
+            "effects": {
+              "cash": -5
+            }
+          },
+          "keep_going": {
+            "text": "Say goodbye to the healer and continue on your way",
+            "goto": "next"
+          }
+        }
+      },
+      "keep_going": {
+        "text": "Don't stop. Keep going",
+        "goto": "next"
+      }
+    }
   }
 }

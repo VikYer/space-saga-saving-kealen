@@ -210,6 +210,44 @@ class SpaceSaga(App):
                                                                            self.state.truck):
                         disabled = True
 
+            # Show options for road healer
+            if self.state.world.current_location == 'Road - healer':
+                if opt_id == 'buy_legs' and self.state.hero.cash < 30:
+                    disabled = True
+                if opt_id == 'buy_eye' and self.state.hero.cash < 15:
+                    disabled = True
+                if opt_id == 'buy_broth' and self.state.hero.cash < 20:
+                    disabled = True
+                if opt_id == 'buy_fly' and self.state.hero.cash < 5:
+                    disabled = True
+
+            # Show options for fuel truck on the road
+            if self.state.world.current_location == 'Road - fuel truck':
+                if opt_id == 'buy_fuel' and self.state.hero.cash < 8:
+                    disabled = True
+
+            # Show options for damage truck on the road
+            if self.state.world.current_location == 'Road - damage truck':
+                if opt_id == 'back_after_buy_fuel' and self.state.hero.cash < 25:
+                    disabled = True
+
+            # Show options for mustang on the road
+            if self.state.world.current_location == 'Road - mustang':
+                if opt_id == 'back_after_buy_fuel' and self.state.hero.cash < 22:
+                    disabled = True
+
+            # Show options for pickup on the road
+            if self.state.world.current_location == 'Road - pickup':
+                if opt_id == 'back_after_sell_fuel' and self.state.truck.fuel < 21:
+                    disabled = True
+
+            # Show options for empty mustang on the road
+            if self.state.world.current_location == 'Road - empty mustang':
+                if opt_id == 'back_after_buy_fuel' and self.state.hero.cash < 18:
+                    disabled = True
+                if opt_id == 'back_after_buy_shell' and self.state.hero.cash < 1:
+                    disabled = True
+
             self.command_panel.add_option(Option(opt.get('text'), opt_id, disabled=disabled))
 
         if options:
@@ -552,7 +590,27 @@ class SpaceSaga(App):
                 return
 
         if 'goto' in option:
-            self.show_location(option['goto'])
+            destination = option['goto']
+            # When there is a random encounter on the road,
+            # record the initial destination of the journey.
+            if destination == 'next':
+                destination = self.state.world.next_location
+                self.state.world.next_location = None
+            # Check if a random meeting can generate
+            # and if there isn't already have an active meeting
+            encounter_event = self.engine.randomize_encounter_on_road()
+            if encounter_event and not self.state.world.active_encounter:
+                self.state.world.next_location = destination
+                self.show_location(encounter_event)
+                self.state.world.active_encounter = True
+                return
+
+            self.show_location(destination)
+            # Reset flags of active encounter after the meeting is over
+            self.state.world.active_encounter = False
+            self.state.world.next_location = None
+            self.state.invisible_options.discard('ask_about_news')
+            self.state.invisible_options.discard('ask_about_fuel')
 
         # Check whether the description is generated dynamically
         if 'description' in option:
@@ -830,18 +888,18 @@ class SpaceSaga(App):
 
         # Dynamic quest text depending on the quantity of mined coal
         if option_name == 'work_in_mine':
-            earedn_money = self.engine.work_in_mine()
+            earned_money = self.engine.work_in_mine()
             text = (
                 '– That’s it! One hour is over, – the huge miner shouted behind you. '
                 'He wrote your name on the bag, put it on the lift, and said:\n'
                 '– Go upstairs for your pay. '
                 'At the mine exit, a dirty man with a notebook was already waiting.\n'
             )
-            if earedn_money == 3:
+            if earned_money == 3:
                 text += '– I weighed the bag. About one and a half tons. Good! You [green]earned 3 credits[/green].'
-            elif earedn_money == 2:
+            elif earned_money == 2:
                 text += '– I weighed the bag. About one ton. Good! You [green]earned 2 credits[/green].'
-            elif earedn_money == 0:
+            elif earned_money == 0:
                 text = (
                     'You were calmly mining coal when suddenly a pile of rocks fell '
                     'from above. The miners rushed to dig you out…\n'
@@ -879,12 +937,76 @@ class SpaceSaga(App):
                 'Finally, your stomach rebelled, and you threw up. '
                 'Seems you weren’t [green]hungry enough[/green] to finish that yellow substance.'
             )
-        else:
+        if option_name == "buy_porridge":
             return (
                 'The drox took your money, pulled a lever on the machine, '
                 'and soon it gave out some green mush. It tasted worse than it looked. '
                 'But you were too hungry, so you ate it all, trying not to throw up.'
             )
+
+        # Dynamic quest text for dealer on the road
+        if self.state.world.current_location == "Road - healer":
+            text = (
+                '– Hind legs of the critter, soaked in milk. '
+                '[green]Heals wounds. 30 credits[/green].\n'
+                '– Raw eye of an arthropod. Clears the mind, [green]gives strong energy[/green], '
+                'and cleans toxins, causing vomiting. Only [green]15 credits[/green].\n'
+                '– Frog skin broth with sour cilantro sauce. [green]Fills hunger[/green] and '
+                'raises endurance. [green]20 credits[/green].\n'
+                '- Dead jug-fly. [green]Boosts male power[/green] to the third chi sphere. '
+                'One fly – [green]5 credits[/green].'
+            )
+            if option_name == 'stop':
+                return (
+                    'You quickly pulled your truck to the side, but the wheel-baobab car '
+                    'bounced toward you for a while. Finally, it stopped next to your '
+                    'vehicle, puffing black smoke from its exhaust. The door opened, '
+                    'and a thin old man approached your window—bald.\n'
+                    '– I bring nirvana to this gray world, – the old man said in '
+                    'a trembling voice. – Your eyes show weariness from something dark and'
+                    ' vast. I think my remedies will help you:\n'
+                    ) + text
+            elif option_name == 'buy_legs':
+                text = (
+                        'The legs turned out to be quite tasty. '
+                        'Suddenly you started shaking, and you felt your [green]wounds slowly closing[/green].'
+                        '– Anything else? – the old man asked.\n'
+                        'You tried to recall what other remedies he had mentioned. '
+                        'The list went something like this:\n'
+                       ) + text
+            elif option_name == 'buy_eye':
+                text = (
+                        'The healer pulled a huge bluish eye from a three-liter jar.'
+                        'Without thinking too much, you grabbed it and swallowed it in one go. '
+                        'The eye burst in your mouth, spreading bitter liquid across your tongue...\n'
+                        'In the window you saw the healer’s satisfied face. '
+                        'You stood up, feeling [green]incredible energy[/green], though now your head '
+                        'hurt badly and your bones ached.'
+                        '– Anything else? – the old man asked.\n'
+                        'You tried to recall what other remedies he had mentioned. '
+                        'The list went something like this:\n'
+                       ) + text
+            elif option_name == 'buy_broth':
+                text = (
+                        'The broth was very thick, and you had to drink it slowly. '
+                        'But it [green]filled you well[/green] and gave '
+                        'you [green]extra energy[/green].\n'
+                        '– Anything else? – the old man asked.\n'
+                        'You tried to recall what other remedies he had listed. '
+                        'The list went something like this:\n'
+                       ) + text
+            elif option_name == 'buy_fly':
+                text = (
+                        'You ate the fly but [green]felt nothing[/green].\n'
+                        'What did you give me?!” you shouted angrily.\n'
+                        '– What did you expect, driver? – the healer replied. – The male '
+                        'chi power does not show up instantly. It needs the right situation, '
+                        'you understand?'
+                        'Well, that sounded convincing enough. Only one way to '
+                        'test his words in practice.'
+                        '– Anything else? – the old man asked.'
+                       ) + text
+            return text
 
         return ''
 

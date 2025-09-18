@@ -12,6 +12,8 @@ class World:
         self.wreckyard = self.Wreckyard()
         self.mine = self.Mine()
         self.dex_gas_station = self.DexGasStation()
+        self.next_location = None
+        self.active_encounter = False
 
     def show_days(self) -> int:
         """Show how many days have passed since the start of game."""
