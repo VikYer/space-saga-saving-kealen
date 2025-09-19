@@ -76,7 +76,9 @@ class Engine:
             'passenger_from_mine_to_bar_delivered': self.passenger_from_mine_to_bar_delivered,
             'back_after_buy_shell': self.back_after_buy_shell,
             'back_after_buy_fuel': self.back_after_buy_fuel,
-            'back_after_sell_fuel': self.back_after_sell_fuel
+            'back_after_sell_fuel': self.back_after_sell_fuel,
+            'pay_fine': self.pay_fine,
+            'go_to_impound': self.go_to_impound,
         }
 
     def run_action(self, action_name: str, args: dict | None) -> None:
@@ -552,7 +554,7 @@ class Engine:
         self.state.invisible_options.add('ask_about_news')
 
     def randomize_encounter_on_road(self) -> str | None:
-        """"""
+        """Randomize events to meet someone on the road."""
         if random.random() < 0.1:
             return random.choice([
                 'Road - empty mustang',
@@ -563,3 +565,54 @@ class Engine:
                 'Road - healer'
             ])
         return None
+
+    def randomize_police_event(self) -> dict | None:
+        """Simulate policeman encounter when hero goes to the marshal."""
+        fine = random.randint(7, 16)
+        if random.random() < 0.1:
+            policeman = random.choice([
+                '– Papers! And for the truck too. Hm… insurance, papers… Oh! '
+                'When was your last inspection? Two years ago?! Today is August 18, '
+                f'3018! Pay [green]{fine} credits[/green] or your truck goes to the impound',
+                '– Your face looks red. Been drinking? Blow into this!\n'
+                'You did — clean. He frowned, then blew into the tube himself.\n'
+                '– Oh! Works fine. Look — medium intoxication! So, you are drunk. '
+                f'Pay [green]{fine} credits[/green], or it’s the impound for you!',
+                f'– You broke the speed limit! Pay [green]{fine} credits[/green]. What? No sign? '
+                f'Doesn’t matter, pay [green]{fine} credits[/green] or go to the impound.',
+                '– Documents, please. Why breaking rules? Which rules? Doesn’t matter, '
+                f'all rules are the same. For this, you pay [green]{fine} credits[/green]. '
+                'Or maybe you want the impound?'
+            ])
+            marshal = random.choice([
+                'If you left the truck at the impound, the marshal [green]grilled you for 2 hours[/green], '
+                'checked reports, and finally gave you a pass. But when you returned, '
+                '[green]parts were missing[/green]. The guard just shrugged. Nothing you could do…',
+                'At the marshal’s office, after [green]long waiting[/green], he admitted you were '
+                'innocent. You left [green]tired[/green], but happy you proved your point.'
+            ])
+            result = {
+                "fine": fine,
+                "policeman": policeman,
+                "marshal": marshal
+            }
+            self.state.world.police_event = result
+            return result
+        return None
+
+    def pay_fine(self, args) -> None:
+        """Simulate the hero pays the fine for policeman."""
+        self.state.hero.cash -= self.state.world.police_event['fine']
+        self.state.world.active_encounter = False
+
+    def go_to_impound(self, args) -> None:
+        """
+        Simulate the hero goes to the impound lot.
+        Event is generated randomly (randomly text and effects).
+        """
+        if self.state.world.police_event['marshal'].startswith('If you left the truck'):
+            self.state.world.current_time += 120
+            self.state.truck.truck_condition -= 17
+        if self.state.world.police_event['marshal'].startswith('At the marshal’s office'):
+            self.state.world.current_time += 180
+        self.state.world.active_encounter = False

@@ -248,6 +248,11 @@ class SpaceSaga(App):
                 if opt_id == 'back_after_buy_shell' and self.state.hero.cash < 1:
                     disabled = True
 
+            # Show options for paying fine in road - policeman location
+            if self.state.world.current_location == 'Road - policeman':
+                if opt_id == 'pay_fine' and self.state.hero.cash < self.state.world.police_event['fine']:
+                    disabled = True
+
             self.command_panel.add_option(Option(opt.get('text'), opt_id, disabled=disabled))
 
         if options:
@@ -591,6 +596,17 @@ class SpaceSaga(App):
 
         if 'goto' in option:
             destination = option['goto']
+
+            # When the hero goes to the marshal, he can be detained by the police
+            if destination == "Marshal" and not self.state.world.active_encounter:
+                self.state.world.active_encounter = True
+                police_encounter = self.engine.randomize_police_event()
+                if police_encounter:
+                    self.state.world.next_location = destination
+                    self.state.world.active_encounter = True
+                    self.show_location('Road - policeman')
+                    return
+
             # When there is a random encounter on the road,
             # record the initial destination of the journey.
             if destination == 'next':
@@ -1008,6 +1024,14 @@ class SpaceSaga(App):
                        ) + text
             return text
 
+        # Dynamic quest text for dealer on the road
+        if self.state.world.current_location == 'Road - policeman':
+            if option_name == 'wait_policeman':
+                if self.state.world.police_event:
+                    return f'{self.state.world.police_event['policeman']}'
+            if option_name == 'go_to_impound':
+                if self.state.world.police_event:
+                    return f'{self.state.world.police_event['marshal']}'
         return ''
 
 
